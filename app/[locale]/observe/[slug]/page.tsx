@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MarkdownBody, ScaffoldNote } from "@/components/MarkdownBody";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { Container } from "@/components/ui";
-import { getObserve, listObserve } from "@/lib/content";
+import {
+  getObserve,
+  listLabs,
+  listLearning,
+  listObserve,
+  listWriting,
+} from "@/lib/content";
 import { getDictionary } from "@/lib/dictionary";
 import { locales } from "@/lib/i18n";
 import { parseLocale } from "@/lib/params";
@@ -37,6 +44,15 @@ export default async function ObserveDetailPage({ params }: Props) {
   const item = getObserve(locale, slug);
   if (!item) notFound();
   const dict = getDictionary(locale);
+  const relatedLabs = listLabs(locale).filter((lab) =>
+    item.related_lab_ids.includes(lab.content_id),
+  );
+  const relatedWriting = listWriting(locale).filter((article) =>
+    item.related_writing_ids.includes(article.content_id),
+  );
+  const relatedLearning = listLearning(locale).filter((node) =>
+    item.related_learning_ids.includes(node.content_id),
+  );
 
   return (
     <Container className="py-14 sm:py-20">
@@ -50,6 +66,24 @@ export default async function ObserveDetailPage({ params }: Props) {
       <p className="mt-5 max-w-2xl text-lg leading-8 text-mute">{item.summary}</p>
       {item.scaffold ? <ScaffoldNote text={dict.common.scaffold} /> : null}
       <MarkdownBody content={item.body} />
+      <RelatedLinks
+        locale={locale}
+        label={dict.common.related}
+        items={[
+          ...relatedLabs.map((lab) => ({
+            href: `/lab/${lab.content_id}`,
+            title: lab.title,
+          })),
+          ...relatedWriting.map((article) => ({
+            href: `/writing/${article.content_id}`,
+            title: article.title,
+          })),
+          ...relatedLearning.map((node) => ({
+            href: `/learning/${node.content_id}`,
+            title: node.title,
+          })),
+        ]}
+      />
     </Container>
   );
 }

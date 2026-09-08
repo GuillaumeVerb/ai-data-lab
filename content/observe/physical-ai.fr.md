@@ -3,7 +3,7 @@ content_id: physical-ai
 locale: fr
 type: observe
 title: Physical AI
-summary: "Signal manuel : VLA, simulation et world models. Maturité inégale, vocabulaire encore instable."
+summary: "Signal manuel : VLM, VLA, simulation et world models. Maturité inégale, vocabulaire encore instable."
 status: watching
 manual: true
 translation_status: original
@@ -12,13 +12,30 @@ published_at: "2026-09-08"
 updated_at: "2026-09-08"
 tags:
   - physical-ai
-scaffold: true
+related_lab_ids:
+  - physical-ai-first-notes
+related_writing_ids:
+  - physical-ai-from-data
+related_learning_ids:
+  - vlm
+  - vla
+  - ros2
+  - simulation
+scaffold: false
 ---
 
-## Lecture
+## Pourquoi c’est là
 
-Le sujet est core pour le Lab, pas encore un projet abouti. Distinguer papiers, repos et produits évite de traiter un tweet comme une adoption.
+Direction d’apprentissage du Lab, pas un titre. Distinguer papiers, repos et produits évite de traiter un tweet comme une adoption.
 
-## Prochaine preuve
+## Ce que je surveille
 
-Un lab vision / simulation, même minuscule, avant tout discours d’expertise.
+Vocabulaire (VLM / VLA), middleware (ROS 2), simulation. Les mêmes questions data s’appliquent : provenance, erreur, coût, latence.
+
+## Lecture actuelle
+
+Watching. Aucun run perception-action public ici. PhotoMind est privé : ce n’est pas une preuve.
+
+## Prochaine preuve utile
+
+Un micro-lab vision mesurable (dataset public, métrique, baseline) avant tout discours d’expertise.

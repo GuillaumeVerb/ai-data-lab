@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { listProjects } from "@/lib/content";
+import { listLabs, listProjects } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionary";
 import { parseLocale } from "@/lib/params";
 import { buildPageMetadata } from "@/lib/seo";
@@ -29,6 +29,7 @@ export default async function AboutPage({
   const locale = parseLocale((await params).locale);
   const dict = getDictionary(locale);
   const projects = listProjects(locale);
+  const labs = listLabs(locale);
 
   return (
     <Container className="py-14 sm:py-20">
@@ -65,6 +66,18 @@ export default async function AboutPage({
                 <LocaleLink
                   locale={locale}
                   href={`/projects/${item.content_id}`}
+                  className="text-lab hover:text-ink"
+                >
+                  {item.title}
+                </LocaleLink>
+                <span className="text-mute"> — {item.summary}</span>
+              </li>
+            ))}
+            {labs.map((item) => (
+              <li key={item.content_id}>
+                <LocaleLink
+                  locale={locale}
+                  href={`/lab/${item.content_id}`}
                   className="text-lab hover:text-ink"
                 >
                   {item.title}

@@ -35,7 +35,7 @@ Le bilingue est une contrainte d’architecture dès V0 : pas de traduction méc
 | Version | Capacité | Statut |
 | --- | --- | --- |
 | **V0** | Foundation : i18n, schemas, design system | Interne |
-| **V1** | Lab public : Home, Projects, Lab, Writing, Learning, About | Public |
+| **V1** | Lab public : Home, Projects, Lab, Writing, Learning, Observe, About | Public |
 | **V1.5** | Content Engine (brouillons IA, revue humaine) | Public + admin |
 | **V2** | SignalLab (collecte multi-source) | Produit public |
 | **V2.5** | Scoring interprétable | Produit différenciant |
@@ -67,6 +67,10 @@ npm run ci           # lint, types, i18n, build
 ```
 
 Contenu versionné dans `content/` : un fichier par locale, même `content_id`.
+
+## Déployer (Vercel)
+
+Importer [GuillaumeVerb/ai-data-lab](https://github.com/GuillaumeVerb/ai-data-lab) dans Vercel. Framework : Next.js. Variable d’environnement : `NEXT_PUBLIC_SITE_URL` = l’URL de production (canonical, Open Graph, sitemap).
 
 ## Principes
 

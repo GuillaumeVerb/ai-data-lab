@@ -75,6 +75,9 @@ export const observeSchema = baseSchema.extend({
   type: z.literal("observe"),
   status: z.enum(["watching", "rising", "cooling", "hype_risk", "adopted"]),
   manual: z.boolean().default(true),
+  related_lab_ids: z.array(z.string()).default([]),
+  related_writing_ids: z.array(z.string()).default([]),
+  related_learning_ids: z.array(z.string()).default([]),
 });
 
 const schemas = {
@@ -182,10 +185,22 @@ export function listLearning(locale: Locale): Learning[] {
     });
 }
 
+const observeStatusOrder: Record<ObserveItem["status"], number> = {
+  rising: 0,
+  watching: 1,
+  hype_risk: 2,
+  adopted: 3,
+  cooling: 4,
+};
+
 export function listObserve(locale: Locale): ObserveItem[] {
-  return readType("observe", locale).filter(
-    (item): item is ObserveItem => item.type === "observe",
-  );
+  return readType("observe", locale)
+    .filter((item): item is ObserveItem => item.type === "observe")
+    .sort(
+      (a, b) =>
+        observeStatusOrder[a.status] - observeStatusOrder[b.status] ||
+        a.title.localeCompare(b.title, locale),
+    );
 }
 
 export function getProject(
