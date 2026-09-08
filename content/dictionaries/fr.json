@@ -70,7 +70,7 @@
   },
   "observe": {
     "title": "Observe",
-    "lead": "Signaux manuels en V1. SignalLab viendra plus tard — métriques d’abord, interprétation ensuite.",
+    "lead": "Signaux manuels en V1. Un collecteur GitHub ajoute des métriques brutes — pas encore de score.",
     "manual": "Manuel",
     "status": {
       "watching": "Watching",
@@ -78,7 +78,16 @@
       "cooling": "Cooling",
       "hype_risk": "Hype risk",
       "adopted": "Adopted"
-    }
+    },
+    "signallab": "Snapshot SignalLab",
+    "signallabNote": "Métriques brutes : repos GitHub tagués de ce topic, échantillon trié par stars. Pas un score de tendance.",
+    "totalCount": "Repos (estim. GitHub)",
+    "sampleSize": "Échantillon",
+    "starsMedian": "Stars médiane",
+    "starsMax": "Stars max",
+    "created7": "Créés ≤ 7 j",
+    "pushed7": "Push ≤ 7 j",
+    "collected": "Collecté"
   },
   "about": {
     "title": "About",

@@ -1,7 +1,8 @@
 /**
- * Future API boundaries for SignalLab / Ask My Lab (Python + FastAPI).
- * Content Engine ingest already lives in Next.js `/api/ingest` (admin, local JSON store).
- * These FastAPI contracts remain for SignalLab — not for the local draft engine.
+ * API boundaries.
+ * Content Engine ingest: Next.js `/api/ingest` (admin, local JSON store).
+ * SignalLab V2.0: Python FastAPI in `signallab/` serves stored GitHub metrics.
+ * Scores stay null until V2.5. Ask My Lab remains future.
  */
 
 export type FutureEndpoints = {

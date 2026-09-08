@@ -42,6 +42,10 @@ coverage/
 data/ingest/jobs/*.json
 !data/ingest/jobs/.gitkeep
 
+# SignalLab raw GitHub payloads (snapshots are committed)
+data/signallab/raw/*.json
+!data/signallab/raw/.gitkeep
+
 # Python (SignalLab later)
 .venv/
 venv/

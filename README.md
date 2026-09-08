@@ -74,6 +74,21 @@ npm run ci           # lint, types, i18n, build
 
 Contenu versionné dans `content/` : un fichier par locale, même `content_id`.
 
+### SignalLab (local, premier collecteur)
+
+Collecte GitHub Search pour les 5 topics Observe. Métriques brutes uniquement — **pas de score LLM**.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m pytest
+python -m signallab collect          # écrit data/signallab/snapshots/
+python -m signallab serve            # GET http://127.0.0.1:8000/v1/signals
+```
+
+`GITHUB_TOKEN` est optionnel (quota Search plus élevé). Les payloads bruts sont gitignorés ; les snapshots d’observations peuvent être versionnés pour que Observe les affiche.
+
 ## Déployer (Vercel)
 
 Importer [GuillaumeVerb/ai-data-lab](https://github.com/GuillaumeVerb/ai-data-lab) dans Vercel. Framework : Next.js. Variable d’environnement : `NEXT_PUBLIC_SITE_URL` = l’URL de production (canonical, Open Graph, sitemap).
