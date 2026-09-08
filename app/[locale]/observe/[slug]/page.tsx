@@ -48,7 +48,7 @@ export default async function ObserveDetailPage({ params }: Props) {
         {item.title}
       </h1>
       <p className="mt-5 max-w-2xl text-lg leading-8 text-mute">{item.summary}</p>
-      <ScaffoldNote text={dict.common.scaffold} />
+      {item.scaffold ? <ScaffoldNote text={dict.common.scaffold} /> : null}
       <MarkdownBody content={item.body} />
     </Container>
   );

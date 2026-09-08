@@ -12,6 +12,7 @@ updated_at: "2026-09-08"
 tags:
   - physical-ai
   - data
+scaffold: true
 ---
 
 ## Point de départ

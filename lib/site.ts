@@ -3,7 +3,9 @@ export const site = {
   shortName: "The Lab",
   github: "https://github.com/GuillaumeVerb/ai-data-lab",
   githubProfile: "https://github.com/GuillaumeVerb",
-  author: "Guillaume Verbiguie",
+  linkedin: "https://www.linkedin.com/in/guillaume-v-4832401b4",
+  author: "Guillaume Verbiguié",
+  location: "Paris",
 } as const;
 
 export function getSiteUrl(): string {

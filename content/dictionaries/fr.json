@@ -3,7 +3,7 @@
     "title": "AI Research & Engineering Lab",
     "description": "Laboratoire public bilingue : data, agents IA et physical AI. Projets, expériences, notes et signaux — pas un CV."
   },
-  "banner": "V0 Foundation — architecture, i18n et schémas. Pas une release publique.",
+  "banner": "Preview V1 — Home, Projects, About. Labs et writing encore en scaffold.",
   "nav": {
     "home": "Accueil",
     "projects": "Projects",
@@ -30,7 +30,7 @@
     "signals": "Signaux",
     "writing": "Writing",
     "background": "Trajectoire",
-    "backgroundBody": "Base data, progression publique vers les systèmes agentiques et physiques. Chaque page doit montrer une méthode, des limites et une prochaine étape — pas une jauge de compétence.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. Base data (pipelines, warehousing, analytics) visible sur GitHub depuis 2021, puis agents et RAG en public. Physical AI est une direction d’apprentissage, pas un titre.",
     "empty": "Pas encore de contenu publié dans cette locale."
   },
   "exploring": [
@@ -43,6 +43,8 @@
     "title": "Projects",
     "lead": "Quelques projets profonds plutôt qu’une collection de démos. Evidence d’abord.",
     "flagship": "Flagship",
+    "core": "Core",
+    "applied": "Applied AI",
     "problem": "Problème",
     "why": "Pourquoi ça compte",
     "stack": "Stack",
@@ -78,8 +80,20 @@
   },
   "about": {
     "title": "About",
-    "lead": "Le Lab documente une trajectoire : data → agents → physical AI / robotics.",
-    "body": "Guillaume Verbiguie construit un système public pour observer, apprendre, expérimenter et mesurer les systèmes intelligents. Les contenus factices du scaffold V0 seront remplacés avant la publication V1. Aucune expérience professionnelle n’est inventée ici.",
+    "lead": "Data → agents → physical AI, documenté en public. Le CV est un composant, pas le centre.",
+    "intro": "Guillaume Verbiguié construit ce Lab depuis Paris. Les preuves ci-dessous viennent de dépôts GitHub publics. Rien n’est inventé : si ce n’est pas dans un repo ou sur cette page, ce n’est pas une expérience revendiquée.",
+    "trajectoryTitle": "Trajectoire visible",
+    "trajectory": [
+      "2021 — projets de formation data engineering publics (data lake Spark/S3, warehouse Redshift).",
+      "2025 — analytics on-chain comme terrain de data (dashboard CSV, anomaly detection + MLflow).",
+      "2026 — copilotes agentiques et RAG grounded (Decision Copilot, Knowledge Copilot, automation agent).",
+      "Maintenant — ce Lab : bilingue, mesurable, direction Physical AI sans se prétendre roboticien."
+    ],
+    "nowTitle": "Ce que je construis ici",
+    "now": "Un système public pour observer, apprendre, expérimenter et mesurer les systèmes intelligents. SignalLab et Ask My Lab viendront après une V1 montrable.",
+    "notTitle": "Ce que cette page ne revendique pas",
+    "not": "Pas de poste de robotics engineer, pas de clients agents inventés, pas de jauge de compétence. Les repos privés (ex. PhotoMind) existent mais ne sont pas des preuves publiques tant qu’ils ne sont pas ouverts ou décrits avec la même rigueur.",
+    "evidenceTitle": "Preuves sur ce site",
     "links": "Liens",
     "scope": "Règle de focus",
     "scopeBody": "Est-ce que ça aide à comprendre, construire, évaluer ou appliquer des systèmes intelligents ? Sinon, ça reste hors du Lab."

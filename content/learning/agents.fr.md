@@ -14,7 +14,8 @@ tags:
 related_lab_ids:
   - llm-dataset-exploration
 related_project_ids:
-  - agentic-data-analyst
+  - ai-data-investigator
+scaffold: true
 ---
 
 ## Explication simple

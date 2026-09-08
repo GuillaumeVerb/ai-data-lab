@@ -3,7 +3,7 @@
     "title": "AI Research & Engineering Lab",
     "description": "A bilingual public lab for data, AI agents and physical AI. Projects, experiments, notes and signals — not a résumé."
   },
-  "banner": "V0 Foundation — architecture, i18n and schemas. Not a public release.",
+  "banner": "V1 preview — Home, Projects, About. Labs and writing are still scaffold.",
   "nav": {
     "home": "Home",
     "projects": "Projects",
@@ -30,7 +30,7 @@
     "signals": "Signals",
     "writing": "Writing",
     "background": "Trajectory",
-    "backgroundBody": "A data foundation, evolving in public toward agentic and physical systems. Every page should show a method, limits and a next step — never a fake skill percentage.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. A public data trail (pipelines, warehousing, analytics) on GitHub since 2021, then agents and RAG in the open. Physical AI is a learning direction, not a job title.",
     "empty": "No published content in this locale yet."
   },
   "exploring": [
@@ -43,6 +43,8 @@
     "title": "Projects",
     "lead": "A few deep projects rather than a pile of demos. Evidence first.",
     "flagship": "Flagship",
+    "core": "Core",
+    "applied": "Applied AI",
     "problem": "Problem",
     "why": "Why it matters",
     "stack": "Stack",
@@ -78,8 +80,20 @@
   },
   "about": {
     "title": "About",
-    "lead": "The Lab documents a trajectory: data → agents → physical AI / robotics.",
-    "body": "Guillaume Verbiguie is building a public system to observe, learn, experiment and measure intelligent systems. V0 scaffold copy will be replaced before the V1 launch. No professional experience is invented here.",
+    "lead": "Data → agents → physical AI, documented in public. The résumé is a component, not the centre.",
+    "intro": "Guillaume Verbiguié is building this Lab from Paris. Evidence below comes from public GitHub repositories. Nothing is invented: if it is not in a repo or on this page, it is not a claimed experience.",
+    "trajectoryTitle": "Visible trajectory",
+    "trajectory": [
+      "2021 — public data-engineering training projects (Spark/S3 data lake, Redshift warehouse).",
+      "2025 — on-chain analytics as a data terrain (CSV dashboard, anomaly detection + MLflow).",
+      "2026 — agentic copilots and grounded RAG (Decision Copilot, Knowledge Copilot, automation agent).",
+      "Now — this Lab: bilingual, measurable, Physical AI as a direction without pretending to be a robotics engineer."
+    ],
+    "nowTitle": "What I am building here",
+    "now": "A public system to observe, learn, experiment and measure intelligent systems. SignalLab and Ask My Lab come after a shareable V1.",
+    "notTitle": "What this page does not claim",
+    "not": "No robotics-engineer role, no invented agent clients, no skill bars. Private repos (e.g. PhotoMind) exist but are not public evidence until they are opened or described with the same rigor.",
+    "evidenceTitle": "Evidence on this site",
     "links": "Links",
     "scope": "Focus rule",
     "scopeBody": "Does this help understand, build, evaluate or apply intelligent systems? If not, it stays out of the Lab."

@@ -12,6 +12,7 @@ published_at: "2026-09-08"
 updated_at: "2026-09-08"
 tags:
   - agents
+scaffold: true
 ---
 
 ## Why this is here

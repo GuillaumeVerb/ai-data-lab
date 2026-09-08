@@ -8,6 +8,7 @@ import {
 } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionary";
 import { formatDate } from "@/lib/i18n";
+import { projectKicker } from "@/lib/labels";
 import { parseLocale } from "@/lib/params";
 import { site } from "@/lib/site";
 
@@ -62,7 +63,7 @@ export default async function HomePage({
                 key={item.content_id}
                 locale={locale}
                 href={`/projects/${item.content_id}`}
-                kicker={item.flagship ? dict.projects.flagship : item.domain}
+                kicker={projectKicker(item, dict)}
                 title={item.title}
                 summary={item.summary}
                 meta={item.published_at ? formatDate(item.published_at, locale) : undefined}
@@ -158,6 +159,9 @@ export default async function HomePage({
             </LocaleLink>
             <a href={site.githubProfile} className="text-lab hover:text-ink">
               GitHub
+            </a>
+            <a href={site.linkedin} className="text-lab hover:text-ink">
+              LinkedIn
             </a>
           </div>
         </div>

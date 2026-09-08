@@ -5,6 +5,7 @@ import { Container, LocaleLink } from "@/components/ui";
 import { getProject, listLabs, listProjects, listWriting } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionary";
 import { parseLocale } from "@/lib/params";
+import { projectKicker } from "@/lib/labels";
 import { buildPageMetadata } from "@/lib/seo";
 import { locales } from "@/lib/i18n";
 
@@ -47,13 +48,13 @@ export default async function ProjectDetailPage({ params }: Props) {
   return (
     <Container className="py-14 sm:py-20">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-signal">
-        {item.flagship ? dict.projects.flagship : item.domain}
+        {projectKicker(item, dict)}
       </p>
       <h1 className="mt-3 max-w-3xl font-display text-4xl leading-tight sm:text-5xl">
         {item.title}
       </h1>
       <p className="mt-5 max-w-2xl text-lg leading-8 text-mute">{item.summary}</p>
-      <ScaffoldNote text={dict.common.scaffold} />
+      {item.scaffold ? <ScaffoldNote text={dict.common.scaffold} /> : null}
       <dl className="mb-12 grid gap-6 border-y border-line py-8 md:grid-cols-2">
         <div>
           <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-mute">

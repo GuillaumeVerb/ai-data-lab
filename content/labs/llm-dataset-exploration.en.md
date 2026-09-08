@@ -15,7 +15,8 @@ tags:
   - evaluation
   - data
 related_project_ids:
-  - agentic-data-analyst
+  - ai-data-investigator
+scaffold: true
 ---
 
 ## Setup

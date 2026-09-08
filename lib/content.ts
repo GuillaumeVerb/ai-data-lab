@@ -25,6 +25,7 @@ const baseSchema = z.object({
   published_at: z.string().optional(),
   updated_at: z.string(),
   tags: z.array(z.string()).default([]),
+  scaffold: z.boolean().default(false),
 });
 
 export const projectSchema = baseSchema.extend({
@@ -109,7 +110,11 @@ function readType(type: ContentType, locale: Locale): ContentItem[] {
     .filter((file) => file.endsWith(`.${locale}.md`))
     .map((file) => loadFile(type, path.join(dir, file), locale))
     .filter((item) => item.published)
-    .sort((a, b) => (b.published_at ?? "").localeCompare(a.published_at ?? ""));
+    .sort((a, b) => {
+      const flag = Number("flagship" in b && b.flagship) - Number("flagship" in a && a.flagship);
+      if (flag !== 0) return flag;
+      return (b.published_at ?? "").localeCompare(a.published_at ?? "");
+    });
 }
 
 function loadFile(

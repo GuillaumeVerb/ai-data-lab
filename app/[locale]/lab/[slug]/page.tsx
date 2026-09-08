@@ -52,7 +52,7 @@ export default async function LabDetailPage({ params }: Props) {
           {dict.lab.hypothesis}: {item.hypothesis}
         </p>
       ) : null}
-      <ScaffoldNote text={dict.common.scaffold} />
+      {item.scaffold ? <ScaffoldNote text={dict.common.scaffold} /> : null}
       <MarkdownBody content={item.body} />
     </Container>
   );
