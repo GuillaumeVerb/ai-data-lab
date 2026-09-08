@@ -114,5 +114,37 @@
   "footer": {
     "note": "Native bilingual. Metrics before interpretation. Human review before publishing.",
     "repo": "Source"
+  },
+  "admin": {
+    "title": "Content Engine",
+    "lead": "Ingest a source, write FR/EN drafts, review. Nothing is published automatically.",
+    "loginTitle": "Lab access",
+    "loginLead": "Local tool. The password is ADMIN_SECRET, not a public account.",
+    "password": "Password",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "ingest": "Ingest",
+    "ingestPlaceholder": "URL, paper, GitHub, YouTube, note or idea",
+    "submit": "Create job",
+    "jobs": "Jobs",
+    "empty": "No jobs yet.",
+    "process": "Generate AI drafts",
+    "save": "Save",
+    "approve": "Approve (do not publish)",
+    "reject": "Reject",
+    "approvedNote": "Approved does not write into content/. Copy the markdown yourself, then publish via git.",
+    "noModel": "No OPENAI_API_KEY — the source is stored. Write drafts here, or add a key and run the model.",
+    "errorLogin": "Incorrect password.",
+    "errorEmpty": "The source field is empty.",
+    "draftsFr": "FR draft",
+    "draftsEn": "EN draft",
+    "sourceText": "Source text",
+    "extracted": "Extracted",
+    "neverPublish": "The engine never publishes.",
+    "back": "All jobs",
+    "model": "Model",
+    "pipeline": "Pipeline",
+    "reviewed": "Reviewed",
+    "error": "Error"
   }
 }

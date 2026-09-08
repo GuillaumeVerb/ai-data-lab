@@ -38,6 +38,10 @@ coverage/
 .turbo/
 .vercel/
 
+# Content Engine jobs (local file store — never commit drafts)
+data/ingest/jobs/*.json
+!data/ingest/jobs/.gitkeep
+
 # Python (SignalLab later)
 .venv/
 venv/

@@ -114,5 +114,37 @@
   "footer": {
     "note": "Bilingue natif. Métriques avant interprétation. Revue humaine avant publication.",
     "repo": "Code source"
+  },
+  "admin": {
+    "title": "Content Engine",
+    "lead": "Ingérer une source, rédiger des brouillons FR/EN, relire. Rien n’est publié automatiquement.",
+    "loginTitle": "Accès lab",
+    "loginLead": "Outil local. Le mot de passe est ADMIN_SECRET, pas un compte public.",
+    "password": "Mot de passe",
+    "login": "Entrer",
+    "logout": "Sortir",
+    "ingest": "Ingérer",
+    "ingestPlaceholder": "URL, paper, GitHub, YouTube, note ou idée",
+    "submit": "Créer le job",
+    "jobs": "Jobs",
+    "empty": "Aucun job pour l’instant.",
+    "process": "Générer les brouillons IA",
+    "save": "Enregistrer",
+    "approve": "Approuver (sans publier)",
+    "reject": "Rejeter",
+    "approvedNote": "Approuvé n’écrit pas dans content/. Copier le markdown à la main, puis publier par git.",
+    "noModel": "Pas de OPENAI_API_KEY — la source est stockée. Écrire les brouillons ici, ou ajouter une clé et relancer le modèle.",
+    "errorLogin": "Mot de passe incorrect.",
+    "errorEmpty": "Le champ source est vide.",
+    "draftsFr": "Brouillon FR",
+    "draftsEn": "Brouillon EN",
+    "sourceText": "Texte source",
+    "extracted": "Extraction",
+    "neverPublish": "Le moteur ne publie jamais.",
+    "back": "Tous les jobs",
+    "model": "Modèle",
+    "pipeline": "Pipeline",
+    "reviewed": "Revu",
+    "error": "Erreur"
   }
 }

@@ -61,6 +61,12 @@ npm run dev
 
 Ouvre [http://localhost:3000](http://localhost:3000) — redirection vers `/fr` ou `/en`. Routes publiques : `/fr/*` et `/en/*`.
 
+### Content Engine (local)
+
+Admin : `/fr/admin` (hors navigation, hors sitemap). Copier `.env.example` vers `.env.local`, renseigner `ADMIN_SECRET`. `OPENAI_API_KEY` est optionnel : sans clé, la source est stockée et les brouillons se rédigent à la main.
+
+Les jobs sont des JSON dans `data/ingest/jobs/` (gitignorés). Le disque serverless Vercel ne les persiste pas — cet outil est pour `npm run dev`. Approuver un job **n’écrit jamais** dans `content/`.
+
 ```bash
 npm run check:i18n   # paires FR/EN + clés de dictionnaire
 npm run ci           # lint, types, i18n, build

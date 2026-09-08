@@ -1,6 +1,7 @@
 /**
  * Future API boundaries for SignalLab / Ask My Lab (Python + FastAPI).
- * Do not implement these in V0/V1. The Next.js app reads local Markdown.
+ * Content Engine ingest already lives in Next.js `/api/ingest` (admin, local JSON store).
+ * These FastAPI contracts remain for SignalLab — not for the local draft engine.
  */
 
 export type FutureEndpoints = {
