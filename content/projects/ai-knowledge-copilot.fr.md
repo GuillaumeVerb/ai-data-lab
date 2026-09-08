@@ -20,7 +20,8 @@ stack:
   - RAG
 github_url: https://github.com/GuillaumeVerb/ai-knowledge-copilot
 related_lab_ids: []
-related_writing_ids: []
+related_writing_ids:
+  - agent-vs-workflow
 flagship: false
 domain: core
 scaffold: false

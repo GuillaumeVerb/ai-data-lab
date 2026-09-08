@@ -21,7 +21,8 @@ stack:
 github_url: https://github.com/GuillaumeVerb/ai-data-investigator
 related_lab_ids:
   - llm-dataset-exploration
-related_writing_ids: []
+related_writing_ids:
+  - agent-vs-workflow
 flagship: true
 domain: core
 scaffold: false

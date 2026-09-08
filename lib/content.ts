@@ -59,6 +59,8 @@ export const writingSchema = baseSchema.extend({
     "brief",
     "living_report",
   ]),
+  related_lab_ids: z.array(z.string()).default([]),
+  related_project_ids: z.array(z.string()).default([]),
 });
 
 export const learningSchema = baseSchema.extend({
@@ -66,6 +68,7 @@ export const learningSchema = baseSchema.extend({
   last_reviewed_at: z.string().optional(),
   related_lab_ids: z.array(z.string()).default([]),
   related_project_ids: z.array(z.string()).default([]),
+  stage: z.enum(["evidence", "exploring"]).default("exploring"),
 });
 
 export const observeSchema = baseSchema.extend({
@@ -171,9 +174,12 @@ export function listWriting(locale: Locale): Writing[] {
 }
 
 export function listLearning(locale: Locale): Learning[] {
-  return readType("learning", locale).filter(
-    (item): item is Learning => item.type === "learning",
-  );
+  return readType("learning", locale)
+    .filter((item): item is Learning => item.type === "learning")
+    .sort((a, b) => {
+      if (a.stage !== b.stage) return a.stage === "evidence" ? -1 : 1;
+      return a.title.localeCompare(b.title, locale);
+    });
 }
 
 export function listObserve(locale: Locale): ObserveItem[] {

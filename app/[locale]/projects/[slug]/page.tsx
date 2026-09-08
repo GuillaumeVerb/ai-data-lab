@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MarkdownBody, ScaffoldNote } from "@/components/MarkdownBody";
-import { Container, LocaleLink } from "@/components/ui";
-import { getProject, listLabs, listProjects, listWriting } from "@/lib/content";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { Container } from "@/components/ui";
+import {
+  getProject,
+  listLabs,
+  listLearning,
+  listProjects,
+  listWriting,
+} from "@/lib/content";
 import { getDictionary } from "@/lib/dictionary";
 import { parseLocale } from "@/lib/params";
 import { projectKicker } from "@/lib/labels";
@@ -42,7 +49,11 @@ export default async function ProjectDetailPage({ params }: Props) {
     item.related_lab_ids.includes(lab.content_id),
   );
   const relatedWriting = listWriting(locale).filter((article) =>
-    item.related_writing_ids.includes(article.content_id),
+    item.related_writing_ids.includes(article.content_id) ||
+    article.related_project_ids.includes(item.content_id),
+  );
+  const relatedLearning = listLearning(locale).filter((node) =>
+    node.related_project_ids.includes(item.content_id),
   );
 
   return (
@@ -87,33 +98,24 @@ export default async function ProjectDetailPage({ params }: Props) {
           </a>
         ) : null}
       </div>
-      {relatedLabs.length || relatedWriting.length ? (
-        <aside className="mt-16 border-t border-line pt-8">
-          <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
-            {dict.common.related}
-          </p>
-          <ul className="space-y-2 text-sm">
-            {relatedLabs.map((lab) => (
-              <li key={lab.content_id}>
-                <LocaleLink locale={locale} href={`/lab/${lab.content_id}`} className="text-lab hover:text-ink">
-                  {lab.title}
-                </LocaleLink>
-              </li>
-            ))}
-            {relatedWriting.map((article) => (
-              <li key={article.content_id}>
-                <LocaleLink
-                  locale={locale}
-                  href={`/writing/${article.content_id}`}
-                  className="text-lab hover:text-ink"
-                >
-                  {article.title}
-                </LocaleLink>
-              </li>
-            ))}
-          </ul>
-        </aside>
-      ) : null}
+      <RelatedLinks
+        locale={locale}
+        label={dict.common.related}
+        items={[
+          ...relatedLabs.map((lab) => ({
+            href: `/lab/${lab.content_id}`,
+            title: lab.title,
+          })),
+          ...relatedWriting.map((article) => ({
+            href: `/writing/${article.content_id}`,
+            title: article.title,
+          })),
+          ...relatedLearning.map((node) => ({
+            href: `/learning/${node.content_id}`,
+            title: node.title,
+          })),
+        ]}
+      />
     </Container>
   );
 }

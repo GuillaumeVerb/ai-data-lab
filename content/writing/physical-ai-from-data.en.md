@@ -12,17 +12,31 @@ updated_at: "2026-09-08"
 tags:
   - physical-ai
   - data
-scaffold: true
+related_lab_ids:
+  - physical-ai-first-notes
+related_project_ids: []
+scaffold: false
 ---
 
 ## Starting point
 
-A data background already knows provenance, evaluation, drift and cost. Physical AI asks the same questions of sensors, policies and simulators.
+A data background already knows provenance, evaluation, drift, cost, latency. Physical AI asks the **same questions** of sensors, policies and simulators. It is not a magic second career. It is another kind of signal.
+
+## Useful vocabulary (not expertise)
+
+- **VLM** — a model that ties image and language.
+- **VLA** — a see → reason/speak → act loop.
+- **ROS2** — robot middleware, not practised here in public yet.
+- **World models / sim** — where you would rather evaluate without breaking hardware.
 
 ## What this is not
 
-No invented professional robotics experience. Public learning starts with vocabulary (VLM / VLA, ROS2, world models) and measurable labs.
+No professional robotics experience. No published ROS2 run. PhotoMind (personal photo intelligence) is still **private**: multimodal intent, not Lab evidence until it is opened.
 
-## Later
+## Lab link
 
-SignalLab should eventually separate research acceleration from what is actually deployable.
+The *First Physical AI notes* lab is the entry. Decision Copilot and Knowledge Copilot remain **data / agents / RAG** evidence. Physical AI is the direction, not the current résumé.
+
+## Later, SignalLab
+
+Separate research acceleration (VLA papers) from real adoption (repos, products, jobs). A tweet is not a deployment.

@@ -3,29 +3,31 @@ content_id: agents
 locale: en
 type: learning
 title: Agents
-summary: An agent is not a chatbot with plugins. It is an evaluable action loop.
+summary: An evaluable action loop, not a chatbot with plugins.
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
 updated_at: "2026-09-08"
 last_reviewed_at: "2026-09-08"
+stage: evidence
 tags:
   - agents
 related_lab_ids:
   - llm-dataset-exploration
+  - human-in-the-loop-automation
 related_project_ids:
   - ai-data-investigator
-scaffold: true
+scaffold: false
 ---
 
 ## Simple explanation
 
-An agent observes, chooses a tool or action, observes the result, repeats. If failure is invisible, it is copy, not a system.
+An agent observes, chooses a tool or action, observes the result, repeats. If failure is invisible, it is not a system.
 
 ## Technical explanation
 
-Loop: state → policy → tool/environment → observation → memory. Useful metrics: completion, tool-use correctness, cost, latency, hallucinations.
+state → policy → tool/environment → observation. Metrics: completion, tool-use correctness, cost, latency, hallucinations.
 
 ## Evidence
 
-No “Agents 80%” bar. Evidence will be labs and projects, once they actually exist.
+Decision Copilot (investigation loop) and Automation Agent (HITL, not multi-agent). No “Agents 80%” bar.

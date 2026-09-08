@@ -3,7 +3,7 @@
     "title": "AI Research & Engineering Lab",
     "description": "A bilingual public lab for data, AI agents and physical AI. Projects, experiments, notes and signals — not a résumé."
   },
-  "banner": "V1 preview — Home, Projects, About. Labs and writing are still scaffold.",
+  "banner": "V1 preview — Projects, Lab, Writing, Learning. Observe is still manual.",
   "nav": {
     "home": "Home",
     "projects": "Projects",
@@ -64,7 +64,9 @@
   },
   "learning": {
     "title": "Learning",
-    "lead": "Concepts tied to evidence. No arbitrary skill percentages."
+    "lead": "Concepts tied to evidence. No arbitrary skill percentages.",
+    "evidence": "With evidence",
+    "exploring": "Exploring"
   },
   "observe": {
     "title": "Observe",

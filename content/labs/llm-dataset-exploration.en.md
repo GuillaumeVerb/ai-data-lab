@@ -3,34 +3,41 @@ content_id: llm-dataset-exploration
 locale: en
 type: lab
 title: Can an LLM profile a dataset without inventing stats?
-summary: "A short tabular-profiling experiment. Hypothesis: without tools, invented statistics slip through."
+summary: "Eval protocol: text-only vs a descriptive-stats tool. Ties Decision Copilot to a measurable question."
 format: lab
 question: Can a model describe a CSV faithfully from text alone, versus with a profiling tool?
 hypothesis: Without a tool the model will invent plausible distributions. With a tool, error becomes measurable.
 translation_status: adapted
 published: true
-published_at: "2026-09-08"
+published_at: "2026-03-30"
 updated_at: "2026-09-08"
 tags:
   - evaluation
   - data
 related_project_ids:
   - ai-data-investigator
-scaffold: true
+scaffold: false
 ---
 
 ## Setup
 
-Compare two conditions on the same file: (A) text context only, (B) descriptive-stats tool. Score = distance to real stats.
+Two conditions on the same file:
+
+- **A** — text context (sample or verbalised schema), no tool.
+- **B** — descriptive-stats tool (counts, nulls, min/max, distributions) then generation.
+
+Intended score: distance to stats computed outside the LLM. A summary that merely sounds right does not count.
+
+[AI Decision Copilot](https://github.com/GuillaumeVerb/ai-data-investigator) already runs profiling **before** narrative. This lab isolates the evaluation question.
 
 ## Result
 
-Not run yet. The protocol is the V0 deliverable.
+No A/B table is published here. Current deliverable: the protocol, plus Copilot’s split between profiling and storytelling. Until a versioned run exists, I will not invent percentages.
 
-## Expected failure
+## Failure / limit
 
-Summaries that sound right are the default failure mode.
+Without an error score we fall back to impressions. Decision Copilot remains a demo workflow, not an eval suite.
 
 ## Next
 
-Connect this experiment to the agentic analyst as soon as a first run exists.
+Run A/B on a sample CSV, persist the snapshot (true stats, output A, output B), and only show a number if it is reproducible.

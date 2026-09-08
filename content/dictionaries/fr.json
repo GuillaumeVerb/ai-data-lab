@@ -3,7 +3,7 @@
     "title": "AI Research & Engineering Lab",
     "description": "Laboratoire public bilingue : data, agents IA et physical AI. Projets, expériences, notes et signaux — pas un CV."
   },
-  "banner": "Preview V1 — Home, Projects, About. Labs et writing encore en scaffold.",
+  "banner": "Preview V1 — Projects, Lab, Writing, Learning. Observe encore manuel.",
   "nav": {
     "home": "Accueil",
     "projects": "Projects",
@@ -64,7 +64,9 @@
   },
   "learning": {
     "title": "Learning",
-    "lead": "Des concepts reliés à des preuves. Pas de pourcentages de compétence."
+    "lead": "Des concepts reliés à des preuves. Pas de pourcentages de compétence.",
+    "evidence": "Avec preuve",
+    "exploring": "En cours"
   },
   "observe": {
     "title": "Observe",

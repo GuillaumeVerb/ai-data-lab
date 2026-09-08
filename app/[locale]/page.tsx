@@ -2,6 +2,7 @@ import { ContentCard, EmptyState } from "@/components/ContentCard";
 import { Container, LocaleLink, SectionHeading } from "@/components/ui";
 import {
   listLabs,
+  listLearning,
   listObserve,
   listProjects,
   listWriting,
@@ -23,6 +24,9 @@ export default async function HomePage({
   const labs = listLabs(locale);
   const writing = listWriting(locale);
   const signals = listObserve(locale);
+  const exploring = listLearning(locale)
+    .filter((item) => item.stage === "exploring")
+    .slice(0, 4);
 
   return (
     <Container className="py-14 sm:py-20">
@@ -97,16 +101,31 @@ export default async function HomePage({
 
       <section className="py-14">
         <SectionHeading index="03" label={dict.home.exploring} />
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {dict.exploring.map((item) => (
-            <li
-              key={item}
-              className="border border-line px-4 py-3 font-mono text-sm text-ink"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+        {exploring.length ? (
+          <div className="grid gap-4 md:grid-cols-2">
+            {exploring.map((item) => (
+              <ContentCard
+                key={item.content_id}
+                locale={locale}
+                href={`/learning/${item.content_id}`}
+                kicker={dict.learning.exploring}
+                title={item.title}
+                summary={item.summary}
+              />
+            ))}
+          </div>
+        ) : (
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {dict.exploring.map((item) => (
+              <li
+                key={item}
+                className="border border-line px-4 py-3 font-mono text-sm text-ink"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       <section className="py-14">
