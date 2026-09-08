@@ -52,6 +52,22 @@ Règle : **publier V1 avant d’automatiser**. Ne pas commencer V2 tant que V1 n
 - [docs/PROMPTS.md](./docs/PROMPTS.md) — prompts Cursor de construction
 - Sources Word : [`docs/source/`](./docs/source/)
 
+## Lancer en local
+
+```bash
+npm install
+npm run dev
+```
+
+Ouvre [http://localhost:3000](http://localhost:3000) — redirection vers `/fr` ou `/en`. Routes publiques : `/fr/*` et `/en/*`.
+
+```bash
+npm run check:i18n   # paires FR/EN + clés de dictionnaire
+npm run ci           # lint, types, i18n, build
+```
+
+Contenu versionné dans `content/` : un fichier par locale, même `content_id`.
+
 ## Principes
 
 - Métriques d’abord, interprétation LLM ensuite — pas de scores inventés.

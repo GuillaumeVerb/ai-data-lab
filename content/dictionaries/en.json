@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "AI Research & Engineering Lab",
+    "description": "A bilingual public lab for data, AI agents and physical AI. Projects, experiments, notes and signals — not a résumé."
+  },
+  "banner": "V0 Foundation — architecture, i18n and schemas. Not a public release.",
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "lab": "Lab",
+    "writing": "Writing",
+    "learning": "Learning",
+    "observe": "Observe",
+    "about": "About"
+  },
+  "locale": {
+    "fr": "FR",
+    "en": "EN",
+    "switchTo": "Version française"
+  },
+  "home": {
+    "eyebrow": "Data → AI Agents → Physical AI",
+    "title": "A public lab for intelligent systems.",
+    "lead": "Research, learning, experiments and builds — turned into evidence, not slogans. The résumé is a component of the system, not its centre.",
+    "ctaPrimary": "See projects",
+    "ctaSecondary": "Read the Lab",
+    "featured": "Projects",
+    "labs": "Latest experiments",
+    "exploring": "Currently exploring",
+    "signals": "Signals",
+    "writing": "Writing",
+    "background": "Trajectory",
+    "backgroundBody": "A data foundation, evolving in public toward agentic and physical systems. Every page should show a method, limits and a next step — never a fake skill percentage.",
+    "empty": "No published content in this locale yet."
+  },
+  "exploring": [
+    "Agent evaluation",
+    "Physical AI / VLA",
+    "MCP and tool use",
+    "Robot observability"
+  ],
+  "projects": {
+    "title": "Projects",
+    "lead": "A few deep projects rather than a pile of demos. Evidence first.",
+    "flagship": "Flagship",
+    "problem": "Problem",
+    "why": "Why it matters",
+    "stack": "Stack",
+    "github": "GitHub",
+    "demo": "Demo"
+  },
+  "lab": {
+    "title": "Lab",
+    "lead": "Short experiments: question, setup, result, failure, next step.",
+    "question": "Question",
+    "hypothesis": "Hypothesis",
+    "format": "Format"
+  },
+  "writing": {
+    "title": "Writing",
+    "lead": "Explainers, research notes, tool reviews. French and English are independent editorial versions."
+  },
+  "learning": {
+    "title": "Learning",
+    "lead": "Concepts tied to evidence. No arbitrary skill percentages."
+  },
+  "observe": {
+    "title": "Observe",
+    "lead": "Manual signals in V1. SignalLab comes later — metrics first, interpretation second.",
+    "manual": "Manual",
+    "status": {
+      "watching": "Watching",
+      "rising": "Rising",
+      "cooling": "Cooling",
+      "hype_risk": "Hype risk",
+      "adopted": "Adopted"
+    }
+  },
+  "about": {
+    "title": "About",
+    "lead": "The Lab documents a trajectory: data → agents → physical AI / robotics.",
+    "body": "Guillaume Verbiguie is building a public system to observe, learn, experiment and measure intelligent systems. V0 scaffold copy will be replaced before the V1 launch. No professional experience is invented here.",
+    "links": "Links",
+    "scope": "Focus rule",
+    "scopeBody": "Does this help understand, build, evaluate or apply intelligent systems? If not, it stays out of the Lab."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "This route does not exist in this language. French and English are never mixed silently.",
+    "home": "Back home"
+  },
+  "common": {
+    "updated": "Updated",
+    "read": "Read",
+    "related": "Related",
+    "scaffold": "V0 example content — replace with real evidence before V1."
+  },
+  "footer": {
+    "note": "Native bilingual. Metrics before interpretation. Human review before publishing.",
+    "repo": "Source"
+  }
+}

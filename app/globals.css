@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #0b0c0f;
+  --canvas-elevated: #12141a;
+  --ink: #f2eee4;
+  --mute: #9a958b;
+  --line: rgba(242, 238, 228, 0.12);
+  --signal: #e0b56a;
+  --lab: #7eb8b0;
+  --danger: #c97a6a;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-elevated: var(--canvas-elevated);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-lab: var(--lab);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-instrument);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.011em;
+  min-height: 100%;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--signal) 35%, transparent);
+  color: var(--ink);
+}
+
+.prose {
+  max-width: 42rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.prose h2,
+.prose h3 {
+  font-family: var(--font-instrument), ui-serif, Georgia, serif;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.prose h2 {
+  font-size: 1.6rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0.9rem 0;
+  color: color-mix(in srgb, var(--ink) 88%, var(--mute));
+}
+
+.prose a {
+  color: var(--lab);
+  text-underline-offset: 3px;
+}
+
+.prose code {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  color: var(--signal);
+}
+
+.prose ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}

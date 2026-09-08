@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "AI Research & Engineering Lab",
+    "description": "Laboratoire public bilingue : data, agents IA et physical AI. Projets, expériences, notes et signaux — pas un CV."
+  },
+  "banner": "V0 Foundation — architecture, i18n et schémas. Pas une release publique.",
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projects",
+    "lab": "Lab",
+    "writing": "Writing",
+    "learning": "Learning",
+    "observe": "Observe",
+    "about": "About"
+  },
+  "locale": {
+    "fr": "FR",
+    "en": "EN",
+    "switchTo": "English version"
+  },
+  "home": {
+    "eyebrow": "Data → AI Agents → Physical AI",
+    "title": "Un laboratoire public pour les systèmes intelligents.",
+    "lead": "Veille, apprentissage, expériences et construction — transformés en preuves, pas en slogans. Le CV n’est qu’un composant du système.",
+    "ctaPrimary": "Voir les projets",
+    "ctaSecondary": "Lire le Lab",
+    "featured": "Projets",
+    "labs": "Dernières expériences",
+    "exploring": "En cours d’exploration",
+    "signals": "Signaux",
+    "writing": "Writing",
+    "background": "Trajectoire",
+    "backgroundBody": "Base data, progression publique vers les systèmes agentiques et physiques. Chaque page doit montrer une méthode, des limites et une prochaine étape — pas une jauge de compétence.",
+    "empty": "Pas encore de contenu publié dans cette locale."
+  },
+  "exploring": [
+    "Agent evaluation",
+    "Physical AI / VLA",
+    "MCP et tool use",
+    "Observability robotique"
+  ],
+  "projects": {
+    "title": "Projects",
+    "lead": "Quelques projets profonds plutôt qu’une collection de démos. Evidence d’abord.",
+    "flagship": "Flagship",
+    "problem": "Problème",
+    "why": "Pourquoi ça compte",
+    "stack": "Stack",
+    "github": "GitHub",
+    "demo": "Démo"
+  },
+  "lab": {
+    "title": "Lab",
+    "lead": "Expériences courtes : question, setup, résultat, échec, suite.",
+    "question": "Question",
+    "hypothesis": "Hypothèse",
+    "format": "Format"
+  },
+  "writing": {
+    "title": "Writing",
+    "lead": "Explainers, notes de recherche, revues d’outils. FR et EN sont des versions éditoriales distinctes."
+  },
+  "learning": {
+    "title": "Learning",
+    "lead": "Des concepts reliés à des preuves. Pas de pourcentages de compétence."
+  },
+  "observe": {
+    "title": "Observe",
+    "lead": "Signaux manuels en V1. SignalLab viendra plus tard — métriques d’abord, interprétation ensuite.",
+    "manual": "Manuel",
+    "status": {
+      "watching": "Watching",
+      "rising": "Rising",
+      "cooling": "Cooling",
+      "hype_risk": "Hype risk",
+      "adopted": "Adopted"
+    }
+  },
+  "about": {
+    "title": "About",
+    "lead": "Le Lab documente une trajectoire : data → agents → physical AI / robotics.",
+    "body": "Guillaume Verbiguie construit un système public pour observer, apprendre, expérimenter et mesurer les systèmes intelligents. Les contenus factices du scaffold V0 seront remplacés avant la publication V1. Aucune expérience professionnelle n’est inventée ici.",
+    "links": "Liens",
+    "scope": "Règle de focus",
+    "scopeBody": "Est-ce que ça aide à comprendre, construire, évaluer ou appliquer des systèmes intelligents ? Sinon, ça reste hors du Lab."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "Cette route n’existe pas dans cette langue. Pas de mélange FR/EN silencieux.",
+    "home": "Retour à l’accueil"
+  },
+  "common": {
+    "updated": "MAJ",
+    "read": "Lire",
+    "related": "Lié",
+    "scaffold": "Contenu exemple V0 — à remplacer par des preuves réelles avant V1."
+  },
+  "footer": {
+    "note": "Bilingue natif. Métriques avant interprétation. Revue humaine avant publication.",
+    "repo": "Code source"
+  }
+}
