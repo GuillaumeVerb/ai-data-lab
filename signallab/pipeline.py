@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import sys
 import time
 from datetime import datetime, timezone
 
@@ -172,6 +174,11 @@ def collect_hf_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
     return append_observation(observation).observations[-1]
 
 
+def persist_raw_enabled() -> bool:
+    flag = os.environ.get("SIGNALLAB_PERSIST_RAW", "1").strip().lower()
+    return flag not in {"0", "false", "no"}
+
+
 def collect_all(
     topic_filter: list[str] | None = None,
     *,
@@ -187,22 +194,35 @@ def collect_all(
     if bad_sources:
         raise ValueError(f"Unknown source(s): {', '.join(bad_sources)}")
 
+    raw = persist_raw_enabled()
     observations: list[Observation] = []
     if GITHUB_SOURCE_ID in chosen:
-        observations.extend(_collect_each(selected, collect_github_topic, pause_s=1.2))
+        observations.extend(
+            _collect_each(selected, lambda topic_id: collect_github_topic(topic_id, persist_raw=raw), pause_s=1.2)
+        )
     if ARXIV_SOURCE_ID in chosen:
-        observations.extend(_collect_each(selected, collect_arxiv_topic, pause_s=3.2))
+        observations.extend(
+            _collect_each(selected, lambda topic_id: collect_arxiv_topic(topic_id, persist_raw=raw), pause_s=3.2)
+        )
     if HN_SOURCE_ID in chosen:
-        observations.extend(_collect_each(selected, collect_hn_topic, pause_s=0.8))
+        observations.extend(
+            _collect_each(selected, lambda topic_id: collect_hn_topic(topic_id, persist_raw=raw), pause_s=0.8)
+        )
     if HF_SOURCE_ID in chosen:
-        observations.extend(_collect_each(selected, collect_hf_topic, pause_s=0.8))
+        observations.extend(
+            _collect_each(selected, lambda topic_id: collect_hf_topic(topic_id, persist_raw=raw), pause_s=0.8)
+        )
     return observations
 
 
 def _collect_each(selected: list[str], fn, *, pause_s: float) -> list[Observation]:
+    """Collect each topic. One failure does not abort the rest of the day."""
     observations: list[Observation] = []
     for index, topic_id in enumerate(selected):
-        observations.append(fn(topic_id))
+        try:
+            observations.append(fn(topic_id))
+        except Exception as error:
+            print(f"collect skipped {topic_id}: {error}", file=sys.stderr)
         if index < len(selected) - 1:
             time.sleep(pause_s)
     return observations

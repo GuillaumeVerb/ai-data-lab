@@ -90,6 +90,8 @@ python -m signallab serve                   # GET http://127.0.0.1:8000/v1/signa
 
 `GITHUB_TOKEN` est optionnel (quota Search plus élevé). arXiv : 3 s entre les requêtes. Les payloads bruts sont gitignorés ; les snapshots d’observations peuvent être versionnés pour que Observe les affiche. Observe montre le dernier collect et la série brute (un point par jour UTC) — un point n’est pas une tendance.
 
+Une Action GitHub (`SignalLab collect`) relance les 4 sources tous les jours à 06:00 UTC et commit uniquement `data/signallab/snapshots/`. Lancement manuel : onglet Actions → SignalLab collect → Run workflow. Le dépôt doit autoriser `contents: write` (Settings → Actions → Workflow permissions). `SIGNALLAB_PERSIST_RAW=0` évite d’écrire les payloads bruts sur le runner.
+
 ## Déployer (Vercel)
 
 Importer [GuillaumeVerb/ai-data-lab](https://github.com/GuillaumeVerb/ai-data-lab) dans Vercel. Framework : Next.js. Variable d’environnement : `NEXT_PUBLIC_SITE_URL` = l’URL de production (canonical, Open Graph, sitemap).

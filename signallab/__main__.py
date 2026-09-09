@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 
 from signallab import SOURCE_IDS
 from signallab.pipeline import collect_all
@@ -42,6 +43,9 @@ def main(argv: list[str] | None = None) -> int:
                 indent=2,
             )
         )
+        if not observations:
+            print("No observations collected", file=sys.stderr)
+            return 1
         return 0
 
     if args.command == "serve":

@@ -252,3 +252,19 @@ def test_last_per_utc_day_keeps_latest_same_day() -> None:
     series = last_per_utc_day([first, second, third])
     assert [item.observed_at[:10] for item in series] == ["2026-09-09", "2026-09-10"]
     assert series[0].observed_at.startswith("2026-09-09T18")
+
+
+def test_collect_each_continues_after_a_failed_topic() -> None:
+    from signallab.pipeline import _collect_each
+
+    calls: list[str] = []
+
+    def fn(topic_id: str):
+        calls.append(topic_id)
+        if topic_id == "bad":
+            raise RuntimeError("boom")
+        return topic_id
+
+    collected = _collect_each(["ok", "bad", "later"], fn, pause_s=0)
+    assert collected == ["ok", "later"]
+    assert calls == ["ok", "bad", "later"]
