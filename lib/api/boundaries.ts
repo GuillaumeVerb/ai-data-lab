@@ -1,7 +1,7 @@
 /**
  * API boundaries.
  * Content Engine ingest: Next.js `/api/ingest` (admin, local JSON store).
- * SignalLab V2.0: Python FastAPI in `signallab/` serves stored GitHub, arXiv and HN metrics.
+ * SignalLab V2.0: Python FastAPI in `signallab/` serves stored GitHub, arXiv, HN and Hugging Face metrics.
  * Scores stay null until V2.5. Ask My Lab remains future.
  */
 

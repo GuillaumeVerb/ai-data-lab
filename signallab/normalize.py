@@ -4,7 +4,7 @@ import re
 from datetime import datetime, timezone
 from typing import Any
 
-from signallab import ARXIV_SOURCE_ID, GITHUB_SOURCE_ID, HN_SOURCE_ID
+from signallab import ARXIV_SOURCE_ID, GITHUB_SOURCE_ID, HF_SOURCE_ID, HN_SOURCE_ID
 from signallab.schema import CollectedDocument
 
 
@@ -20,6 +20,10 @@ def paper_id(arxiv_abs: str) -> str:
 
 def story_id(object_id: object) -> str:
     return f"hn:{object_id}"
+
+
+def model_id(model_ref: str) -> str:
+    return f"hf:{model_ref.strip().lower()}"
 
 
 def datetime_from_unix(value: object) -> str | None:
@@ -115,4 +119,47 @@ def normalize_story(item: dict[str, Any], collected_at: str, topic_id: str, quer
             "created_at_i": item.get("created_at_i"),
         },
         license_or_access_notes="Hacker News",
+    )
+
+
+def _license_from_tags(tags: object) -> str | None:
+    if not isinstance(tags, list):
+        return None
+    for tag in tags:
+        if isinstance(tag, str) and tag.startswith("license:"):
+            return tag.split(":", 1)[-1] or None
+    return None
+
+
+def normalize_model(item: dict[str, Any], collected_at: str, topic_id: str, query: str) -> CollectedDocument:
+    model_ref = str(item.get("id") or item.get("modelId") or "")
+    author = item.get("author")
+    if not isinstance(author, str) or not author.strip():
+        author = model_ref.split("/", 1)[0] if "/" in model_ref else None
+    tags = item.get("tags") if isinstance(item.get("tags"), list) else []
+    return CollectedDocument(
+        source_id=HF_SOURCE_ID,
+        source_type="model",
+        external_id=model_id(model_ref),
+        canonical_url=f"https://huggingface.co/{model_ref}",
+        title=model_ref,
+        author_or_org=author,
+        published_at=item.get("createdAt") if isinstance(item.get("createdAt"), str) else None,
+        collected_at=collected_at,
+        language=None,
+        raw_text_or_description="",
+        engagement_metrics={
+            "downloads": int(item.get("downloads") or 0),
+            "likes": int(item.get("likes") or 0),
+        },
+        source_specific_metadata={
+            "topic_id": topic_id,
+            "query": query,
+            "last_modified": item.get("lastModified"),
+            "pipeline_tag": item.get("pipeline_tag"),
+            "library_name": item.get("library_name"),
+            "gated": item.get("gated"),
+            "tags": tags[:24],
+        },
+        license_or_access_notes=_license_from_tags(tags),
     )

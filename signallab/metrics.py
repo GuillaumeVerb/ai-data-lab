@@ -145,3 +145,49 @@ def compute_story_metrics(items: list[dict[str, Any]], total_count: int, now: da
         "created_last_30d": created_30,
         "unique_authors": len(authors),
     }
+
+
+def compute_model_metrics(items: list[dict[str, Any]], total_count: int, now: datetime | None = None) -> dict[str, float | int]:
+    """Hub model metrics. Sample = up to 30 models with this tag, sorted by downloads.
+
+    downloads_max vs downloads_median shows a single popular (often GGUF) model.
+    total_count is Hub's full-text estimate for the tag string, not a tag census.
+    """
+    moment = now or datetime.now(timezone.utc)
+    week = moment - timedelta(days=7)
+    month = moment - timedelta(days=30)
+    downloads = [int(item.get("downloads") or 0) for item in items]
+    likes = [int(item.get("likes") or 0) for item in items]
+    created_7 = 0
+    created_30 = 0
+    updated_7 = 0
+    authors: set[str] = set()
+    for item in items:
+        created = _parse_dt(item.get("createdAt"))
+        updated = _parse_dt(item.get("lastModified"))
+        if created and created >= month:
+            created_30 += 1
+            if created >= week:
+                created_7 += 1
+        if updated and updated >= week:
+            updated_7 += 1
+        author = item.get("author")
+        if not isinstance(author, str) or not author.strip():
+            model_ref = str(item.get("id") or item.get("modelId") or "")
+            author = model_ref.split("/", 1)[0] if "/" in model_ref else ""
+        if author.strip():
+            authors.add(author.strip().lower())
+    return {
+        "sample_size": len(items),
+        "total_count": int(total_count),
+        "downloads_sum": sum(downloads),
+        "downloads_max": max(downloads) if downloads else 0,
+        "downloads_median": _median(downloads),
+        "likes_sum": sum(likes),
+        "likes_max": max(likes) if likes else 0,
+        "likes_median": _median(likes),
+        "created_last_7d": created_7,
+        "created_last_30d": created_30,
+        "updated_last_7d": updated_7,
+        "unique_authors": len(authors),
+    }

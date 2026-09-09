@@ -8,6 +8,8 @@ from signallab import (
     ARXIV_SOURCE_ID,
     GITHUB_PIPELINE,
     GITHUB_SOURCE_ID,
+    HF_PIPELINE,
+    HF_SOURCE_ID,
     HN_PIPELINE,
     HN_SOURCE_ID,
     SOURCE_IDS,
@@ -15,8 +17,14 @@ from signallab import (
 from signallab.collectors.arxiv import search_papers
 from signallab.collectors.github import search_repositories
 from signallab.collectors.hn import search_stories
-from signallab.metrics import compute_paper_metrics, compute_repo_metrics, compute_story_metrics
-from signallab.normalize import normalize_paper, normalize_repo, normalize_story
+from signallab.collectors.huggingface import search_models
+from signallab.metrics import (
+    compute_model_metrics,
+    compute_paper_metrics,
+    compute_repo_metrics,
+    compute_story_metrics,
+)
+from signallab.normalize import normalize_model, normalize_paper, normalize_repo, normalize_story
 from signallab.schema import Observation
 from signallab.store import append_observation, save_document
 from signallab.topics import TOPICS, topic_ids
@@ -34,6 +42,12 @@ ARXIV_ASSUMPTIONS = (
 HN_ASSUMPTIONS = (
     "Sample = up to 30 Hacker News stories from Algolia (single phrase; "
     "quoted OR is not supported). points_max vs points_median shows a viral thread. "
+    "Not a trend score."
+)
+HF_ASSUMPTIONS = (
+    "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. "
+    "total_count is Hub's full-text estimate for the same string, not a tag census. "
+    "downloads_max vs downloads_median shows a popular (often GGUF) re-upload. "
     "Not a trend score."
 )
 
@@ -126,6 +140,38 @@ def collect_hn_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
     return append_observation(observation).observations[-1]
 
 
+def collect_hf_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
+    query = TOPICS[topic_id][HF_SOURCE_ID]
+    payload = search_models(query)
+    items = [item for item in payload.get("items", []) if isinstance(item, dict)]
+    collected_at = datetime.now(timezone.utc).isoformat()
+    seen: set[str] = set()
+
+    if persist_raw:
+        for item in items:
+            doc = normalize_model(item, collected_at, topic_id, query)
+            if doc.external_id in seen:
+                continue
+            seen.add(doc.external_id)
+            save_document(doc)
+
+    observation = Observation(
+        topic_id=topic_id,
+        observed_at=collected_at,
+        source_id=HF_SOURCE_ID,
+        pipeline_version=HF_PIPELINE,
+        query=query,
+        metrics=compute_model_metrics(items, int(payload.get("total_count") or len(items))),
+        sample_urls=[
+            f"https://huggingface.co/{item.get('id')}"
+            for item in items[:8]
+            if item.get("id")
+        ],
+        assumptions=HF_ASSUMPTIONS,
+    )
+    return append_observation(observation).observations[-1]
+
+
 def collect_all(
     topic_filter: list[str] | None = None,
     *,
@@ -148,6 +194,8 @@ def collect_all(
         observations.extend(_collect_each(selected, collect_arxiv_topic, pause_s=3.2))
     if HN_SOURCE_ID in chosen:
         observations.extend(_collect_each(selected, collect_hn_topic, pause_s=0.8))
+    if HF_SOURCE_ID in chosen:
+        observations.extend(_collect_each(selected, collect_hf_topic, pause_s=0.8))
     return observations
 
 

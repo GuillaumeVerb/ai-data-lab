@@ -43,7 +43,9 @@ function SourceMetrics({
         ? dict.observe.sourceGithub
         : observation.source_id === "hacker-news"
           ? dict.observe.sourceHn
-          : observation.source_id;
+          : observation.source_id === "huggingface"
+            ? dict.observe.sourceHf
+            : observation.source_id;
 
   return (
     <section>
@@ -67,6 +69,15 @@ function SourceMetrics({
             <Metric label={dict.observe.pointsMax} value={metrics.points_max} />
             <Metric label={dict.observe.created7} value={metrics.created_last_7d} />
             <Metric label={dict.observe.authors} value={metrics.unique_authors} />
+          </>
+        ) : observation.source_id === "huggingface" ? (
+          <>
+            <Metric label={dict.observe.modelsCount} value={metrics.total_count} />
+            <Metric label={dict.observe.sampleSize} value={metrics.sample_size} />
+            <Metric label={dict.observe.downloadsMedian} value={metrics.downloads_median} />
+            <Metric label={dict.observe.downloadsMax} value={metrics.downloads_max} />
+            <Metric label={dict.observe.created7} value={metrics.created_last_7d} />
+            <Metric label={dict.observe.updated7} value={metrics.updated_last_7d} />
           </>
         ) : (
           <>

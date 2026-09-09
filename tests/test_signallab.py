@@ -2,9 +2,19 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from signallab.metrics import compute_paper_metrics, compute_repo_metrics, compute_story_metrics
-from signallab.normalize import document_id, normalize_paper, normalize_repo, normalize_story, paper_id, story_id
+from signallab.metrics import compute_model_metrics, compute_paper_metrics, compute_repo_metrics, compute_story_metrics
+from signallab.normalize import (
+    document_id,
+    model_id,
+    normalize_model,
+    normalize_paper,
+    normalize_repo,
+    normalize_story,
+    paper_id,
+    story_id,
+)
 from signallab.collectors.arxiv import parse_atom
+from signallab.collectors.huggingface import tag_from_query
 
 
 def _repo(name: str, stars: int, created: str, pushed: str) -> dict:
@@ -156,4 +166,64 @@ def test_story_metrics_viral_thread_visible_in_max() -> None:
     assert metrics["points_max"] == 900
     assert metrics["points_median"] == 12
     assert metrics["created_last_7d"] == 2
+    assert metrics["unique_authors"] == 2
+
+
+def test_model_id_and_tag_query() -> None:
+    assert model_id("OpenVLA/OpenVLA-7B") == "hf:openvla/openvla-7b"
+    assert tag_from_query("tag:vla") == "vla"
+
+
+def test_normalize_model_envelope() -> None:
+    item = {
+        "id": "openvla/openvla-7b",
+        "author": "openvla",
+        "downloads": 441_512,
+        "likes": 254,
+        "createdAt": "2024-06-10T16:35:59.000Z",
+        "lastModified": "2026-02-17T03:43:23.000Z",
+        "pipeline_tag": "robotics",
+        "tags": ["vla", "license:mit"],
+    }
+    doc = normalize_model(item, "2026-09-09T12:00:00+00:00", "vla", "tag:vla")
+    assert doc.source_id == "huggingface"
+    assert doc.source_type == "model"
+    assert doc.external_id == "hf:openvla/openvla-7b"
+    assert doc.engagement_metrics["downloads"] == 441_512
+    assert doc.license_or_access_notes == "mit"
+
+
+def test_model_metrics_viral_download_visible_in_max() -> None:
+    now = datetime(2026, 9, 9, tzinfo=timezone.utc)
+    items = [
+        {
+            "id": "org/famous",
+            "author": "org",
+            "downloads": 400_000,
+            "likes": 200,
+            "createdAt": "2024-01-01T00:00:00.000Z",
+            "lastModified": "2026-09-08T00:00:00.000Z",
+        },
+        {
+            "id": "lab/one",
+            "author": "lab",
+            "downloads": 12,
+            "likes": 3,
+            "createdAt": "2026-09-08T00:00:00.000Z",
+            "lastModified": "2026-09-08T00:00:00.000Z",
+        },
+        {
+            "id": "lab/two",
+            "downloads": 8,
+            "likes": 1,
+            "createdAt": "2026-09-07T00:00:00.000Z",
+            "lastModified": "2024-01-01T00:00:00.000Z",
+        },
+    ]
+    metrics = compute_model_metrics(items, total_count=90, now=now)
+    assert metrics["total_count"] == 90
+    assert metrics["downloads_max"] == 400_000
+    assert metrics["downloads_median"] == 12
+    assert metrics["created_last_7d"] == 2
+    assert metrics["updated_last_7d"] == 2
     assert metrics["unique_authors"] == 2
