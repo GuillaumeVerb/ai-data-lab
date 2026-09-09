@@ -26,13 +26,28 @@ export type SignalLabObservation = z.infer<typeof observationSchema>;
 
 const snapshotDir = path.join(process.cwd(), "data", "signallab", "snapshots");
 
-export function getLatestObservation(topicId: string): SignalLabObservation | undefined {
-  const file = path.join(snapshotDir, `${topicId}.json`);
-  if (!fs.existsSync(file)) return undefined;
-  try {
-    const snapshot = snapshotSchema.parse(JSON.parse(fs.readFileSync(file, "utf8")));
-    return snapshot.observations.at(-1);
-  } catch {
-    return undefined;
+export function getLatestObservations(topicId: string): SignalLabObservation[] {
+  if (!fs.existsSync(snapshotDir)) return [];
+  const files = fs
+    .readdirSync(snapshotDir)
+    .filter(
+      (file) =>
+        file === `${topicId}.json` ||
+        (file.startsWith(`${topicId}.`) && file.endsWith(".json")),
+    )
+    .sort();
+
+  const latest: SignalLabObservation[] = [];
+  for (const file of files) {
+    try {
+      const snapshot = snapshotSchema.parse(
+        JSON.parse(fs.readFileSync(path.join(snapshotDir, file), "utf8")),
+      );
+      const observation = snapshot.observations.at(-1);
+      if (observation) latest.push(observation);
+    } catch {
+      continue;
+    }
   }
+  return latest;
 }

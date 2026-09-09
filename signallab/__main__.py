@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 
+from signallab import SOURCE_IDS
 from signallab.pipeline import collect_all
 
 
@@ -10,8 +11,15 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="SignalLab collector (metrics, no scores)")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    collect = sub.add_parser("collect", help="Run the GitHub search collector")
+    collect = sub.add_parser("collect", help="Run GitHub and/or arXiv collectors")
     collect.add_argument("--topic", action="append", dest="topics", help="Topic id (repeatable)")
+    collect.add_argument(
+        "--source",
+        action="append",
+        dest="sources",
+        choices=list(SOURCE_IDS),
+        help="Source id (repeatable). Default: all",
+    )
 
     serve = sub.add_parser("serve", help="Expose stored snapshots on :8000")
     serve.add_argument("--port", type=int, default=8000)
@@ -19,12 +27,13 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.command == "collect":
-        observations = collect_all(args.topics)
+        observations = collect_all(args.topics, sources=args.sources)
         print(
             json.dumps(
                 [
                     {
                         "topic_id": item.topic_id,
+                        "source_id": item.source_id,
                         "observed_at": item.observed_at,
                         "metrics": item.metrics,
                     }

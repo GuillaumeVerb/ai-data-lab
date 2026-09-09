@@ -4,12 +4,12 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from signallab import PIPELINE_VERSION, SOURCE_ID
+from signallab import PIPELINE_VERSION
 
 
 class CollectedDocument(BaseModel):
-    source_id: str = SOURCE_ID
-    source_type: str = "repo"
+    source_id: str
+    source_type: str
     external_id: str
     canonical_url: str
     title: str
@@ -26,20 +26,16 @@ class CollectedDocument(BaseModel):
 class Observation(BaseModel):
     topic_id: str
     observed_at: str
-    source_id: str = SOURCE_ID
-    pipeline_version: str = PIPELINE_VERSION
+    source_id: str
+    pipeline_version: str
     query: str
     metrics: dict[str, float | int]
     sample_urls: list[str] = Field(default_factory=list)
-    assumptions: str = (
-        "Sample = up to 30 GitHub repos with this topic, sorted by stars. "
-        "total_count is GitHub's estimate for that topic label, not a census. "
-        "Not a trend score."
-    )
+    assumptions: str
 
 
 class TopicSnapshot(BaseModel):
     topic_id: str
-    source_id: str = SOURCE_ID
+    source_id: str
     pipeline_version: str = PIPELINE_VERSION
     observations: list[Observation] = Field(default_factory=list)

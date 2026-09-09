@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import re
 from typing import Any
 
+from signallab import ARXIV_SOURCE_ID, GITHUB_SOURCE_ID
 from signallab.schema import CollectedDocument
 
 
@@ -9,11 +11,19 @@ def document_id(full_name: str) -> str:
     return f"github:{full_name.strip().lower()}"
 
 
+def paper_id(arxiv_abs: str) -> str:
+    slug = arxiv_abs.rstrip("/").rsplit("/", 1)[-1]
+    slug = re.sub(r"v\d+$", "", slug, flags=re.IGNORECASE)
+    return f"arxiv:{slug.lower()}"
+
+
 def normalize_repo(item: dict[str, Any], collected_at: str, topic_id: str, query: str) -> CollectedDocument:
     full_name = str(item.get("full_name") or "")
     owner = item.get("owner") if isinstance(item.get("owner"), dict) else {}
     license_info = item.get("license") if isinstance(item.get("license"), dict) else {}
     return CollectedDocument(
+        source_id=GITHUB_SOURCE_ID,
+        source_type="repo",
         external_id=document_id(full_name),
         canonical_url=str(item.get("html_url") or f"https://github.com/{full_name}"),
         title=full_name,
@@ -35,4 +45,29 @@ def normalize_repo(item: dict[str, Any], collected_at: str, topic_id: str, query
             "default_branch": item.get("default_branch"),
         },
         license_or_access_notes=license_info.get("spdx_id"),
+    )
+
+
+def normalize_paper(item: dict[str, Any], collected_at: str, topic_id: str, query: str) -> CollectedDocument:
+    abs_url = str(item.get("id") or "")
+    authors = item.get("authors") if isinstance(item.get("authors"), list) else []
+    return CollectedDocument(
+        source_id=ARXIV_SOURCE_ID,
+        source_type="paper",
+        external_id=paper_id(abs_url),
+        canonical_url=abs_url.replace("http://", "https://"),
+        title=" ".join(str(item.get("title") or "").split()),
+        author_or_org=", ".join(str(name) for name in authors[:8]) or None,
+        published_at=item.get("published"),
+        collected_at=collected_at,
+        language="en",
+        raw_text_or_description=" ".join(str(item.get("summary") or "").split())[:4_000],
+        source_specific_metadata={
+            "topic_id": topic_id,
+            "query": query,
+            "authors": authors,
+            "primary_category": item.get("primary_category"),
+            "updated": item.get("updated"),
+        },
+        license_or_access_notes="arXiv",
     )

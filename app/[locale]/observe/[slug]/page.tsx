@@ -14,7 +14,7 @@ import {
 import { getDictionary } from "@/lib/dictionary";
 import { locales } from "@/lib/i18n";
 import { parseLocale } from "@/lib/params";
-import { getLatestObservation } from "@/lib/signallab";
+import { getLatestObservations } from "@/lib/signallab";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -55,7 +55,7 @@ export default async function ObserveDetailPage({ params }: Props) {
   const relatedLearning = listLearning(locale).filter((node) =>
     item.related_learning_ids.includes(node.content_id),
   );
-  const snapshot = getLatestObservation(item.content_id);
+  const snapshots = getLatestObservations(item.content_id);
 
   return (
     <Container className="py-14 sm:py-20">
@@ -68,7 +68,9 @@ export default async function ObserveDetailPage({ params }: Props) {
       </h1>
       <p className="mt-5 max-w-2xl text-lg leading-8 text-mute">{item.summary}</p>
       {item.scaffold ? <ScaffoldNote text={dict.common.scaffold} /> : null}
-      {snapshot ? <SignalLabSnapshot locale={locale} observation={snapshot} /> : null}
+      {snapshots.length ? (
+        <SignalLabSnapshot locale={locale} observations={snapshots} />
+      ) : null}
       <MarkdownBody content={item.body} />
       <RelatedLinks
         locale={locale}

@@ -74,3 +74,33 @@ def compute_repo_metrics(items: list[dict[str, Any]], total_count: int, now: dat
         "created_last_30d": created_30,
         "pushed_last_7d": pushed_7,
     }
+
+
+def compute_paper_metrics(items: list[dict[str, Any]], total_count: int, now: datetime | None = None) -> dict[str, float | int]:
+    """arXiv metrics. Sample = up to 30 most recently submitted hits.
+
+    published_last_7d saturates at 30: if the field is hotter than that,
+    the count is capped. total_count is the API's matching-paper estimate.
+    """
+    moment = now or datetime.now(timezone.utc)
+    week = moment - timedelta(days=7)
+    month = moment - timedelta(days=30)
+    published_7 = 0
+    published_30 = 0
+    authors: set[str] = set()
+    for item in items:
+        published = _parse_dt(item.get("published"))
+        if published and published >= month:
+            published_30 += 1
+            if published >= week:
+                published_7 += 1
+        for name in item.get("authors") or []:
+            if isinstance(name, str) and name.strip():
+                authors.add(name.strip().lower())
+    return {
+        "sample_size": len(items),
+        "total_count": int(total_count),
+        "published_last_7d": published_7,
+        "published_last_30d": published_30,
+        "unique_authors": len(authors),
+    }

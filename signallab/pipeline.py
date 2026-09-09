@@ -3,24 +3,43 @@ from __future__ import annotations
 import time
 from datetime import datetime, timezone
 
+from signallab import (
+    ARXIV_PIPELINE,
+    ARXIV_SOURCE_ID,
+    GITHUB_PIPELINE,
+    GITHUB_SOURCE_ID,
+    SOURCE_IDS,
+)
+from signallab.collectors.arxiv import search_papers
 from signallab.collectors.github import search_repositories
-from signallab.metrics import compute_repo_metrics
-from signallab.normalize import normalize_repo
+from signallab.metrics import compute_paper_metrics, compute_repo_metrics
+from signallab.normalize import normalize_paper, normalize_repo
 from signallab.schema import Observation
 from signallab.store import append_observation, save_document
 from signallab.topics import TOPICS, topic_ids
 
+GITHUB_ASSUMPTIONS = (
+    "Sample = up to 30 GitHub repos with this topic, sorted by stars. "
+    "total_count is GitHub's estimate for that topic label, not a census. "
+    "Not a trend score."
+)
+ARXIV_ASSUMPTIONS = (
+    "Sample = up to 30 most recently submitted arXiv hits for the query. "
+    "published_last_7d saturates at 30. total_count is arXiv's match estimate. "
+    "Not a trend score."
+)
 
-def collect_topic(topic_id: str, *, token: str | None = None, persist_raw: bool = True) -> Observation:
-    meta = TOPICS[topic_id]
-    payload = search_repositories(meta["query"], token=token)
+
+def collect_github_topic(topic_id: str, *, token: str | None = None, persist_raw: bool = True) -> Observation:
+    query = TOPICS[topic_id][GITHUB_SOURCE_ID]
+    payload = search_repositories(query, token=token)
     items = [item for item in payload.get("items", []) if isinstance(item, dict)]
     collected_at = datetime.now(timezone.utc).isoformat()
     seen: set[str] = set()
 
     if persist_raw:
         for item in items:
-            doc = normalize_repo(item, collected_at, topic_id, meta["query"])
+            doc = normalize_repo(item, collected_at, topic_id, query)
             if doc.external_id in seen:
                 continue
             seen.add(doc.external_id)
@@ -29,22 +48,71 @@ def collect_topic(topic_id: str, *, token: str | None = None, persist_raw: bool 
     observation = Observation(
         topic_id=topic_id,
         observed_at=collected_at,
-        query=meta["query"],
+        source_id=GITHUB_SOURCE_ID,
+        pipeline_version=GITHUB_PIPELINE,
+        query=query,
         metrics=compute_repo_metrics(items, int(payload.get("total_count") or 0)),
         sample_urls=[str(item.get("html_url")) for item in items[:8] if item.get("html_url")],
+        assumptions=GITHUB_ASSUMPTIONS,
     )
     return append_observation(observation).observations[-1]
 
 
-def collect_all(topic_filter: list[str] | None = None, *, pause_s: float = 1.2) -> list[Observation]:
+def collect_arxiv_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
+    query = TOPICS[topic_id][ARXIV_SOURCE_ID]
+    payload = search_papers(query)
+    items = [item for item in payload.get("items", []) if isinstance(item, dict)]
+    collected_at = datetime.now(timezone.utc).isoformat()
+    seen: set[str] = set()
+
+    if persist_raw:
+        for item in items:
+            doc = normalize_paper(item, collected_at, topic_id, query)
+            if doc.external_id in seen:
+                continue
+            seen.add(doc.external_id)
+            save_document(doc)
+
+    observation = Observation(
+        topic_id=topic_id,
+        observed_at=collected_at,
+        source_id=ARXIV_SOURCE_ID,
+        pipeline_version=ARXIV_PIPELINE,
+        query=query,
+        metrics=compute_paper_metrics(items, int(payload.get("total_count") or 0)),
+        sample_urls=[str(item.get("id")).replace("http://", "https://") for item in items[:8] if item.get("id")],
+        assumptions=ARXIV_ASSUMPTIONS,
+    )
+    return append_observation(observation).observations[-1]
+
+
+def collect_all(
+    topic_filter: list[str] | None = None,
+    *,
+    sources: list[str] | None = None,
+) -> list[Observation]:
     selected = topic_filter or topic_ids()
     unknown = [topic for topic in selected if topic not in TOPICS]
     if unknown:
         raise ValueError(f"Unknown topic(s): {', '.join(unknown)}")
 
+    chosen = sources or list(SOURCE_IDS)
+    bad_sources = [source for source in chosen if source not in SOURCE_IDS]
+    if bad_sources:
+        raise ValueError(f"Unknown source(s): {', '.join(bad_sources)}")
+
+    observations: list[Observation] = []
+    if GITHUB_SOURCE_ID in chosen:
+        observations.extend(_collect_each(selected, collect_github_topic, pause_s=1.2))
+    if ARXIV_SOURCE_ID in chosen:
+        observations.extend(_collect_each(selected, collect_arxiv_topic, pause_s=3.2))
+    return observations
+
+
+def _collect_each(selected: list[str], fn, *, pause_s: float) -> list[Observation]:
     observations: list[Observation] = []
     for index, topic_id in enumerate(selected):
-        observations.append(collect_topic(topic_id))
+        observations.append(fn(topic_id))
         if index < len(selected) - 1:
             time.sleep(pause_s)
     return observations
