@@ -40,17 +40,22 @@ def load_snapshot(topic_id: str, source_id: str) -> TopicSnapshot:
     return snapshot.model_copy(update={"source_id": source_id, "topic_id": topic_id})
 
 
+def utc_day(observed_at: str) -> str:
+    return observed_at[:10] if len(observed_at) >= 10 else observed_at
+
+
+def last_per_utc_day(observations: list[Observation]) -> list[Observation]:
+    """Keep the last collect of each UTC day. Same-day reruns are not a series."""
+    by_day: dict[str, Observation] = {}
+    for item in observations:
+        by_day[utc_day(item.observed_at)] = item
+    return [by_day[day] for day in sorted(by_day)]
+
+
 def append_observation(observation: Observation) -> TopicSnapshot:
     SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
     snapshot = load_snapshot(observation.topic_id, observation.source_id)
-    existing = [
-        item
-        for item in snapshot.observations
-        if not (
-            item.observed_at == observation.observed_at and item.source_id == observation.source_id
-        )
-    ]
-    snapshot.observations = [*existing, observation][-MAX_OBSERVATIONS:]
+    snapshot.observations = last_per_utc_day([*snapshot.observations, observation])[-MAX_OBSERVATIONS:]
     snapshot.pipeline_version = observation.pipeline_version
     snapshot.source_id = observation.source_id
     path = snapshot_path(observation.topic_id, observation.source_id)

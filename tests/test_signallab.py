@@ -227,3 +227,28 @@ def test_model_metrics_viral_download_visible_in_max() -> None:
     assert metrics["created_last_7d"] == 2
     assert metrics["updated_last_7d"] == 2
     assert metrics["unique_authors"] == 2
+
+
+def _obs(day: str, extra: str = "T12:00:00+00:00") -> Observation:
+    from signallab.schema import Observation
+
+    return Observation(
+        topic_id="vla",
+        observed_at=f"{day}{extra}",
+        source_id="hacker-news",
+        pipeline_version="signallab.hn.v1",
+        query="vision-language-action",
+        metrics={"total_count": 1},
+        assumptions="fixture",
+    )
+
+
+def test_last_per_utc_day_keeps_latest_same_day() -> None:
+    from signallab.store import last_per_utc_day
+
+    first = _obs("2026-09-09", extra="T10:00:00+00:00")
+    second = _obs("2026-09-09", extra="T18:00:00+00:00")
+    third = _obs("2026-09-10", extra="T09:00:00+00:00")
+    series = last_per_utc_day([first, second, third])
+    assert [item.observed_at[:10] for item in series] == ["2026-09-09", "2026-09-10"]
+    assert series[0].observed_at.startswith("2026-09-09T18")

@@ -88,7 +88,7 @@ python -m signallab collect --source huggingface # une source
 python -m signallab serve                   # GET http://127.0.0.1:8000/v1/signals
 ```
 
-`GITHUB_TOKEN` est optionnel (quota Search plus élevé). arXiv : 3 s entre les requêtes. Les payloads bruts sont gitignorés ; les snapshots d’observations peuvent être versionnés pour que Observe les affiche.
+`GITHUB_TOKEN` est optionnel (quota Search plus élevé). arXiv : 3 s entre les requêtes. Les payloads bruts sont gitignorés ; les snapshots d’observations peuvent être versionnés pour que Observe les affiche. Observe montre le dernier collect et la série brute (un point par jour UTC) — un point n’est pas une tendance.
 
 ## Déployer (Vercel)
 

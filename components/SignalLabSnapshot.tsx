@@ -1,15 +1,15 @@
 import { formatDate, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionary";
-import type { SignalLabObservation } from "@/lib/signallab";
+import type { SignalLabObservation, SignalLabSeries } from "@/lib/signallab";
 
 export function SignalLabSnapshot({
   locale,
-  observations,
+  series,
 }: {
   locale: Locale;
-  observations: SignalLabObservation[];
+  series: SignalLabSeries[];
 }) {
-  if (!observations.length) return null;
+  if (!series.length) return null;
   const dict = getDictionary(locale);
 
   return (
@@ -19,33 +19,68 @@ export function SignalLabSnapshot({
           {dict.observe.signallab}
         </p>
         <p className="mt-2 text-sm leading-6 text-mute">{dict.observe.signallabNote}</p>
+        <p className="mt-2 text-sm leading-6 text-mute">{dict.observe.historyNote}</p>
       </div>
-      {observations.map((observation) => (
-        <SourceMetrics key={observation.source_id} locale={locale} observation={observation} />
+      {series.map((item) => (
+        <SourceMetrics key={item.source_id} locale={locale} series={item} />
       ))}
     </aside>
   );
 }
 
+function sourceLabelFor(
+  sourceId: string,
+  dict: ReturnType<typeof getDictionary>,
+): string {
+  if (sourceId === "arxiv") return dict.observe.sourceArxiv;
+  if (sourceId === "github-search") return dict.observe.sourceGithub;
+  if (sourceId === "hacker-news") return dict.observe.sourceHn;
+  if (sourceId === "huggingface") return dict.observe.sourceHf;
+  return sourceId;
+}
+
+function historyFields(sourceId: string, dict: ReturnType<typeof getDictionary>) {
+  if (sourceId === "arxiv") {
+    return {
+      countLabel: dict.observe.papersCount,
+      secondaryLabel: dict.observe.published7,
+      secondaryKey: "published_last_7d",
+    };
+  }
+  if (sourceId === "hacker-news") {
+    return {
+      countLabel: dict.observe.storiesCount,
+      secondaryLabel: dict.observe.pointsMedian,
+      secondaryKey: "points_median",
+    };
+  }
+  if (sourceId === "huggingface") {
+    return {
+      countLabel: dict.observe.modelsCount,
+      secondaryLabel: dict.observe.downloadsMedian,
+      secondaryKey: "downloads_median",
+    };
+  }
+  return {
+    countLabel: dict.observe.totalCount,
+    secondaryLabel: dict.observe.starsMedian,
+    secondaryKey: "stars_median",
+  };
+}
+
 function SourceMetrics({
   locale,
-  observation,
+  series,
 }: {
   locale: Locale;
-  observation: SignalLabObservation;
+  series: SignalLabSeries;
 }) {
   const dict = getDictionary(locale);
+  const observation = series.observations.at(-1);
+  if (!observation) return null;
   const metrics = observation.metrics;
-  const sourceLabel =
-    observation.source_id === "arxiv"
-      ? dict.observe.sourceArxiv
-      : observation.source_id === "github-search"
-        ? dict.observe.sourceGithub
-        : observation.source_id === "hacker-news"
-          ? dict.observe.sourceHn
-          : observation.source_id === "huggingface"
-            ? dict.observe.sourceHf
-            : observation.source_id;
+  const sourceLabel = sourceLabelFor(observation.source_id, dict);
+  const history = historyFields(observation.source_id, dict);
 
   return (
     <section>
@@ -90,10 +125,58 @@ function SourceMetrics({
           </>
         )}
       </dl>
+      <HistoryTable
+        locale={locale}
+        observations={series.observations}
+        countLabel={history.countLabel}
+        secondaryLabel={history.secondaryLabel}
+        secondaryKey={history.secondaryKey}
+      />
       <p className="mt-3 font-mono text-[11px] text-mute">
         {dict.observe.collected} {formatDate(observation.observed_at, locale)} · {observation.pipeline_version}
       </p>
     </section>
+  );
+}
+
+function HistoryTable({
+  locale,
+  observations,
+  countLabel,
+  secondaryLabel,
+  secondaryKey,
+}: {
+  locale: Locale;
+  observations: SignalLabObservation[];
+  countLabel: string;
+  secondaryLabel: string;
+  secondaryKey: string;
+}) {
+  const dict = getDictionary(locale);
+  return (
+    <div className="mt-4 overflow-x-auto">
+      <p className="font-mono text-[11px] uppercase tracking-wider text-mute">
+        {dict.observe.history}
+      </p>
+      <table className="mt-2 w-full min-w-[18rem] border-t border-line font-mono text-[11px] text-ink">
+        <thead>
+          <tr className="text-left text-mute">
+            <th className="py-2 pr-3 font-normal uppercase tracking-wider">{dict.observe.historyDate}</th>
+            <th className="py-2 pr-3 font-normal uppercase tracking-wider">{countLabel}</th>
+            <th className="py-2 font-normal uppercase tracking-wider">{secondaryLabel}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {observations.map((item) => (
+            <tr key={item.observed_at} className="border-t border-line/70">
+              <td className="py-2 pr-3">{formatDate(item.observed_at, locale)}</td>
+              <td className="py-2 pr-3">{formatMetric(item.metrics.total_count)}</td>
+              <td className="py-2">{formatMetric(item.metrics[secondaryKey])}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
