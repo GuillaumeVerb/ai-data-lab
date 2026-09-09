@@ -1,0 +1,65 @@
+{
+  "topic_id": "ai-agents",
+  "source_id": "hacker-news",
+  "pipeline_version": "signallab.hn.v1",
+  "observations": [
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-09-09T14:57:20.148675+00:00",
+      "source_id": "hacker-news",
+      "pipeline_version": "signallab.hn.v1",
+      "query": "LLM agents",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 3859,
+        "points_sum": 4613,
+        "points_max": 447,
+        "points_median": 114.0,
+        "comments_sum": 3125,
+        "created_last_7d": 1,
+        "created_last_30d": 1,
+        "unique_authors": 30
+      },
+      "sample_urls": [
+        "https://sketch.dev/blog/agent-loop",
+        "https://twitter.com/karpathy/status/2024987174077432126",
+        "https://kix.dev/two-things-llm-coding-agents-are-still-bad-at/",
+        "https://twitter.com/karpathy/status/1745921205020799433",
+        "https://arxiv.org/abs/2605.06445",
+        "https://zacharyhuang.substack.com/p/llm-agent-internal-as-a-graph-tutorial",
+        "https://arxiv.org/abs/2412.10270",
+        "https://github.com/KhoomeiK/LlamaGym"
+      ],
+      "assumptions": "Sample = up to 30 Hacker News stories from Algolia (single phrase; quoted OR is not supported). points_max vs points_median shows a viral thread. Not a trend score."
+    },
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-09-09T14:57:46.455158+00:00",
+      "source_id": "hacker-news",
+      "pipeline_version": "signallab.hn.v1",
+      "query": "LLM agents",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 3859,
+        "points_sum": 4613,
+        "points_max": 447,
+        "points_median": 114.0,
+        "comments_sum": 3125,
+        "created_last_7d": 1,
+        "created_last_30d": 1,
+        "unique_authors": 30
+      },
+      "sample_urls": [
+        "https://sketch.dev/blog/agent-loop",
+        "https://twitter.com/karpathy/status/2024987174077432126",
+        "https://kix.dev/two-things-llm-coding-agents-are-still-bad-at/",
+        "https://twitter.com/karpathy/status/1745921205020799433",
+        "https://arxiv.org/abs/2605.06445",
+        "https://zacharyhuang.substack.com/p/llm-agent-internal-as-a-graph-tutorial",
+        "https://arxiv.org/abs/2412.10270",
+        "https://github.com/KhoomeiK/LlamaGym"
+      ],
+      "assumptions": "Sample = up to 30 Hacker News stories from Algolia (single phrase; quoted OR is not supported). points_max vs points_median shows a viral thread. Not a trend score."
+    }
+  ]
+}

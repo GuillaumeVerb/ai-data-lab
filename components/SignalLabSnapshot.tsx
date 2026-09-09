@@ -36,22 +36,37 @@ function SourceMetrics({
 }) {
   const dict = getDictionary(locale);
   const metrics = observation.metrics;
-  const isGithub = observation.source_id === "github-search";
-  const isArxiv = observation.source_id === "arxiv";
+  const sourceLabel =
+    observation.source_id === "arxiv"
+      ? dict.observe.sourceArxiv
+      : observation.source_id === "github-search"
+        ? dict.observe.sourceGithub
+        : observation.source_id === "hacker-news"
+          ? dict.observe.sourceHn
+          : observation.source_id;
 
   return (
     <section>
       <p className="font-mono text-[11px] tracking-[0.14em] text-lab uppercase">
-        {isArxiv ? dict.observe.sourceArxiv : isGithub ? dict.observe.sourceGithub : observation.source_id}
+        {sourceLabel}
       </p>
       <dl className="mt-3 grid grid-cols-2 gap-3 font-mono text-xs text-ink sm:grid-cols-3">
-        {isArxiv ? (
+        {observation.source_id === "arxiv" ? (
           <>
             <Metric label={dict.observe.papersCount} value={metrics.total_count} />
             <Metric label={dict.observe.sampleSize} value={metrics.sample_size} />
             <Metric label={dict.observe.authors} value={metrics.unique_authors} />
             <Metric label={dict.observe.published7} value={metrics.published_last_7d} />
             <Metric label={dict.observe.published30} value={metrics.published_last_30d} />
+          </>
+        ) : observation.source_id === "hacker-news" ? (
+          <>
+            <Metric label={dict.observe.storiesCount} value={metrics.total_count} />
+            <Metric label={dict.observe.sampleSize} value={metrics.sample_size} />
+            <Metric label={dict.observe.pointsMedian} value={metrics.points_median} />
+            <Metric label={dict.observe.pointsMax} value={metrics.points_max} />
+            <Metric label={dict.observe.created7} value={metrics.created_last_7d} />
+            <Metric label={dict.observe.authors} value={metrics.unique_authors} />
           </>
         ) : (
           <>

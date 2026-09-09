@@ -1,0 +1,65 @@
+{
+  "topic_id": "vla",
+  "source_id": "hacker-news",
+  "pipeline_version": "signallab.hn.v1",
+  "observations": [
+    {
+      "topic_id": "vla",
+      "observed_at": "2026-09-09T14:57:23.887405+00:00",
+      "source_id": "hacker-news",
+      "pipeline_version": "signallab.hn.v1",
+      "query": "vision-language-action",
+      "metrics": {
+        "sample_size": 28,
+        "total_count": 28,
+        "points_sum": 459,
+        "points_max": 303,
+        "points_median": 2.0,
+        "comments_sum": 192,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "unique_authors": 27
+      },
+      "sample_urls": [
+        "https://www.figure.ai/news/helix",
+        "https://robotics-transformer2.github.io/",
+        "https://www.physicalintelligence.company/download/pi05_KI.pdf",
+        "https://arxiv.org/abs/2506.01844",
+        "https://arxiv.org/abs/2505.17016",
+        "https://www.dcard.tw/f/relationship/p/255790583?cid=d3500548-d505-400c-8906-1449999188de",
+        "https://github.com/BuceaGeorgia/VIRENA",
+        "https://jasper0314-huang.github.io/fast-thinkact/"
+      ],
+      "assumptions": "Sample = up to 30 Hacker News stories from Algolia (single phrase; quoted OR is not supported). points_max vs points_median shows a viral thread. Not a trend score."
+    },
+    {
+      "topic_id": "vla",
+      "observed_at": "2026-09-09T14:57:50.361418+00:00",
+      "source_id": "hacker-news",
+      "pipeline_version": "signallab.hn.v1",
+      "query": "vision-language-action",
+      "metrics": {
+        "sample_size": 28,
+        "total_count": 28,
+        "points_sum": 459,
+        "points_max": 303,
+        "points_median": 2.0,
+        "comments_sum": 192,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "unique_authors": 27
+      },
+      "sample_urls": [
+        "https://www.figure.ai/news/helix",
+        "https://robotics-transformer2.github.io/",
+        "https://www.physicalintelligence.company/download/pi05_KI.pdf",
+        "https://arxiv.org/abs/2506.01844",
+        "https://arxiv.org/abs/2505.17016",
+        "https://www.dcard.tw/f/relationship/p/255790583?cid=d3500548-d505-400c-8906-1449999188de",
+        "https://github.com/BuceaGeorgia/VIRENA",
+        "https://jasper0314-huang.github.io/fast-thinkact/"
+      ],
+      "assumptions": "Sample = up to 30 Hacker News stories from Algolia (single phrase; quoted OR is not supported). points_max vs points_median shows a viral thread. Not a trend score."
+    }
+  ]
+}

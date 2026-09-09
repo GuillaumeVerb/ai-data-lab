@@ -76,15 +76,15 @@ Contenu versionné dans `content/` : un fichier par locale, même `content_id`.
 
 ### SignalLab (local)
 
-Collecteurs GitHub (topics) et arXiv (papers) pour les 5 topics Observe. Métriques brutes uniquement — **pas de score LLM**.
+Collecteurs GitHub (topics), arXiv (papers) et Hacker News (stories) pour les 5 topics Observe. Métriques brutes uniquement — **pas de score LLM**.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python -m pytest
-python -m signallab collect                 # GitHub + arXiv
-python -m signallab collect --source arxiv  # une source
+python -m signallab collect                      # GitHub + arXiv + HN
+python -m signallab collect --source hacker-news # une source
 python -m signallab serve                   # GET http://127.0.0.1:8000/v1/signals
 ```
 

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from signallab.metrics import compute_paper_metrics, compute_repo_metrics
-from signallab.normalize import document_id, normalize_paper, normalize_repo, paper_id
+from signallab.metrics import compute_paper_metrics, compute_repo_metrics, compute_story_metrics
+from signallab.normalize import document_id, normalize_paper, normalize_repo, normalize_story, paper_id, story_id
 from signallab.collectors.arxiv import parse_atom
 
 
@@ -109,4 +109,51 @@ def test_paper_metrics_recency_and_author_dedupe() -> None:
     assert metrics["total_count"] == 12
     assert metrics["published_last_7d"] == 1
     assert metrics["published_last_30d"] == 1
+    assert metrics["unique_authors"] == 2
+
+
+def test_story_id_and_normalize() -> None:
+    hit = {
+        "objectID": "123",
+        "title": "OpenVLA drop",
+        "url": "https://example.com/openvla",
+        "author": "pg",
+        "created_at": "2026-09-07T00:00:00.000Z",
+        "points": 400,
+        "num_comments": 80,
+    }
+    assert story_id("123") == "hn:123"
+    doc = normalize_story(hit, "2026-09-09T12:00:00+00:00", "vla", "OpenVLA")
+    assert doc.source_id == "hacker-news"
+    assert doc.source_type == "opinion"
+    assert doc.engagement_metrics["points"] == 400
+
+
+def test_story_metrics_viral_thread_visible_in_max() -> None:
+    now = datetime(2026, 9, 9, tzinfo=timezone.utc)
+    items = [
+        {
+            "author": "a",
+            "points": 900,
+            "num_comments": 200,
+            "created_at": "2024-01-01T00:00:00.000Z",
+        },
+        {
+            "author": "b",
+            "points": 12,
+            "num_comments": 3,
+            "created_at": "2026-09-08T00:00:00.000Z",
+        },
+        {
+            "author": "a",
+            "points": 8,
+            "num_comments": 1,
+            "created_at": "2026-09-07T00:00:00.000Z",
+        },
+    ]
+    metrics = compute_story_metrics(items, total_count=40, now=now)
+    assert metrics["total_count"] == 40
+    assert metrics["points_max"] == 900
+    assert metrics["points_median"] == 12
+    assert metrics["created_last_7d"] == 2
     assert metrics["unique_authors"] == 2

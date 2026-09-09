@@ -11,7 +11,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="SignalLab collector (metrics, no scores)")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    collect = sub.add_parser("collect", help="Run GitHub and/or arXiv collectors")
+    collect = sub.add_parser("collect", help="Run GitHub, arXiv and/or Hacker News collectors")
     collect.add_argument("--topic", action="append", dest="topics", help="Topic id (repeatable)")
     collect.add_argument(
         "--source",

@@ -104,3 +104,44 @@ def compute_paper_metrics(items: list[dict[str, Any]], total_count: int, now: da
         "published_last_30d": published_30,
         "unique_authors": len(authors),
     }
+
+
+def compute_story_metrics(items: list[dict[str, Any]], total_count: int, now: datetime | None = None) -> dict[str, float | int]:
+    """HN metrics. Sample = up to 30 Algolia story hits (relevance ranking).
+
+    points_max vs points_median shows a single viral thread. created_last_7d
+    is counted on that sample, not on every matching story ever posted.
+    """
+    moment = now or datetime.now(timezone.utc)
+    week = moment - timedelta(days=7)
+    month = moment - timedelta(days=30)
+    points = [int(item.get("points") or 0) for item in items]
+    comments = [int(item.get("num_comments") or 0) for item in items]
+    created_7 = 0
+    created_30 = 0
+    authors: set[str] = set()
+    for item in items:
+        created = _parse_dt(item.get("created_at"))
+        if created is None and item.get("created_at_i") is not None:
+            try:
+                created = datetime.fromtimestamp(int(item["created_at_i"]), tz=timezone.utc)
+            except (TypeError, ValueError, OSError):
+                created = None
+        if created and created >= month:
+            created_30 += 1
+            if created >= week:
+                created_7 += 1
+        author = item.get("author")
+        if isinstance(author, str) and author.strip():
+            authors.add(author.strip().lower())
+    return {
+        "sample_size": len(items),
+        "total_count": int(total_count),
+        "points_sum": sum(points),
+        "points_max": max(points) if points else 0,
+        "points_median": _median(points),
+        "comments_sum": sum(comments),
+        "created_last_7d": created_7,
+        "created_last_30d": created_30,
+        "unique_authors": len(authors),
+    }

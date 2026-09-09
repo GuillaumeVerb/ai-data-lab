@@ -70,7 +70,7 @@
   },
   "observe": {
     "title": "Observe",
-    "lead": "Manual signals in V1. GitHub and arXiv collectors: raw metrics, not a score yet.",
+    "lead": "Manual signals in V1. GitHub, arXiv and HN collectors: raw metrics, not a score yet.",
     "manual": "Manual",
     "status": {
       "watching": "Watching",
@@ -83,6 +83,10 @@
     "signallabNote": "Raw metrics per source. Not a trend score.",
     "sourceGithub": "GitHub (topic)",
     "sourceArxiv": "arXiv",
+    "sourceHn": "Hacker News",
+    "storiesCount": "Stories (HN estimate)",
+    "pointsMedian": "Median points",
+    "pointsMax": "Max points",
     "totalCount": "Repos (GitHub estimate)",
     "sampleSize": "Sample",
     "starsMedian": "Median stars",

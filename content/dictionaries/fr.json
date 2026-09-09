@@ -70,7 +70,7 @@
   },
   "observe": {
     "title": "Observe",
-    "lead": "Signaux manuels en V1. Collecteurs GitHub et arXiv : métriques brutes, pas encore de score.",
+    "lead": "Signaux manuels en V1. Collecteurs GitHub, arXiv et HN : métriques brutes, pas encore de score.",
     "manual": "Manuel",
     "status": {
       "watching": "Watching",
@@ -83,6 +83,7 @@
     "signallabNote": "Métriques brutes par source. Pas un score de tendance.",
     "sourceGithub": "GitHub (topic)",
     "sourceArxiv": "arXiv",
+    "sourceHn": "Hacker News",
     "totalCount": "Repos (estim. GitHub)",
     "sampleSize": "Échantillon",
     "starsMedian": "Stars médiane",
@@ -93,6 +94,9 @@
     "authors": "Auteurs uniques",
     "published7": "Publiés ≤ 7 j",
     "published30": "Publiés ≤ 30 j",
+    "storiesCount": "Stories (estim. HN)",
+    "pointsMedian": "Points médiane",
+    "pointsMax": "Points max",
     "collected": "Collecté"
   },
   "about": {

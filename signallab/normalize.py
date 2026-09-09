@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 import re
+from datetime import datetime, timezone
 from typing import Any
 
-from signallab import ARXIV_SOURCE_ID, GITHUB_SOURCE_ID
+from signallab import ARXIV_SOURCE_ID, GITHUB_SOURCE_ID, HN_SOURCE_ID
 from signallab.schema import CollectedDocument
 
 
@@ -15,6 +16,17 @@ def paper_id(arxiv_abs: str) -> str:
     slug = arxiv_abs.rstrip("/").rsplit("/", 1)[-1]
     slug = re.sub(r"v\d+$", "", slug, flags=re.IGNORECASE)
     return f"arxiv:{slug.lower()}"
+
+
+def story_id(object_id: object) -> str:
+    return f"hn:{object_id}"
+
+
+def datetime_from_unix(value: object) -> str | None:
+    try:
+        return datetime.fromtimestamp(int(value), tz=timezone.utc).isoformat()
+    except (TypeError, ValueError, OSError):
+        return None
 
 
 def normalize_repo(item: dict[str, Any], collected_at: str, topic_id: str, query: str) -> CollectedDocument:
@@ -70,4 +82,37 @@ def normalize_paper(item: dict[str, Any], collected_at: str, topic_id: str, quer
             "updated": item.get("updated"),
         },
         license_or_access_notes="arXiv",
+    )
+
+
+def normalize_story(item: dict[str, Any], collected_at: str, topic_id: str, query: str) -> CollectedDocument:
+    object_id = item.get("objectID") or item.get("story_id") or ""
+    hn_url = f"https://news.ycombinator.com/item?id={object_id}"
+    created = item.get("created_at")
+    if not isinstance(created, str) or not created:
+        created = datetime_from_unix(item.get("created_at_i"))
+    return CollectedDocument(
+        source_id=HN_SOURCE_ID,
+        source_type="opinion",
+        external_id=story_id(object_id),
+        canonical_url=str(item.get("url") or hn_url),
+        title=" ".join(str(item.get("title") or "").split()),
+        author_or_org=item.get("author"),
+        published_at=created if isinstance(created, str) else None,
+        collected_at=collected_at,
+        language="en",
+        raw_text_or_description=" ".join(
+            str(item.get("story_text") or item.get("title") or "").split()
+        )[:4_000],
+        engagement_metrics={
+            "points": int(item.get("points") or 0),
+            "comments": int(item.get("num_comments") or 0),
+        },
+        source_specific_metadata={
+            "topic_id": topic_id,
+            "query": query,
+            "hn_url": hn_url,
+            "created_at_i": item.get("created_at_i"),
+        },
+        license_or_access_notes="Hacker News",
     )
