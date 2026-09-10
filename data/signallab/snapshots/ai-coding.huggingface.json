@@ -34,6 +34,38 @@
         "https://huggingface.co/mudler/KAT-Coder-V2.5-Dev-APEX-GGUF"
       ],
       "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
+    },
+    {
+      "topic_id": "ai-coding",
+      "observed_at": "2026-09-10T10:21:45.865111+00:00",
+      "source_id": "huggingface",
+      "pipeline_version": "signallab.huggingface.v1",
+      "query": "tag:code",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 30,
+        "downloads_sum": 24759591,
+        "downloads_max": 2712497,
+        "downloads_median": 617245.0,
+        "likes_sum": 19632,
+        "likes_max": 3502,
+        "likes_median": 139.0,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "updated_last_7d": 0,
+        "unique_authors": 12
+      },
+      "sample_urls": [
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
+        "https://huggingface.co/mudler/Laguna-XS-2.1-APEX-GGUF",
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct",
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-AWQ",
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-AWQ",
+        "https://huggingface.co/mudler/KAT-Coder-V2.5-Dev-APEX-GGUF",
+        "https://huggingface.co/microsoft/phi-2"
+      ],
+      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
     }
   ]
 }

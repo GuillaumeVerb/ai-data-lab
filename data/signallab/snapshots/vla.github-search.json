@@ -31,6 +31,35 @@
         "https://github.com/OpenDCAI/OpenWorldLib"
       ],
       "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "vla",
+      "observed_at": "2026-09-10T10:21:03.568416+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:vla",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 441,
+        "stars_sum": 24047,
+        "stars_max": 2505,
+        "stars_median": 554.5,
+        "forks_sum": 4385,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 10
+      },
+      "sample_urls": [
+        "https://github.com/ace-trump-tech/MindPaw",
+        "https://github.com/NVlabs/alpamayo",
+        "https://github.com/PRIME-RL/SimpleVLA-RL",
+        "https://github.com/Robbyant/lingbot-vla",
+        "https://github.com/dexmal/dexbotic",
+        "https://github.com/OpenDriveLab/UniVLA",
+        "https://github.com/InternRobotics/InternNav",
+        "https://github.com/OpenDCAI/OpenWorldLib"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
     }
   ]
 }

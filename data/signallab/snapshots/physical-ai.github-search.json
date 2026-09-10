@@ -31,6 +31,35 @@
         "https://github.com/mosaico-labs/mosaico"
       ],
       "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "physical-ai",
+      "observed_at": "2026-09-10T10:21:01.145741+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:physical-ai",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 467,
+        "stars_sum": 23714,
+        "stars_max": 5293,
+        "stars_median": 345.5,
+        "forks_sum": 3391,
+        "created_last_7d": 0,
+        "created_last_30d": 2,
+        "pushed_last_7d": 22
+      },
+      "sample_urls": [
+        "https://github.com/PetoiCamp/OpenCat-Quadruped-Robot",
+        "https://github.com/NVIDIA/skills",
+        "https://github.com/NVlabs/alpamayo",
+        "https://github.com/copper-project/copper-rs",
+        "https://github.com/Edgenesis/shifu",
+        "https://github.com/PetoiCamp/OpenCat-Old",
+        "https://github.com/NVlabs/alpasim",
+        "https://github.com/mosaico-labs/mosaico"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
     }
   ]
 }
