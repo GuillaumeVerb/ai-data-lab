@@ -71,7 +71,7 @@
   },
   "observe": {
     "title": "Observe",
-    "lead": "Signaux manuels en V1. Collecteurs GitHub, arXiv, HN et Hugging Face : métriques brutes, pas encore de score.",
+    "lead": "Signaux manuels en V1. Quatre sources, même jour UTC : volumes bruts, pas un score.",
     "manual": "Manuel",
     "status": {
       "watching": "Watching",
@@ -82,6 +82,14 @@
     },
     "signallab": "Snapshot SignalLab",
     "signallabNote": "Métriques brutes par source. Pas un score de tendance.",
+    "breakdown": "Même jour UTC",
+    "breakdownNote": "Repos GitHub, papers arXiv, threads HN et modèles Hugging Face ne se comparent pas. Quatre instruments, pas un indice.",
+    "source": "Source",
+    "volume": "Volume",
+    "secondary": "Secondaire",
+    "volumeByDay": "Volume par jour UTC",
+    "volumeByDayNote": "Chaque colonne est sa propre série. Un écart GitHub n’explique pas un écart arXiv.",
+    "cardMeta": "{sources} sources · {days} jours UTC",
     "history": "Historique",
     "historyDate": "Jour UTC",
     "historyNote": "Série brute : dernier collect de chaque jour UTC. Un point n’est pas une tendance.",

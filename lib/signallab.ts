@@ -29,7 +29,77 @@ export type SignalLabSeries = {
   observations: SignalLabObservation[];
 };
 
+export const signalSourceOrder = [
+  "github-search",
+  "arxiv",
+  "hacker-news",
+  "huggingface",
+] as const;
+
+export type SignalLabCoverage = {
+  sourceCount: number;
+  dayCount: number;
+  latestDay: string | null;
+};
+
+export type SignalLabVolumeGrid = {
+  days: string[];
+  sources: string[];
+  values: Array<Array<number | null>>;
+};
+
 const snapshotDir = path.join(process.cwd(), "data", "signallab", "snapshots");
+
+function sourceRank(sourceId: string): number {
+  const index = signalSourceOrder.indexOf(
+    sourceId as (typeof signalSourceOrder)[number],
+  );
+  return index === -1 ? signalSourceOrder.length : index;
+}
+
+export function utcDaysInSeries(series: SignalLabSeries[]): string[] {
+  const days = new Set<string>();
+  for (const item of series) {
+    for (const observation of item.observations) {
+      const day = utcDay(observation.observed_at);
+      if (day) days.add(day);
+    }
+  }
+  return [...days].sort();
+}
+
+export function seriesCoverage(series: SignalLabSeries[]): SignalLabCoverage {
+  const days = utcDaysInSeries(series);
+  return {
+    sourceCount: series.length,
+    dayCount: days.length,
+    latestDay: days.at(-1) ?? null,
+  };
+}
+
+export function observationOnUtcDay(
+  series: SignalLabSeries,
+  day: string,
+): SignalLabObservation | undefined {
+  return series.observations.find((item) => utcDay(item.observed_at) === day);
+}
+
+export function volumeGrid(series: SignalLabSeries[]): SignalLabVolumeGrid {
+  const ordered = [...series].sort(
+    (left, right) => sourceRank(left.source_id) - sourceRank(right.source_id),
+  );
+  const days = utcDaysInSeries(ordered);
+  return {
+    days,
+    sources: ordered.map((item) => item.source_id),
+    values: ordered.map((item) =>
+      days.map((day) => {
+        const observation = observationOnUtcDay(item, day);
+        return observation?.metrics.total_count ?? null;
+      }),
+    ),
+  };
+}
 
 export function utcDay(observedAt: string): string | null {
   const match = observedAt.match(/^(\d{4}-\d{2}-\d{2})/);
@@ -75,7 +145,9 @@ export function getTopicSeries(topicId: string): SignalLabSeries[] {
       continue;
     }
   }
-  return series;
+  return series.sort(
+    (left, right) => sourceRank(left.source_id) - sourceRank(right.source_id),
+  );
 }
 
 export function getLatestObservations(topicId: string): SignalLabObservation[] {

@@ -71,7 +71,7 @@
   },
   "observe": {
     "title": "Observe",
-    "lead": "Manual signals in V1. GitHub, arXiv, HN and Hugging Face collectors: raw metrics, not a score yet.",
+    "lead": "Manual signals in V1. Four sources, same UTC day: raw volumes, not a score.",
     "manual": "Manual",
     "status": {
       "watching": "Watching",
@@ -82,6 +82,14 @@
     },
     "signallab": "SignalLab snapshot",
     "signallabNote": "Raw metrics per source. Not a trend score.",
+    "breakdown": "Same UTC day",
+    "breakdownNote": "GitHub repos, arXiv papers, HN threads and Hugging Face models are not comparable units. Four instruments, not one index.",
+    "source": "Source",
+    "volume": "Volume",
+    "secondary": "Secondary",
+    "volumeByDay": "Volume by UTC day",
+    "volumeByDayNote": "Each column is its own series. A GitHub move does not explain an arXiv move.",
+    "cardMeta": "{sources} sources · {days} UTC days",
     "history": "History",
     "historyDate": "UTC day",
     "historyNote": "Raw series: last collect of each UTC day. One point is not a trend.",

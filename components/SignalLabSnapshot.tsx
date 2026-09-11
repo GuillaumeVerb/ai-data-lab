@@ -1,6 +1,12 @@
 import { formatDate, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionary";
-import type { SignalLabObservation, SignalLabSeries } from "@/lib/signallab";
+import {
+  observationOnUtcDay,
+  seriesCoverage,
+  volumeGrid,
+  type SignalLabObservation,
+  type SignalLabSeries,
+} from "@/lib/signallab";
 
 export function SignalLabSnapshot({
   locale,
@@ -11,16 +17,22 @@ export function SignalLabSnapshot({
 }) {
   if (!series.length) return null;
   const dict = getDictionary(locale);
+  const coverage = seriesCoverage(series);
+  const grid = volumeGrid(series);
 
   return (
-    <aside className="my-10 max-w-2xl space-y-6 border border-line bg-canvas-elevated/40 p-5">
+    <aside className="my-10 max-w-3xl space-y-8 border border-line bg-canvas-elevated/40 p-5">
       <div>
         <p className="font-mono text-[11px] tracking-[0.16em] text-signal uppercase">
           {dict.observe.signallab}
         </p>
         <p className="mt-2 text-sm leading-6 text-mute">{dict.observe.signallabNote}</p>
-        <p className="mt-2 text-sm leading-6 text-mute">{dict.observe.historyNote}</p>
+        <p className="mt-2 text-sm leading-6 text-mute">{dict.observe.breakdownNote}</p>
       </div>
+      {coverage.latestDay ? (
+        <SameDayBreakdown locale={locale} series={series} day={coverage.latestDay} />
+      ) : null}
+      {grid.days.length > 1 ? <VolumeByDay locale={locale} grid={grid} /> : null}
       {series.map((item) => (
         <SourceMetrics key={item.source_id} locale={locale} series={item} />
       ))}
@@ -66,6 +78,112 @@ function historyFields(sourceId: string, dict: ReturnType<typeof getDictionary>)
     secondaryLabel: dict.observe.starsMedian,
     secondaryKey: "stars_median",
   };
+}
+
+function SameDayBreakdown({
+  locale,
+  series,
+  day,
+}: {
+  locale: Locale;
+  series: SignalLabSeries[];
+  day: string;
+}) {
+  const dict = getDictionary(locale);
+  return (
+    <section>
+      <p className="font-mono text-[11px] uppercase tracking-wider text-mute">
+        {dict.observe.breakdown} · {day}
+      </p>
+      <div className="mt-2 overflow-x-auto">
+        <table className="w-full min-w-[22rem] border-t border-line font-mono text-[11px] text-ink">
+          <thead>
+            <tr className="text-left text-mute">
+              <th className="py-2 pr-3 font-normal uppercase tracking-wider">
+                {dict.observe.source}
+              </th>
+              <th className="py-2 pr-3 font-normal uppercase tracking-wider">
+                {dict.observe.volume}
+              </th>
+              <th className="py-2 font-normal uppercase tracking-wider">
+                {dict.observe.secondary}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {series.map((item) => {
+              const observation = observationOnUtcDay(item, day);
+              const fields = historyFields(item.source_id, dict);
+              return (
+                <tr key={item.source_id} className="border-t border-line/70">
+                  <td className="py-2 pr-3">{sourceLabelFor(item.source_id, dict)}</td>
+                  <td className="py-2 pr-3">
+                    {observation
+                      ? `${formatMetric(observation.metrics.total_count)} · ${fields.countLabel}`
+                      : "—"}
+                  </td>
+                  <td className="py-2">
+                    {observation
+                      ? `${formatMetric(observation.metrics[fields.secondaryKey])} · ${fields.secondaryLabel}`
+                      : "—"}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+function VolumeByDay({
+  locale,
+  grid,
+}: {
+  locale: Locale;
+  grid: ReturnType<typeof volumeGrid>;
+}) {
+  const dict = getDictionary(locale);
+  return (
+    <section>
+      <p className="font-mono text-[11px] uppercase tracking-wider text-mute">
+        {dict.observe.volumeByDay}
+      </p>
+      <p className="mt-2 text-sm leading-6 text-mute">{dict.observe.volumeByDayNote}</p>
+      <div className="mt-2 overflow-x-auto">
+        <table className="w-full min-w-[22rem] border-t border-line font-mono text-[11px] text-ink">
+          <thead>
+            <tr className="text-left text-mute">
+              <th className="py-2 pr-3 font-normal uppercase tracking-wider">
+                {dict.observe.historyDate}
+              </th>
+              {grid.sources.map((sourceId) => (
+                <th
+                  key={sourceId}
+                  className="py-2 pr-3 font-normal uppercase tracking-wider last:pr-0"
+                >
+                  {sourceLabelFor(sourceId, dict)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {grid.days.map((day, dayIndex) => (
+              <tr key={day} className="border-t border-line/70">
+                <td className="py-2 pr-3">{day}</td>
+                {grid.values.map((row, sourceIndex) => (
+                  <td key={grid.sources[sourceIndex]} className="py-2 pr-3 last:pr-0">
+                    {formatMetric(row[dayIndex] ?? undefined)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
 }
 
 function SourceMetrics({
