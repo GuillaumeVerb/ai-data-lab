@@ -3,7 +3,7 @@
     "title": "AI Research & Engineering Lab",
     "description": "Laboratoire public bilingue : data, agents IA et physical AI. Projets, expériences, notes et signaux — pas un CV."
   },
-    "banner": "V1 — Projects, Lab, Writing, Learning, Observe. SignalLab plus tard.",
+    "banner": "V1 — Lab public. SignalLab : métriques brutes, pas encore de score.",
   "nav": {
     "home": "Accueil",
     "projects": "Projects",
@@ -30,7 +30,7 @@
     "signals": "Signaux",
     "writing": "Writing",
     "background": "Trajectoire",
-    "backgroundBody": "Guillaume Verbiguié, Paris. Base data (pipelines, warehousing, analytics) visible sur GitHub depuis 2021, puis agents et RAG en public. Physical AI est une direction d’apprentissage, pas un titre.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. Environ dix ans de pratique Data (analyste / scientist / senior analyst : secteur public, banque, retail) comme socle. Les Labs et projets publics montrent la suite : agents, RAG, direction Physical AI — pas un titre de roboticien.",
     "empty": "Pas encore de contenu publié dans cette locale."
   },
   "exploring": [
@@ -109,19 +109,28 @@
   },
   "about": {
     "title": "About",
-    "lead": "Data → agents → physical AI, documenté en public. Le CV est un composant, pas le centre.",
-    "intro": "Guillaume Verbiguié construit ce Lab depuis Paris. Les preuves ci-dessous viennent de dépôts GitHub publics. Rien n’est inventé : si ce n’est pas dans un repo ou sur cette page, ce n’est pas une expérience revendiquée.",
-    "trajectoryTitle": "Trajectoire visible",
+    "lead": "Data → agents → physical AI, documenté en public. Le CV est un composant, pas le centre. Socle : environ dix ans de Data.",
+    "intro": "Guillaume Verbiguié construit ce Lab depuis Paris. Le socle professionnel ci-dessous vient d’une fiche d’expérience contrôlée. Les preuves de Labs et de projets viennent de dépôts GitHub publics. Rien n’est inventé : si ce n’est pas ici, ce n’est pas une expérience revendiquée.",
+    "professionalTitle": "Socle professionnel",
+    "professional": [
+      "Environ dix ans en Data Analyst / Data Scientist / Senior Data Analyst — secteur public, banque et retail.",
+      "Bout en bout : besoin, préparation / ETL, analyse, machine learning selon les cas, restitution et dashboards.",
+      "Data Strategy, Data Management, Data Governance, Data Culture — visibles, pas un nuage de logos.",
+      "Management de 2–3 personnes chez Ipsos (juniors / alternants) : coordination réelle.",
+      "Outils montrés seulement s’ils ont été pratiqués (Python, SQL, Power BI, BI/data)."
+    ],
+    "trajectoryTitle": "Preuves publiques (Lab / projets / formation)",
     "trajectory": [
+      "TRAINING — Alyra : Ethereum, Solidity, smart contracts. Formation, pas un emploi blockchain.",
       "2021 — projets de formation data engineering publics (data lake Spark/S3, warehouse Redshift).",
       "2025 — analytics on-chain comme terrain de data (dashboard CSV, anomaly detection + MLflow).",
       "2026 — copilotes agentiques et RAG grounded (Decision Copilot, Knowledge Copilot, automation agent).",
       "Maintenant — ce Lab : bilingue, mesurable, direction Physical AI sans se prétendre roboticien."
     ],
     "nowTitle": "Ce que je construis ici",
-    "now": "Un système public pour observer, apprendre, expérimenter et mesurer les systèmes intelligents. SignalLab et Ask My Lab viendront après une V1 montrable.",
+    "now": "Un système public pour observer, apprendre, expérimenter et mesurer les systèmes intelligents. SignalLab collecte déjà des métriques brutes sur Observe ; les scores et Ask My Lab viendront plus tard.",
     "notTitle": "Ce que cette page ne revendique pas",
-    "not": "Pas de poste de robotics engineer, pas de clients agents inventés, pas de jauge de compétence. Les repos privés (ex. PhotoMind) existent mais ne sont pas des preuves publiques tant qu’ils ne sont pas ouverts ou décrits avec la même rigueur.",
+    "not": "Pas de poste de robotics engineer, pas de clients agents inventés, pas de jauge de compétence. Alyra n’est pas une expérience professionnelle blockchain. Les repos privés (ex. PhotoMind) existent mais ne sont pas des preuves publiques tant qu’ils ne sont pas ouverts ou décrits avec la même rigueur.",
     "evidenceTitle": "Preuves sur ce site",
     "links": "Liens",
     "scope": "Règle de focus",

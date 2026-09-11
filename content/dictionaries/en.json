@@ -3,7 +3,7 @@
     "title": "AI Research & Engineering Lab",
     "description": "A bilingual public lab for data, AI agents and physical AI. Projects, experiments, notes and signals — not a résumé."
   },
-    "banner": "V1 — Projects, Lab, Writing, Learning, Observe. SignalLab comes later.",
+    "banner": "V1 — public lab. SignalLab: raw metrics, not a score yet.",
   "nav": {
     "home": "Home",
     "projects": "Projects",
@@ -30,7 +30,7 @@
     "signals": "Signals",
     "writing": "Writing",
     "background": "Trajectory",
-    "backgroundBody": "Guillaume Verbiguié, Paris. A public data trail (pipelines, warehousing, analytics) on GitHub since 2021, then agents and RAG in the open. Physical AI is a learning direction, not a job title.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. Roughly ten years of Data practice (analyst / scientist / senior analyst: public sector, banking, retail) as the foundation. Public labs and projects show what comes next: agents, RAG, Physical AI as a direction — not a robotics job title.",
     "empty": "No published content in this locale yet."
   },
   "exploring": [
@@ -109,19 +109,28 @@
   },
   "about": {
     "title": "About",
-    "lead": "Data → agents → physical AI, documented in public. The résumé is a component, not the centre.",
-    "intro": "Guillaume Verbiguié is building this Lab from Paris. Evidence below comes from public GitHub repositories. Nothing is invented: if it is not in a repo or on this page, it is not a claimed experience.",
-    "trajectoryTitle": "Visible trajectory",
+    "lead": "Data → agents → physical AI, documented in public. The résumé is a component, not the centre. Foundation: roughly ten years in Data.",
+    "intro": "Guillaume Verbiguié is building this Lab from Paris. The professional foundation below comes from a controlled experience record. Labs and projects are evidenced by public GitHub repositories. Nothing is invented: if it is not here, it is not a claimed experience.",
+    "professionalTitle": "Professional foundation",
+    "professional": [
+      "Roughly ten years as Data Analyst / Data Scientist / Senior Data Analyst — public sector, banking and retail.",
+      "End to end: requirements, ETL / preparation, analysis, machine learning where relevant, dashboards and restitution.",
+      "Data Strategy, Data Management, Data Governance, Data Culture — visible, not a logo cloud.",
+      "Managed 2–3 people at Ipsos (juniors / apprentices): real coordination.",
+      "Tools listed only when actually used (Python, SQL, Power BI, BI/data)."
+    ],
+    "trajectoryTitle": "Public evidence (Lab / projects / training)",
     "trajectory": [
+      "TRAINING — Alyra: Ethereum, Solidity, smart contracts. Coursework, not blockchain employment.",
       "2021 — public data-engineering training projects (Spark/S3 data lake, Redshift warehouse).",
       "2025 — on-chain analytics as a data terrain (CSV dashboard, anomaly detection + MLflow).",
       "2026 — agentic copilots and grounded RAG (Decision Copilot, Knowledge Copilot, automation agent).",
       "Now — this Lab: bilingual, measurable, Physical AI as a direction without pretending to be a robotics engineer."
     ],
     "nowTitle": "What I am building here",
-    "now": "A public system to observe, learn, experiment and measure intelligent systems. SignalLab and Ask My Lab come after a shareable V1.",
+    "now": "A public system to observe, learn, experiment and measure intelligent systems. SignalLab already collects raw metrics on Observe; scores and Ask My Lab come later.",
     "notTitle": "What this page does not claim",
-    "not": "No robotics-engineer role, no invented agent clients, no skill bars. Private repos (e.g. PhotoMind) exist but are not public evidence until they are opened or described with the same rigor.",
+    "not": "No robotics-engineer role, no invented agent clients, no skill bars. Alyra is not professional blockchain employment. Private repos (e.g. PhotoMind) exist but are not public evidence until they are opened or described with the same rigor.",
     "evidenceTitle": "Evidence on this site",
     "links": "Links",
     "scope": "Focus rule",

@@ -38,6 +38,17 @@ export default async function AboutPage({
         <p>{dict.about.intro}</p>
 
         <section>
+          <h2 className="font-display text-2xl text-ink">{dict.about.professionalTitle}</h2>
+          <ul className="mt-4 space-y-3">
+            {dict.about.professional.map((item) => (
+              <li key={item} className="border-l border-line pl-4">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
           <h2 className="font-display text-2xl text-ink">{dict.about.trajectoryTitle}</h2>
           <ol className="mt-4 space-y-3">
             {dict.about.trajectory.map((item) => (

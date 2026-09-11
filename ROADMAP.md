@@ -16,7 +16,9 @@ Principe : publier tôt, enrichir ensuite. Ne commencer la couche suivante que s
 | V4.x | Frontier Intelligence | Benchmarks, predictions, career radar | Plateforme mature |
 | V5.x | Product/SaaS | Accounts, watchlists, alerts, API | Seulement si traction |
 
-Anti-dispersion : pas de V2 tant que V1 n’est pas en ligne ; pas de personnalisation SaaS tant que SignalLab n’a pas d’usage réel.
+Règle anti-dispersion : pas de V2 tant que V1 n’est pas en ligne ; pas de personnalisation SaaS tant que SignalLab n’a pas d’usage réel.
+
+**Expérience : règle de conservation.** La V1 présente le parcours professionnel réel dès le lancement — preuve de séniorité, pas un CV exhaustif. Modèle `ExperienceEntry` séparé de Project / Lab / Credential. Distinguer **PROFESSIONAL**, **PERSONAL_PROJECT**, **TRAINING** et **LAB**. Ne jamais convertir une formation ou un projet personnel en expérience client. FR et EN pour l’expérience au même titre que le reste.
 
 ## V0 — Foundation
 
@@ -55,8 +57,9 @@ Critères de sortie :
 - 5–10 signaux Observe manuels
 - 8–12 learning nodes
 - Aucun score de compétence arbitraire
-- Aucun contenu factice essentiel
-- Mobile + desktop, SEO minimal
+- Le visiteur comprend en moins de 10 secondes qu’il existe déjà un socle d’environ 10 ans d’expérience Data, et que l’IA / Physical AI est une extension, pas un point de départ
+- About / Parcours distingue responsabilités, management, gouvernance et stack réellement pratiquée
+- Badges PROFESSIONAL / PERSONAL_PROJECT / TRAINING / LAB visibles quand c’est nécessaire
 
 ## V1.5 — Content Engine
 
@@ -98,13 +101,14 @@ Ne pas définir de pricing avant un usage récurrent. Le portfolio doit fonction
 | Writing | 3 | Physical AI from a Data perspective ; Agent vs workflow ; What I’m learning in Intelligent Systems |
 | Observe | 5 | AI Agents ; Physical AI ; VLA ; AI Evaluation ; AI Coding |
 | Learning | 8–12 | RAG, Agents, MCP, evals, VLM, VLA, ROS2, simulation, observability |
+| Experience | 1 timeline + highlights | Socle Data ~10 ans ; contextes ; responsabilités ; management Ipsos ; gouvernance ; credentials |
 
 ## Plan des 6 premières semaines
 
 | Semaine | Focus | Sortie |
 | --- | --- | --- |
 | 1 | V0 architecture + design + i18n | Skeleton, routes, schemas, repo propre |
-| 2 | Home + Projects + About | Preview cohérente FR/EN |
+| 2 | Home + Projects + Experience + About | Preview cohérente FR/EN, socle professionnel visible |
 | 3 | Lab + Writing + Learning | V1 quasi complète, contenus réels |
 | 4 | Observe manuel + polish + deploy | **V1 publique** |
 | 5 | Content Engine | Ingestion → draft → review |
@@ -134,5 +138,6 @@ L’ordre compte plus que le rythme : **public d’abord, automatisation ensuite
 | Score | Formule documentée, composants stockés, confidence, edge-case tests |
 | AI generation | Grounding, incertitude, sources, eval, revue humaine à la publication |
 | Release | CI verte, complétude bilingue, changelog, preview revue |
+| Experience / Parcours | FR/EN, séniorité visible, responsabilités/impact, types de preuve explicites, aucune inflation |
 
 **Premier jalon : terminer V0 + V1 et publier. Tout le reste reste en backlog tant que ce jalon n’est pas atteint.**

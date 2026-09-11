@@ -26,7 +26,9 @@ Its long-term vision combines:
 - SignalLab, a cross-source technology trend intelligence engine
 
 Core positioning:
-Data -> AI Agents -> Physical AI / Robotics
+Experienced Data professional (~10 years: Analyst / Scientist / Senior Analyst) -> AI Engineering / AI Agents -> Physical AI / Robotics
+
+Professional claims must be stored as ExperienceEntry, separate from training, personal projects and labs. Never convert Alyra / Solidity coursework into professional blockchain employment.
 
 Blockchain and other technologies may appear as applied domains but should not dominate the product identity.
 
@@ -89,6 +91,7 @@ The goal is to create a public, credible and visually distinctive website that c
 
 Required pages:
 Home
+Experience / Professional journey (can live on About in V1)
 Projects
 Project detail
 Lab
@@ -108,7 +111,7 @@ Homepage structure:
 4. Currently Exploring
 5. Latest Signals
 6. Latest Writing
-7. Short professional background
+7. Professional foundation snapshot: roughly 10 years in Data, selected responsibilities/contexts, evidence types, link to About
 8. Contact / GitHub / LinkedIn
 
 Projects must support:
@@ -631,5 +634,26 @@ Before approving a release, check:
 - new AI features have an evaluation or test plan
 - new SignalLab scores are explainable
 - scope guardian criteria are satisfied
+- professional experience remains visible and is not diluted by future-facing Lab content
+- PROFESSIONAL / PERSONAL_PROJECT / TRAINING / LAB evidence types are not conflated
 
 Return PASS or BLOCKED with exact blockers.
+
+---
+
+## Prompt 16 — Professional Experience page
+
+Build the bilingual EXPERIENCE / PARCOURS section (About can host V1).
+
+Purpose: show a real senior Data career without turning the Lab into a CV.
+
+Encode only known facts:
+- roughly 10 years across Data Analyst / Data Scientist / Senior Data Analyst
+- public sector, banking, retail
+- requirements, ETL, analysis, ML where relevant, dashboards
+- Data Strategy / Management / Governance / Culture
+- managed 2–3 people at Ipsos (juniors / apprentices)
+- tools only when actually used
+- Alyra Ethereum / Solidity = TRAINING, not professional blockchain employment
+
+If a date, employer or metric is missing, omit it. Never invent. ABOUT ME must treat this structured source as the authority for professional claims.

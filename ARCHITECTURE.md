@@ -10,11 +10,26 @@ Le site remplit trois fonctions en même temps :
 2. Accélérer l’apprentissage personnel.
 3. Créer une valeur indépendante du CV (SignalLab, benchmarks, ressources, rapports vivants).
 
-Le CV est un composant du système, pas son centre. La homepage montre d’abord ce qui est **construit, observé, appris et mesuré**.
+Le visiteur doit comprendre en quelques secondes que ce n’est **pas** un profil junior qui découvre la Data : environ dix ans de pratique Data (Analyst / Scientist / Senior Analyst) sont le socle ; les Labs et projets montrent la trajectoire actuelle vers les systèmes agentiques et physiques.
+
+Principe narratif : *Experienced Data professional building toward intelligent systems*.
+
+Le CV est un composant du système, pas son centre. La homepage montre d’abord ce qui est **construit, observé, appris et mesuré**, avec un snapshot du socle professionnel.
 
 ## 2. Règle de focus
 
 Fil conducteur : **DATA → AI AGENTS → PHYSICAL AI / ROBOTICS**
+
+**Socle professionnel à préserver** (source contrôlée, pas inventée) :
+
+- Environ 10 ans en Data Analyst / Data Scientist / Senior Data Analyst ; contextes secteur public, banque et retail.
+- Bout en bout : besoin, préparation/ETL, analyse, machine learning selon les cas, restitution et dashboards.
+- Data Strategy, Data Management, Data Governance, Data Culture — visibles, pas noyées dans un cloud de logos.
+- Management de 2–3 personnes chez Ipsos (juniors / alternants) : coordination réelle, pas un titre inventé.
+- Stack montrée seulement si pratiquée (Python, SQL, Power BI, autres outils BI/data réellement utilisés).
+- Formation Alyra (Ethereum / Solidity / smart contracts) = **TRAINING**, pas une expérience professionnelle blockchain.
+
+Les projets IA prolongent cette base, ils ne la remplacent pas.
 
 Question éditoriale : *Does this help understand, build, evaluate or apply intelligent systems?*
 
@@ -51,7 +66,7 @@ Ne pas implémenter les couches 2 et 3 avant qu’une V1 publique soit utilisabl
 
 | Audience | Cherche | Chemin |
 | --- | --- | --- |
-| Recruiter | Crédibilité, adéquation | About → Flagship Projects → Evidence → CV |
+| Recruiter | Crédibilité, adéquation | About / Parcours → Flagship Projects → Evidence → CV |
 | Engineer / Researcher | Architecture, code, limites | Projects → Labs → Benchmarks → GitHub |
 | Learner | Explications, progression | Learn → Explainers → Resources |
 | AI/Tech enthusiast | Ce qui monte vs ce qui est surcoté | Observe → SignalLab → Weekly Brief |
@@ -84,13 +99,13 @@ FR = langue de rédaction naturelle. EN = adaptation éditoriale, pas un calque.
 
 | Page | Minimum |
 | --- | --- |
-| Home | Hero, featured projects, latest labs, currently exploring, latest signals, writing, background |
+| Home | Hero, featured projects, latest labs, currently exploring, latest signals, writing, snapshot ~10 ans Data |
 | Projects | Liste filtrable + case study |
 | Lab | Chronologie + détail d’expérience |
 | Writing | Explainers, research notes, experiments, tool reviews |
 | Learning | Concepts + preuves (pas de % artificiels) |
 | Observe | 5–10 signaux manuels avant SignalLab |
-| About | Trajectoire, expérience, credentials, liens, CV |
+| About / Parcours | Socle professionnel, preuves publiques, credentials, liens — badges PROFESSIONAL / TRAINING / LAB |
 
 Case study projet : Problem → Why it matters → Architecture → Data → Approach → Results → Limitations → Learnings → Demo → GitHub.
 
@@ -163,10 +178,11 @@ Le Skill Graph relie chaque compétence à des preuves. Pas de jauges « Python 
 - **Provenance** : URL, auteur, date, source, ingestion, modèle IA, version pipeline.
 - **Explainability** : tout score doit pouvoir répondre « why? ».
 - **Human validation** : aucune publication éditoriale importante sans revue.
+- **Experience provenance** : les affirmations de parcours viennent d’une source contrôlée (ces docs / fiche expérience). Une techno apprise dans un Lab n’apparaît jamais automatiquement comme expérience client.
 - **Legal/API** : pas de scraping non autorisé ; connecteurs source par source.
 
 ## 13. Mesure du succès
 
 Portfolio (projets aboutis, contacts), Learning (preuves, labs), SignalLab (récurrence, précision des early signals), Content (lectures, organique), Career (entretiens, inbound), Product (retention avant monétisation).
 
-Vision 12–18 mois : la valeur vient de l’accumulation (labs, projets profonds, benchmarks historiques, living reports, skill graph, signaux datés) — pas du design du site.
+Vision 12–18 mois : la valeur vient de l’accumulation (labs, projets profonds, benchmarks historiques, living reports, skill graph, signaux datés) — pas du design du site. Identité lisible : ~10 ans Data comme séniorité, puis évolution publique vers AI Engineering, agents et Physical AI.

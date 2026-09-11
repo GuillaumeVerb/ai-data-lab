@@ -9,7 +9,7 @@ Toute entité publique partage un identifiant neutre et deux corps localisés.
 ```text
 ContentItem
   content_id          string   # language-neutral, slug-stable
-  type                enum     # project | lab | writing | learning | observe | about | resource | report
+  type                enum     # project | lab | writing | learning | observe | about | experience | resource | report
   locale              enum     # fr | en
   title               string
   summary             string
@@ -103,7 +103,27 @@ SkillEvidence
   notes               string?
 ```
 
-## 6. Observe (V1 manuel → V2 SignalLab)
+## 6. Experience (parcours)
+
+Séparé de Project, Lab et Credential. Source d’autorité pour le mode ABOUT ME.
+
+```text
+ExperienceEntry
+  content_id          string
+  locale              enum     # fr | en
+  evidence_type       enum     # PROFESSIONAL | PERSONAL_PROJECT | TRAINING | LAB
+  title               string
+  org                 string?  # employer, school, or omit if unknown
+  context             string?  # e.g. public sector, banking, retail
+  summary             string
+  responsibilities    string[]
+  period              string?  # omit rather than guess
+  tools               string[] # only tools actually used
+```
+
+Règles : ne jamais convertir TRAINING / LAB / PERSONAL_PROJECT en PROFESSIONAL. Si une date, un employeur ou une métrique manque, l’omettre.
+
+## 7. Observe (V1 manuel → V2 SignalLab)
 
 ```text
 ObserveItem extends ContentItem
@@ -114,7 +134,7 @@ ObserveItem extends ContentItem
   manual              boolean  # true until SignalLab
 ```
 
-## 7. Content Engine (V1.5)
+## 8. Content Engine (V1.5)
 
 Lifecycle obligatoire :
 
@@ -141,7 +161,7 @@ IngestJob
 
 L’IA ne publie jamais toute seule.
 
-## 8. Provenance
+## 9. Provenance
 
 Chaque document, score ou génération conserve :
 
@@ -160,7 +180,7 @@ SourceRef
 
 Pour le contenu généré : `model_used`, `pipeline_version`, `prompt_version`.
 
-## 9. SignalLab (V2+)
+## 10. SignalLab (V2+)
 
 Entités :
 
@@ -203,7 +223,7 @@ Pipeline : collect → normalize → deduplicate → enrich → embed → cluste
 
 Les LLM interprètent **après** les métriques. Ils ne décident pas seuls si quelque chose « trende ».
 
-## 10. Scoring (V2.5)
+## 11. Scoring (V2.5)
 
 Scores 0–100, tous explicables, composants stockés à part du score.
 
@@ -235,7 +255,7 @@ ScoreSnapshot
 
 Exemple : Momentum = 82 parce que paper volume +42%, GitHub repos +68%, YouTube creator diversity +31%.
 
-## 11. Ask My Lab (V3)
+## 12. Ask My Lab (V3)
 
 ```text
 AgentMode            enum     # about_me | ask_the_lab
@@ -247,9 +267,9 @@ RetrievalChunk
   citation
 ```
 
-Contraintes ABOUT ME : ne jamais transformer apprentissage → expérience pro, projet perso → client, intérêt → expertise.
+Contraintes ABOUT ME : ne jamais transformer apprentissage → expérience pro, projet perso → client, intérêt → expertise. La source d’autorité est `ExperienceEntry`, pas un Lab.
 
-## 12. Stockage par version
+## 13. Stockage par version
 
 | Version | Stockage réel |
 | --- | --- |
