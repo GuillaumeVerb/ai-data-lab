@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const locales = ["fr", "en"];
-const contentDirs = ["projects", "labs", "writing", "learning", "observe"];
+const contentDirs = ["projects", "labs", "writing", "learning", "observe", "experience"];
 let failed = false;
 
 function fail(message) {

@@ -173,6 +173,9 @@ export default async function HomePage({
         <div className="max-w-2xl">
           <p className="text-base leading-7 text-mute">{dict.home.backgroundBody}</p>
           <div className="mt-6 flex gap-4 font-mono text-xs uppercase tracking-wider">
+            <LocaleLink locale={locale} href="/experience" className="text-lab hover:text-ink">
+              {dict.nav.experience}
+            </LocaleLink>
             <LocaleLink locale={locale} href="/about" className="text-lab hover:text-ink">
               {dict.nav.about}
             </LocaleLink>

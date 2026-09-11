@@ -16,6 +16,7 @@ const staticPaths = [
   "/writing",
   "/learning",
   "/observe",
+  "/experience",
   "/about",
 ];
 

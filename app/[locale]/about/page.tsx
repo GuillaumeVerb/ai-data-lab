@@ -39,6 +39,11 @@ export default async function AboutPage({
 
         <section>
           <h2 className="font-display text-2xl text-ink">{dict.about.professionalTitle}</h2>
+          <p className="mt-3">
+            <LocaleLink locale={locale} href="/experience" className="text-lab hover:text-ink">
+              {dict.nav.experience}
+            </LocaleLink>
+          </p>
           <ul className="mt-4 space-y-3">
             {dict.about.professional.map((item) => (
               <li key={item} className="border-l border-line pl-4">

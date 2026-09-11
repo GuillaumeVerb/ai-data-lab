@@ -11,6 +11,7 @@
     "writing": "Writing",
     "learning": "Learning",
     "observe": "Observe",
+    "experience": "Parcours",
     "about": "About"
   },
   "locale": {
@@ -106,6 +107,17 @@
     "downloadsMax": "Downloads max",
     "updated7": "Maj ≤ 7 j",
     "collected": "Collecté"
+  },
+  "experience": {
+    "title": "Parcours",
+    "lead": "Socle professionnel Data, puis preuves publiques. Les dates de poste absentes de la fiche ne sont pas inventées.",
+    "note": "PROFESSIONAL n’est pas TRAINING. Alyra n’est pas un emploi blockchain. Pas de jauge de compétence.",
+    "types": {
+      "PROFESSIONAL": "Professional",
+      "PERSONAL_PROJECT": "Personal project",
+      "TRAINING": "Training",
+      "LAB": "Lab"
+    }
   },
   "about": {
     "title": "About",

@@ -80,12 +80,22 @@ export const observeSchema = baseSchema.extend({
   related_learning_ids: z.array(z.string()).default([]),
 });
 
+export const experienceSchema = baseSchema.extend({
+  type: z.literal("experience"),
+  evidence_type: z.enum(["PROFESSIONAL", "PERSONAL_PROJECT", "TRAINING", "LAB"]),
+  org: z.string().optional(),
+  context: z.string().optional(),
+  tools: z.array(z.string()).default([]),
+  order: z.number().int(),
+});
+
 const schemas = {
   project: projectSchema,
   lab: labSchema,
   writing: writingSchema,
   learning: learningSchema,
   observe: observeSchema,
+  experience: experienceSchema,
 } as const;
 
 export type ContentType = keyof typeof schemas;
@@ -94,8 +104,15 @@ export type Lab = z.infer<typeof labSchema> & { body: string };
 export type Writing = z.infer<typeof writingSchema> & { body: string };
 export type Learning = z.infer<typeof learningSchema> & { body: string };
 export type ObserveItem = z.infer<typeof observeSchema> & { body: string };
+export type ExperienceEntry = z.infer<typeof experienceSchema> & { body: string };
 
-export type ContentItem = Project | Lab | Writing | Learning | ObserveItem;
+export type ContentItem =
+  | Project
+  | Lab
+  | Writing
+  | Learning
+  | ObserveItem
+  | ExperienceEntry;
 
 const typeDirs: Record<ContentType, string> = {
   project: "projects",
@@ -103,6 +120,7 @@ const typeDirs: Record<ContentType, string> = {
   writing: "writing",
   learning: "learning",
   observe: "observe",
+  experience: "experience",
 };
 
 const contentRoot = path.join(process.cwd(), "content");
@@ -119,6 +137,11 @@ function readType(type: ContentType, locale: Locale): ContentItem[] {
     .sort((a, b) => {
       const flag = Number("flagship" in b && b.flagship) - Number("flagship" in a && a.flagship);
       if (flag !== 0) return flag;
+      const orderA = "order" in a ? a.order : undefined;
+      const orderB = "order" in b ? b.order : undefined;
+      if (typeof orderA === "number" && typeof orderB === "number" && orderA !== orderB) {
+        return orderA - orderB;
+      }
       return (b.published_at ?? "").localeCompare(a.published_at ?? "");
     });
 }
@@ -235,6 +258,12 @@ export function getObserve(
   return listObserve(locale).find((item) => item.content_id === slug);
 }
 
+export function listExperience(locale: Locale): ExperienceEntry[] {
+  return readType("experience", locale).filter(
+    (item): item is ExperienceEntry => item.type === "experience",
+  );
+}
+
 export function contentPath(
   type: ContentType,
   slug: string,
@@ -245,6 +274,7 @@ export function contentPath(
     writing: "/writing",
     learning: "/learning",
     observe: "/observe",
+    experience: "/experience",
   };
   return `${map[type]}/${slug}`;
 }

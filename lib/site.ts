@@ -18,5 +18,6 @@ export const navItems = [
   { key: "writing", href: "/writing" },
   { key: "learning", href: "/learning" },
   { key: "observe", href: "/observe" },
+  { key: "experience", href: "/experience" },
   { key: "about", href: "/about" },
 ] as const;

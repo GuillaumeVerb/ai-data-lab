@@ -11,6 +11,7 @@
     "writing": "Writing",
     "learning": "Learning",
     "observe": "Observe",
+    "experience": "Experience",
     "about": "About"
   },
   "locale": {
@@ -106,6 +107,17 @@
     "published7": "Published ≤ 7d",
     "published30": "Published ≤ 30d",
     "collected": "Collected"
+  },
+  "experience": {
+    "title": "Experience",
+    "lead": "A Data professional foundation, then public evidence. Role dates that are not in the record are not invented.",
+    "note": "PROFESSIONAL is not TRAINING. Alyra is not blockchain employment. No skill bars.",
+    "types": {
+      "PROFESSIONAL": "Professional",
+      "PERSONAL_PROJECT": "Personal project",
+      "TRAINING": "Training",
+      "LAB": "Lab"
+    }
   },
   "about": {
     "title": "About",
