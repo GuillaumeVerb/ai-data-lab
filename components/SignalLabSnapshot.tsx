@@ -201,10 +201,13 @@ function SourceMetrics({
   const history = historyFields(observation.source_id, dict);
 
   return (
-    <section>
-      <p className="font-mono text-[11px] tracking-[0.14em] text-lab uppercase">
+    <details>
+      <summary className="cursor-pointer font-mono text-[11px] tracking-[0.14em] text-lab uppercase">
         {sourceLabel}
-      </p>
+        <span className="ml-2 font-normal normal-case tracking-normal text-mute">
+          {formatMetric(metrics.total_count)} · {history.countLabel}
+        </span>
+      </summary>
       {observation.query ? (
         <p className="mt-2 font-mono text-[11px] text-mute">
           {dict.observe.query}{" "}
@@ -268,7 +271,7 @@ function SourceMetrics({
       <p className="mt-3 font-mono text-[11px] text-mute">
         {dict.observe.collected} {formatDate(observation.observed_at, locale)} · {observation.pipeline_version}
       </p>
-    </section>
+    </details>
   );
 }
 

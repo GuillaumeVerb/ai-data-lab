@@ -1,4 +1,5 @@
 import { ContentCard, EmptyState } from "@/components/ContentCard";
+import { ObserveBoard } from "@/components/ObserveBoard";
 import { Container, LocaleLink, SectionHeading } from "@/components/ui";
 import {
   listLabs,
@@ -12,6 +13,7 @@ import { formatDate } from "@/lib/i18n";
 import { projectKicker } from "@/lib/labels";
 import { parseLocale } from "@/lib/params";
 import { site } from "@/lib/site";
+import { topicBoard } from "@/lib/signallab";
 
 export default async function HomePage({
   params,
@@ -24,6 +26,10 @@ export default async function HomePage({
   const labs = listLabs(locale);
   const writing = listWriting(locale);
   const signals = listObserve(locale);
+  const signalBoard = topicBoard(signals.map((item) => item.content_id));
+  const signalTitles = Object.fromEntries(
+    signals.map((item) => [item.content_id, item.title]),
+  );
   const exploring = listLearning(locale)
     .filter((item) => item.stage === "exploring")
     .slice(0, 4);
@@ -130,6 +136,21 @@ export default async function HomePage({
 
       <section className="py-14">
         <SectionHeading index="04" label={dict.home.signals} />
+        {signalBoard ? (
+          <>
+            <ObserveBoard
+              locale={locale}
+              board={signalBoard}
+              titles={signalTitles}
+              className="mb-6 max-w-3xl"
+            />
+            <p className="mb-8 font-mono text-xs uppercase tracking-wider">
+              <LocaleLink locale={locale} href="/observe" className="text-lab hover:text-ink">
+                {dict.home.signalsMore}
+              </LocaleLink>
+            </p>
+          </>
+        ) : null}
         {signals.length ? (
           <div className="grid gap-4 md:grid-cols-2">
             {signals.map((item) => (

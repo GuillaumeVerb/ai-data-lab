@@ -7,14 +7,16 @@ export function ObserveBoard({
   locale,
   board,
   titles,
+  className = "mb-12 max-w-3xl",
 }: {
   locale: Locale;
   board: SignalLabTopicBoard;
   titles: Record<string, string>;
+  className?: string;
 }) {
   const dict = getDictionary(locale);
   return (
-    <section className="mb-12 max-w-3xl border border-line bg-canvas-elevated/40 p-5">
+    <section className={`border border-line bg-canvas-elevated/40 p-5 ${className}`}>
       <p className="font-mono text-[11px] tracking-[0.16em] text-signal uppercase">
         {dict.observe.board} · {board.day}
       </p>
@@ -63,10 +65,10 @@ export function ObserveBoard({
 }
 
 function sourceLabel(sourceId: string, dict: ReturnType<typeof getDictionary>) {
-  if (sourceId === "arxiv") return dict.observe.sourceArxiv;
-  if (sourceId === "github-search") return dict.observe.sourceGithub;
-  if (sourceId === "hacker-news") return dict.observe.sourceHn;
-  if (sourceId === "huggingface") return dict.observe.sourceHf;
+  if (sourceId === "arxiv") return dict.observe.sourceArxivShort;
+  if (sourceId === "github-search") return dict.observe.sourceGithubShort;
+  if (sourceId === "hacker-news") return dict.observe.sourceHnShort;
+  if (sourceId === "huggingface") return dict.observe.sourceHfShort;
   return sourceId;
 }
 
