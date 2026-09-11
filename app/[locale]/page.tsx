@@ -61,6 +61,13 @@ export default async function HomePage({
           >
             {dict.home.ctaSecondary}
           </LocaleLink>
+          <LocaleLink
+            locale={locale}
+            href="/about"
+            className="px-5 py-2.5 text-sm text-lab hover:text-ink"
+          >
+            {dict.nav.about}
+          </LocaleLink>
         </div>
       </section>
 
@@ -205,6 +212,9 @@ export default async function HomePage({
             </a>
             <a href={site.linkedin} className="text-lab hover:text-ink">
               LinkedIn
+            </a>
+            <a href={site.malt} className="text-lab hover:text-ink">
+              Malt
             </a>
           </div>
         </div>

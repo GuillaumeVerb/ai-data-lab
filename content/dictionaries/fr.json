@@ -22,7 +22,7 @@
   "home": {
     "eyebrow": "Data → AI Agents → Physical AI",
     "title": "Un laboratoire public pour les systèmes intelligents.",
-    "lead": "Veille, apprentissage, expériences et construction — transformés en preuves, pas en slogans. Le CV n’est qu’un composant du système.",
+    "lead": "Veille, apprentissage, expériences et construction, documentés en public. Socle Data depuis 2014, direction agents et physical AI.",
     "ctaPrimary": "Voir les projets",
     "ctaSecondary": "Lire le Lab",
     "featured": "Projets",
@@ -32,7 +32,7 @@
     "signalsMore": "Détail par source sur Observe",
     "writing": "Writing",
     "background": "Trajectoire",
-    "backgroundBody": "Guillaume Verbiguié, Paris. Pratique Data depuis 2014 (analyste / scientist / senior analyst : secteur public, banque, retail, études) comme socle. Les Labs et projets publics montrent la suite : agents, RAG, direction Physical AI.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. Senior Data Analyst chez AdvanThink depuis 2023, après Ipsos (2018–2022). Pratique Data depuis 2014 — secteur public, banque, retail, études. Les Labs et projets publics montrent la suite : agents, RAG, direction Physical AI.",
     "empty": "Pas encore de contenu publié dans cette locale."
   },
   "exploring": [

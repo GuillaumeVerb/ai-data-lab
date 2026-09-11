@@ -22,7 +22,7 @@
   "home": {
     "eyebrow": "Data → AI Agents → Physical AI",
     "title": "A public lab for intelligent systems.",
-    "lead": "Research, learning, experiments and builds — turned into evidence, not slogans. The résumé is a component of the system, not its centre.",
+    "lead": "Research, learning, experiments and builds, documented in public. Data foundation since 2014, direction agents and physical AI.",
     "ctaPrimary": "See projects",
     "ctaSecondary": "Read the Lab",
     "featured": "Projects",
@@ -32,7 +32,7 @@
     "signalsMore": "Per-source detail on Observe",
     "writing": "Writing",
     "background": "Trajectory",
-    "backgroundBody": "Guillaume Verbiguié, Paris. Data practice since 2014 (analyst / scientist / senior analyst: public sector, banking, retail, research) as the foundation. Public labs and projects show what comes next: agents, RAG, Physical AI as a direction.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. Senior Data Analyst at AdvanThink since 2023, after Ipsos (2018–2022). Data practice since 2014 — public sector, banking, retail, research. Public labs and projects show what comes next: agents, RAG, Physical AI as a direction.",
     "empty": "No published content in this locale yet."
   },
   "exploring": [
