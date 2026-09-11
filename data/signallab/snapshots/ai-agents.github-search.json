@@ -60,6 +60,35 @@
         "https://github.com/camel-ai/oasis"
       ],
       "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-09-11T10:21:15.296690+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:llm-agents",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 5257,
+        "stars_sum": 241819,
+        "stars_max": 48015,
+        "stars_median": 3195.5,
+        "forks_sum": 28875,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 13
+      },
+      "sample_urls": [
+        "https://github.com/HKUDS/nanobot",
+        "https://github.com/chatanywhere/GPT_API_free",
+        "https://github.com/Fosowl/agenticSeek",
+        "https://github.com/OthmanAdi/planning-with-files",
+        "https://github.com/aiming-lab/AutoResearchClaw",
+        "https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+        "https://github.com/WenyuChiou/awesome-agentic-ai-zh",
+        "https://github.com/camel-ai/oasis"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
     }
   ]
 }
