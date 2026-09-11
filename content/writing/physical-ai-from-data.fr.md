@@ -14,6 +14,7 @@ tags:
   - data
 related_lab_ids:
   - physical-ai-first-notes
+  - vision-digits-baseline
 related_project_ids: []
 scaffold: false
 ---
@@ -35,7 +36,7 @@ Pas d’expérience robotics professionnelle. Pas de run ROS2 publié. PhotoMind
 
 ## Lien avec le Lab
 
-Le lab *Premières notes Physical AI* fixe l’entrée. Decision Copilot et Knowledge Copilot restent des preuves **data / agents / RAG**. Physical AI est la direction, pas le CV actuel.
+Le lab *Premières notes Physical AI* fixe l’entrée. Un premier run pixels est publié : *Un baseline vision mesurable depuis la data* (UCI digits 8×8). Decision Copilot et Knowledge Copilot restent des preuves **data / agents / RAG**. Physical AI est la direction, pas le CV actuel.
 
 ## Piste SignalLab
 

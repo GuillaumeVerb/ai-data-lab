@@ -34,4 +34,4 @@ Evaluable loops (tool → observation → visible failure) versus relabelled cha
 
 ## Current read
 
-Rising in discourse and public repos. Lab evidence remains Decision Copilot, Automation Agent (HITL, a single agent) and the profiling protocol — no published eval suite, no framework ranking.
+Rising in discourse and public repos. Lab evidence remains Decision Copilot, Automation Agent (HITL, a single agent) and the profiling A/B table — no agent eval suite, no framework ranking.

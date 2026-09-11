@@ -15,6 +15,7 @@ tags:
 related_lab_ids:
   - llm-dataset-exploration
   - human-in-the-loop-automation
+  - vision-digits-baseline
 related_writing_ids:
   - agent-vs-workflow
 related_learning_ids:
@@ -33,7 +34,7 @@ Task completion, accuracy, tool-use, cost, latency, hallucinations. Run versioni
 
 ## Current read
 
-Rising: more “evals matter” talk. The public deliverable here is a profiling **protocol** (text vs tool), not a numbered A/B table.
+Rising: more “evals matter” talk. The public deliverable here is a profiling **A/B table** (sample vs tool), not an agent eval suite.
 
 ## SignalLab
 

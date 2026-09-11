@@ -8,13 +8,14 @@ translation_status: adapted
 published: true
 published_at: "2026-09-08"
 updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-08"
+last_reviewed_at: "2026-09-11"
 stage: evidence
 tags:
   - evaluation
 related_lab_ids:
   - llm-dataset-exploration
   - human-in-the-loop-automation
+  - vision-digits-baseline
 related_project_ids:
   - ai-data-investigator
 scaffold: false
@@ -30,4 +31,4 @@ Task completion, accuracy, cost, latency, hallucinations, tool-use. Keep version
 
 ## Evidence
 
-Profiling A/B protocol (not yet numbered) plus HITL automation. No published agent eval suite.
+Profiling A/B **numbered** (sample vs tool, `profile-ab.v1`) plus HITL automation. No published agent eval suite.

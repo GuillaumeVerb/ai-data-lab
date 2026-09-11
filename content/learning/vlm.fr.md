@@ -14,6 +14,7 @@ tags:
   - vlm
 related_lab_ids:
   - physical-ai-first-notes
+  - vision-digits-baseline
 related_project_ids: []
 scaffold: false
 ---
@@ -24,8 +25,8 @@ Un VLM relie des images (et parfois de la vidéo) à du langage. Ce n’est pas 
 
 ## Explication technique
 
-Encodeurs vision + LLM, grounding, OCR multimodal. PhotoMind est privé : ce n’est **pas** une preuve publique.
+Un baseline pixels public existe (UCI digits 8×8, majority vs centroïde). Ce n’est **pas** un VLM. PhotoMind reste privé.
 
 ## Preuves
 
-Aucune démo publique. Voir le lab Physical AI (carte de vocabulaire).
+Baseline pixels public : lab digits 8×8. Pas de VLM fine-tuné. Voir aussi le lab Physical AI (carte de vocabulaire).

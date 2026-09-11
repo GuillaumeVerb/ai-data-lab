@@ -47,6 +47,7 @@ export const labSchema = baseSchema.extend({
   question: z.string().min(1),
   hypothesis: z.string().optional(),
   related_project_ids: z.array(z.string()).default([]),
+  run_id: z.string().optional(),
 });
 
 export const writingSchema = baseSchema.extend({

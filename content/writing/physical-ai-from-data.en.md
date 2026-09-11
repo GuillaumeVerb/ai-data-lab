@@ -14,6 +14,7 @@ tags:
   - data
 related_lab_ids:
   - physical-ai-first-notes
+  - vision-digits-baseline
 related_project_ids: []
 scaffold: false
 ---
@@ -35,7 +36,7 @@ No professional robotics experience. No published ROS2 run. PhotoMind (personal 
 
 ## Lab link
 
-The *First Physical AI notes* lab is the entry. Decision Copilot and Knowledge Copilot remain **data / agents / RAG** evidence. Physical AI is the direction, not the current résumé.
+The *First Physical AI notes* lab is the entry. A first pixel run is public: *A measurable vision baseline from a data seat* (UCI digits 8×8). Decision Copilot and Knowledge Copilot remain **data / agents / RAG** evidence. Physical AI is the direction, not the current résumé.
 
 ## Later, SignalLab
 

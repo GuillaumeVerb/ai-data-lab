@@ -3,7 +3,7 @@ content_id: physical-ai-first-notes
 locale: en
 type: lab
 title: First Physical AI notes from a data seat
-summary: "Entry lab: map VLM / VLA / ROS2 / simulation, without a public robotics run."
+summary: "Entry lab: map VLM / VLA / ROS2 / simulation. The first pixel run is the 8×8 digits lab."
 format: lab
 question: What should a data profile learn first to approach Physical AI?
 hypothesis: Data questions (provenance, eval, cost, drift) transfer. Vocabulary (VLM, VLA, world models) comes before ROS2.
@@ -32,10 +32,12 @@ A useful map:
 
 The same questions as on a CSV apply: where the signal comes from, how error is measured, what it costs.
 
+First public pixel run: lab *A measurable vision baseline from a data seat* (UCI digits 8×8, majority vs centroid).
+
 ## Failure / limit
 
-No public perception-action run. ROS2, simulation and world models are not started here.
+No perception-action run. ROS2, simulation and world models are not started here. The digits baseline is not a VLM.
 
 ## Next
 
-A tiny measurable vision lab (public dataset, metric, baseline), tied to the explainer *Physical AI from a data perspective*.
+Change dataset or task before stacking robotics vocabulary. Tie to the explainer *Physical AI from a data perspective*.

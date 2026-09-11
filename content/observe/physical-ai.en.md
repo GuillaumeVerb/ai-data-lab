@@ -14,6 +14,7 @@ tags:
   - physical-ai
 related_lab_ids:
   - physical-ai-first-notes
+  - vision-digits-baseline
 related_writing_ids:
   - physical-ai-from-data
 related_learning_ids:
@@ -34,4 +35,4 @@ Vocabulary (VLM / VLA), middleware (ROS 2), simulation. The same data questions 
 
 ## Current read
 
-Watching. No public perception-action run here. PhotoMind is a private personal project.
+Watching. No public perception-action run here. A pixel baseline is published (UCI digits 8×8). PhotoMind is a private personal project.

@@ -1,0 +1,43 @@
+{
+  "id": "vision-digits.v1",
+  "kind": "vision-digits",
+  "computed_at": "2026-09-11T20:26:18.548512+00:00",
+  "pipeline_version": "labeval.vision.v1",
+  "method": "UCI Optical Recognition of Handwritten Digits, 8\u00d78 pixels, values 0\u201316. Stratified 80/20 split, seed 20260911. Majority class vs nearest class centroid (Euclidean). Metric = test accuracy. Not a VLM. Not a robot run.",
+  "dataset": {
+    "name": "UCI Optical Recognition of Handwritten Digits (8\u00d78)",
+    "url": "https://archive.ics.uci.edu/dataset/80/optical+recognition+of+handwritten+digits",
+    "n": 1797,
+    "shape": [
+      8,
+      8
+    ],
+    "classes": 10
+  },
+  "split": {
+    "seed": 20260911,
+    "test_ratio": 0.2,
+    "n_train": 1438,
+    "n_test": 359,
+    "majority_class": 1
+  },
+  "class_balance_train": {
+    "0": 142,
+    "1": 146,
+    "2": 142,
+    "3": 146,
+    "4": 145,
+    "5": 146,
+    "6": 145,
+    "7": 143,
+    "8": 139,
+    "9": 144
+  },
+  "metrics": {
+    "majority_accuracy": 0.1003,
+    "centroid_accuracy": 0.9248,
+    "majority_correct": 36,
+    "centroid_correct": 332,
+    "n_test": 359
+  }
+}

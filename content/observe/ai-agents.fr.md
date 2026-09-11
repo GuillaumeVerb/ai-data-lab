@@ -34,4 +34,4 @@ Boucles évaluables (outil → observation → échec visible) versus chatbots r
 
 ## Lecture actuelle
 
-Rising côté discours et repos publics. Les preuves du Lab restent Decision Copilot, Automation Agent (HITL, un seul agent) et le protocole de profilage — pas une eval suite publiée, pas de ranking de frameworks.
+Rising côté discours et repos publics. Les preuves du Lab restent Decision Copilot, Automation Agent (HITL, un seul agent) et le tableau A/B de profilage — pas une eval suite agents, pas de ranking de frameworks.

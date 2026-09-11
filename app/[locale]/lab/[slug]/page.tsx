@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MarkdownBody, ScaffoldNote } from "@/components/MarkdownBody";
+import { LabRunSnapshot } from "@/components/LabRunSnapshot";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Container } from "@/components/ui";
 import {
@@ -13,6 +14,7 @@ import {
 import { getDictionary } from "@/lib/dictionary";
 import { locales } from "@/lib/i18n";
 import { parseLocale } from "@/lib/params";
+import { getLabRun } from "@/lib/labeval";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -55,6 +57,7 @@ export default async function LabDetailPage({ params }: Props) {
   const relatedLearning = listLearning(locale).filter((node) =>
     node.related_lab_ids.includes(item.content_id),
   );
+  const run = getLabRun(item.run_id);
 
   return (
     <Container className="py-14 sm:py-20">
@@ -71,6 +74,7 @@ export default async function LabDetailPage({ params }: Props) {
         </p>
       ) : null}
       {item.scaffold ? <ScaffoldNote text={dict.common.scaffold} /> : null}
+      {run ? <LabRunSnapshot locale={locale} run={run} /> : null}
       <MarkdownBody content={item.body} />
       <RelatedLinks
         locale={locale}

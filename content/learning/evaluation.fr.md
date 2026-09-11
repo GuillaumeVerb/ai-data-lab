@@ -8,13 +8,14 @@ translation_status: original
 published: true
 published_at: "2026-09-08"
 updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-08"
+last_reviewed_at: "2026-09-11"
 stage: evidence
 tags:
   - evaluation
 related_lab_ids:
   - llm-dataset-exploration
   - human-in-the-loop-automation
+  - vision-digits-baseline
 related_project_ids:
   - ai-data-investigator
 scaffold: false
@@ -30,4 +31,4 @@ Task completion, exactitude, coût, latence, hallucinations, tool-use. Conserver
 
 ## Preuves
 
-Protocole A/B profilage (pas encore chiffré) + HITL automation. Pas de suite d’eval agents publiée.
+Protocole A/B profilage **chiffré** (échantillon vs outil, `profile-ab.v1`) + HITL automation. Pas de suite d’eval agents publiée.

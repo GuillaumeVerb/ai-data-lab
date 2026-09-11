@@ -1,0 +1,91 @@
+{
+  "id": "profile-ab.v1",
+  "kind": "profile-ab",
+  "computed_at": "2026-09-11T20:34:12.785951+00:00",
+  "pipeline_version": "labeval.profile.v1",
+  "method": "A = descriptives on the first 8 rows (text-context sample). B = descriptives on the full file (profiling tool). Error = |pred \u2212 truth| / |truth| for numeric fields; 0/1 for city_mode. Best case for text-only, not an LLM run. Not a trend score.",
+  "n": 240,
+  "sample_size": 8,
+  "seed": 20260911,
+  "csv": "data/labeval/transactions.v1.csv",
+  "rows": [
+    {
+      "stat": "n",
+      "truth": 240,
+      "a": 8,
+      "a_error": 0.9667,
+      "b": 240,
+      "b_error": 0.0
+    },
+    {
+      "stat": "amount_mean",
+      "truth": 22.432,
+      "a": 98.1988,
+      "a_error": 3.3776,
+      "b": 22.432,
+      "b_error": 0.0
+    },
+    {
+      "stat": "amount_min",
+      "truth": 3.0,
+      "a": 80.61,
+      "a_error": 25.87,
+      "b": 3.0,
+      "b_error": 0.0
+    },
+    {
+      "stat": "amount_max",
+      "truth": 149.66,
+      "a": 112.36,
+      "a_error": 0.2492,
+      "b": 149.66,
+      "b_error": 0.0
+    },
+    {
+      "stat": "age_mean",
+      "truth": 44.8708,
+      "a": 31.0,
+      "a_error": 0.3091,
+      "b": 44.8708,
+      "b_error": 0.0
+    },
+    {
+      "stat": "rating_null_rate",
+      "truth": 0.1208,
+      "a": 0.0,
+      "a_error": 1.0,
+      "b": 0.1208,
+      "b_error": 0.0
+    },
+    {
+      "stat": "rating_mean",
+      "truth": 3.019,
+      "a": 5.0,
+      "a_error": 0.6562,
+      "b": 3.019,
+      "b_error": 0.0
+    },
+    {
+      "stat": "city_nunique",
+      "truth": 4,
+      "a": 1,
+      "a_error": 0.75,
+      "b": 4,
+      "b_error": 0.0
+    },
+    {
+      "stat": "city_mode",
+      "truth": "Paris",
+      "a": "Paris",
+      "a_error": 0.0,
+      "b": "Paris",
+      "b_error": 0.0
+    }
+  ],
+  "summary": {
+    "a_mean_error": 3.6865,
+    "b_mean_error": 0.0,
+    "a_mean_capped_error": 0.659,
+    "b_mean_capped_error": 0.0
+  }
+}

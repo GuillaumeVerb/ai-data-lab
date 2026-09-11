@@ -3,7 +3,7 @@ content_id: physical-ai-first-notes
 locale: fr
 type: lab
 title: Premières notes Physical AI depuis la data
-summary: "Lab d’entrée : carte VLM / VLA / ROS2 / simulation, sans run robotics public."
+summary: "Lab d’entrée : carte VLM / VLA / ROS2 / simulation. Le premier run pixels est le lab digits 8×8."
 format: lab
 question: Qu’est-ce qu’un profil data doit apprendre en premier pour aborder Physical AI ?
 hypothesis: Les questions data (provenance, eval, coût, dérive) se transposent. Le vocabulaire (VLM, VLA, world models) vient avant ROS2.
@@ -32,10 +32,12 @@ Carte utile :
 
 Les mêmes questions que sur un CSV s’appliquent : d’où vient le signal, comment on mesure l’erreur, ce que ça coûte.
 
+Premier run public sur des pixels : lab *Un baseline vision mesurable depuis la data* (UCI digits 8×8, majority vs centroïde).
+
 ## Échec / limite
 
-Aucun run perception-action public. ROS2, simulation et world models pas commencés ici.
+Aucun run perception-action. ROS2, simulation et world models pas commencés ici. Le baseline digits n’est pas un VLM.
 
 ## Suite
 
-Un micro-lab vision mesurable (dataset public, métrique, baseline), relié à l’explainer *Physical AI vu depuis la data*.
+Changer de dataset ou de tâche avant d’empiler du vocabulaire robotics. Relier à l’explainer *Physical AI vu depuis la data*.
