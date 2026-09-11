@@ -155,3 +155,36 @@ export function getLatestObservations(topicId: string): SignalLabObservation[] {
     .map((item) => item.observations.at(-1))
     .filter((item): item is SignalLabObservation => Boolean(item));
 }
+
+export type SignalLabTopicBoard = {
+  day: string;
+  sources: string[];
+  rows: Array<{ topicId: string; values: Array<number | null> }>;
+};
+
+export function topicBoard(topicIds: string[]): SignalLabTopicBoard | null {
+  const byTopic = topicIds.map((topicId) => ({
+    topicId,
+    series: getTopicSeries(topicId),
+  }));
+  const days = new Set<string>();
+  for (const item of byTopic) {
+    for (const day of utcDaysInSeries(item.series)) days.add(day);
+  }
+  const day = [...days].sort().at(-1);
+  if (!day) return null;
+
+  const sources = [...signalSourceOrder];
+  return {
+    day,
+    sources,
+    rows: byTopic.map(({ topicId, series }) => ({
+      topicId,
+      values: sources.map((sourceId) => {
+        const source = series.find((item) => item.source_id === sourceId);
+        if (!source) return null;
+        return observationOnUtcDay(source, day)?.metrics.total_count ?? null;
+      }),
+    })),
+  };
+}
