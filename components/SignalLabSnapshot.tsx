@@ -205,6 +205,12 @@ function SourceMetrics({
       <p className="font-mono text-[11px] tracking-[0.14em] text-lab uppercase">
         {sourceLabel}
       </p>
+      {observation.query ? (
+        <p className="mt-2 font-mono text-[11px] text-mute">
+          {dict.observe.query}{" "}
+          <span className="break-all text-ink">{observation.query}</span>
+        </p>
+      ) : null}
       <dl className="mt-3 grid grid-cols-2 gap-3 font-mono text-xs text-ink sm:grid-cols-3">
         {observation.source_id === "arxiv" ? (
           <>
@@ -243,6 +249,15 @@ function SourceMetrics({
           </>
         )}
       </dl>
+      <CollectSample urls={observation.sample_urls} dict={dict} />
+      {observation.assumptions ? (
+        <p className="mt-3 text-sm leading-6 text-mute">
+          <span className="font-mono text-[11px] uppercase tracking-wider">
+            {dict.observe.method}
+          </span>{" "}
+          {observation.assumptions}
+        </p>
+      ) : null}
       <HistoryTable
         locale={locale}
         observations={series.observations}
@@ -296,6 +311,62 @@ function HistoryTable({
       </table>
     </div>
   );
+}
+
+const SAMPLE_LIMIT = 5;
+
+function CollectSample({
+  urls,
+  dict,
+}: {
+  urls: string[];
+  dict: ReturnType<typeof getDictionary>;
+}) {
+  const samples = urls.slice(0, SAMPLE_LIMIT);
+  if (!samples.length) return null;
+  return (
+    <div className="mt-4">
+      <p className="font-mono text-[11px] uppercase tracking-wider text-mute">
+        {dict.observe.samples}
+      </p>
+      <p className="mt-1 text-sm leading-6 text-mute">{dict.observe.samplesNote}</p>
+      <ul className="mt-2 space-y-1 font-mono text-[11px]">
+        {samples.map((url) => (
+          <li key={url}>
+            <a
+              href={url}
+              className="break-all text-lab hover:text-ink"
+              rel="noreferrer"
+              target="_blank"
+            >
+              {sampleLabel(url)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function sampleLabel(url: string): string {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname === "github.com") {
+      return parsed.pathname.replace(/^\/|\/$/g, "");
+    }
+    if (parsed.hostname === "arxiv.org") {
+      return parsed.pathname.replace(/^\/abs\//, "");
+    }
+    if (parsed.hostname === "huggingface.co") {
+      return parsed.pathname.replace(/^\/|\/$/g, "");
+    }
+    const host = parsed.hostname.replace(/^www\./, "");
+    const path = parsed.pathname === "/" ? "" : parsed.pathname.replace(/\/$/, "");
+    const label = `${host}${path}`;
+    return label.length > 56 ? `${label.slice(0, 53)}…` : label;
+  } catch {
+    return url;
+  }
 }
 
 function formatMetric(value: number | undefined) {

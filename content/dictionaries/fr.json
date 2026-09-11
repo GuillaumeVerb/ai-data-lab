@@ -114,6 +114,10 @@
     "downloadsMedian": "Downloads médiane",
     "downloadsMax": "Downloads max",
     "updated7": "Maj ≤ 7 j",
+    "query": "Requête",
+    "samples": "Exemples du collect",
+    "samplesNote": "Documents du dernier collect, pas un ranking.",
+    "method": "Méthode",
     "collected": "Collecté"
   },
   "experience": {

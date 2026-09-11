@@ -114,6 +114,10 @@
     "authors": "Unique authors",
     "published7": "Published ≤ 7d",
     "published30": "Published ≤ 30d",
+    "query": "Query",
+    "samples": "Collect sample",
+    "samplesNote": "Documents from the latest collect, not a ranking.",
+    "method": "Method",
     "collected": "Collected"
   },
   "experience": {
