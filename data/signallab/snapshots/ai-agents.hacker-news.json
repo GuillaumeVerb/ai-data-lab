@@ -63,13 +63,13 @@
     },
     {
       "topic_id": "ai-agents",
-      "observed_at": "2026-09-11T10:21:54.049791+00:00",
+      "observed_at": "2026-09-11T15:21:28.660883+00:00",
       "source_id": "hacker-news",
       "pipeline_version": "signallab.hn.v1",
       "query": "LLM agents",
       "metrics": {
         "sample_size": 30,
-        "total_count": 3870,
+        "total_count": 3871,
         "points_sum": 4636,
         "points_max": 447,
         "points_median": 114.0,

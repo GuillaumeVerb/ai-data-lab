@@ -3,14 +3,16 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from signallab import GITHUB_SOURCE_ID
-from signallab.schema import CollectedDocument, Observation, TopicSnapshot
+from signallab import EMBED_PIPELINE, GITHUB_SOURCE_ID, LEXICON_METHOD
+from signallab.schema import CollectedDocument, LexiconDay, LexiconStore, Observation, TopicSnapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "signallab"
 RAW_DIR = DATA / "raw"
 SNAPSHOT_DIR = DATA / "snapshots"
+LEXICON_PATH = DATA / "lexicon.json"
 MAX_OBSERVATIONS = 30
+MAX_LEXICON_DAYS = 30
 
 
 def _safe_name(external_id: str) -> str:
@@ -96,3 +98,26 @@ def _topic_files(topic_id: str) -> list[Path]:
     if legacy.exists():
         files = [legacy, *files]
     return files
+
+
+def load_lexicon() -> LexiconStore:
+    if not LEXICON_PATH.exists():
+        return LexiconStore(pipeline_version=EMBED_PIPELINE, method=LEXICON_METHOD, days=[])
+    return LexiconStore.model_validate_json(LEXICON_PATH.read_text(encoding="utf8"))
+
+
+def append_lexicon_day(day: LexiconDay) -> LexiconStore:
+    DATA.mkdir(parents=True, exist_ok=True)
+    store = load_lexicon()
+    by_day = {item.day: item for item in store.days}
+    by_day[day.day] = day
+    store.days = [by_day[key] for key in sorted(by_day)][-MAX_LEXICON_DAYS:]
+    store.pipeline_version = day.pipeline_version
+    store.method = day.method
+    LEXICON_PATH.write_text(store.model_dump_json(indent=2) + "\n", encoding="utf8")
+    return store
+
+
+def latest_lexicon_day() -> LexiconDay | None:
+    days = load_lexicon().days
+    return days[-1] if days else None

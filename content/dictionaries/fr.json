@@ -72,7 +72,7 @@
   },
   "observe": {
     "title": "Observe",
-    "lead": "Signaux manuels en V1. Quatre sources, même jour UTC : volumes bruts, pas un score.",
+    "lead": "Quatre sources, même jour UTC : volumes bruts et vocabulaire du collect. Le statut éditorial reste manuel.",
     "manual": "Manuel",
     "status": {
       "watching": "Watching",
@@ -126,7 +126,15 @@
     "samples": "Exemples du collect",
     "samplesNote": "Documents du dernier collect, pas un ranking.",
     "method": "Méthode",
-    "collected": "Collecté"
+    "collected": "Collecté",
+    "lexicon": "Vocabulaire",
+    "lexiconNote": "TF-IDF sur titres et descriptions du dernier échantillon. Chevauchement lexical entre topics, pas un score de tendance.",
+    "lexiconTerms": "Termes distinctifs",
+    "lexiconShared": "Termes partagés",
+    "lexiconNearest": "Proche (lexical)",
+    "lexiconDocs": "{n} documents",
+    "lexiconClusters": "Groupes lexicaux",
+    "lexiconClustersNote": "Documents du même échantillon qui partagent des termes. Pas un ranking."
   },
   "experience": {
     "title": "Parcours",

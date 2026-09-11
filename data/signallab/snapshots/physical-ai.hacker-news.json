@@ -63,13 +63,13 @@
     },
     {
       "topic_id": "physical-ai",
-      "observed_at": "2026-09-11T10:21:56.249555+00:00",
+      "observed_at": "2026-09-11T15:21:31.048401+00:00",
       "source_id": "hacker-news",
       "pipeline_version": "signallab.hn.v1",
       "query": "physical intelligence",
       "metrics": {
         "sample_size": 30,
-        "total_count": 147,
+        "total_count": 148,
         "points_sum": 991,
         "points_max": 308,
         "points_median": 4.0,

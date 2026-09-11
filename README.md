@@ -76,7 +76,7 @@ Contenu versionné dans `content/` : un fichier par locale, même `content_id`.
 
 ### SignalLab (local)
 
-Collecteurs GitHub (topics), arXiv (papers), Hacker News (stories) et Hugging Face (modèles) pour les 5 topics Observe. Métriques brutes uniquement — **pas de score LLM**.
+Collecteurs GitHub (topics), arXiv (papers), Hacker News (stories) et Hugging Face (modèles) pour les 5 topics Observe. Métriques brutes uniquement — **pas de score LLM**. Après chaque collect, SignalLab écrit aussi un vocabulaire TF-IDF (`data/signallab/lexicon.json`) : termes distinctifs, chevauchement lexical entre topics, groupes de documents. Ce n’est pas un embedding neuronal ni un score de tendance.
 
 ```bash
 python3 -m venv .venv
@@ -85,12 +85,13 @@ pip install -r requirements.txt
 python -m pytest
 python -m signallab collect                      # GitHub + arXiv + HN + Hugging Face
 python -m signallab collect --source huggingface # une source
+python -m signallab embed                   # rebuild TF-IDF from persisted raw docs
 python -m signallab serve                   # GET http://127.0.0.1:8000/v1/signals
 ```
 
 `GITHUB_TOKEN` est optionnel (quota Search plus élevé). arXiv : 3 s entre les requêtes. Les payloads bruts sont gitignorés ; les snapshots d’observations peuvent être versionnés pour que Observe les affiche. Observe montre le dernier collect et la série brute (un point par jour UTC) — un point n’est pas une tendance.
 
-Une Action GitHub (`SignalLab collect`) relance les 4 sources tous les jours à 06:00 UTC et commit uniquement `data/signallab/snapshots/`. Lancement manuel : onglet Actions → SignalLab collect → Run workflow. Le dépôt doit autoriser `contents: write` (Settings → Actions → Workflow permissions). `SIGNALLAB_PERSIST_RAW=0` évite d’écrire les payloads bruts sur le runner.
+Une Action GitHub (`SignalLab collect`) relance les 4 sources tous les jours à 06:00 UTC et commit `data/signallab/snapshots/` plus `data/signallab/lexicon.json`. Lancement manuel : onglet Actions → SignalLab collect → Run workflow. Le dépôt doit autoriser `contents: write` (Settings → Actions → Workflow permissions). `SIGNALLAB_PERSIST_RAW=0` évite d’écrire les payloads bruts sur le runner.
 
 ## Déployer (Vercel)
 

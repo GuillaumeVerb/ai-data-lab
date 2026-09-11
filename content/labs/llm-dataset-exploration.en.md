@@ -10,7 +10,7 @@ hypothesis: Without a tool the model will invent plausible distributions. With a
 translation_status: adapted
 published: true
 published_at: "2026-03-30"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - evaluation
   - data
@@ -32,11 +32,11 @@ Intended score: distance to stats computed outside the LLM. A summary that merel
 
 ## Result
 
-No A/B table is published here. Current deliverable: the protocol, plus Copilot’s split between profiling and storytelling. Until a versioned run exists, I will not invent percentages.
+No versioned A/B table is published here. The public deliverable is the protocol, plus Copilot’s split between profiling and storytelling.
 
 ## Failure / limit
 
-Without an error score we fall back to impressions. Decision Copilot remains a demo workflow, not an eval suite.
+Without an error score the reading stays qualitative. Decision Copilot is a demo workflow, not an eval suite.
 
 ## Next
 

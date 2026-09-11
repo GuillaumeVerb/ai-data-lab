@@ -63,13 +63,13 @@
     },
     {
       "topic_id": "ai-evaluation",
-      "observed_at": "2026-09-11T10:21:55.153941+00:00",
+      "observed_at": "2026-09-11T15:21:29.832154+00:00",
       "source_id": "hacker-news",
       "pipeline_version": "signallab.hn.v1",
       "query": "LLM eval",
       "metrics": {
         "sample_size": 30,
-        "total_count": 1436,
+        "total_count": 1438,
         "points_sum": 2341,
         "points_max": 534,
         "points_median": 30.0,

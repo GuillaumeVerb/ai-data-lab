@@ -3,13 +3,13 @@ content_id: ai-evaluation
 locale: en
 type: observe
 title: AI Evaluation
-summary: "Manual signal: without a failure metric, an AI system is only a story. The topic is rising; public suites are still scarce."
+summary: "Without a failure metric, an AI system is only a story. The topic is rising; public suites are still scarce."
 status: rising
 manual: true
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - evaluation
 related_lab_ids:
@@ -33,8 +33,8 @@ Task completion, accuracy, tool-use, cost, latency, hallucinations. Run versioni
 
 ## Current read
 
-Rising: more “evals matter” talk. The public deliverable here is a profiling **protocol** (text vs tool), not a numbered A/B table. I do not invent percentages.
+Rising: more “evals matter” talk. The public deliverable here is a profiling **protocol** (text vs tool), not a numbered A/B table.
 
-## Later, SignalLab
+## SignalLab
 
-Early-signal precision, not a vibe check. Until collection exists, this page stays manual.
+Daily volumes on four sources, plus the collect’s TF-IDF vocabulary. Interpretable scores stay V2.5. Editorial status on this page stays manual.

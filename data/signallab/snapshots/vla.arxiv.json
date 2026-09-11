@@ -55,7 +55,7 @@
     },
     {
       "topic_id": "vla",
-      "observed_at": "2026-09-11T10:21:34.977784+00:00",
+      "observed_at": "2026-09-11T15:21:24.958129+00:00",
       "source_id": "arxiv",
       "pipeline_version": "signallab.arxiv.v1",
       "query": "all:\"vision-language-action\" OR all:\"vision language action\"",

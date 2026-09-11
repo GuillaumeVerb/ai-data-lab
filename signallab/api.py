@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException
 
 from signallab import PIPELINE_VERSION
-from signallab.store import latest_observations, load_topic_snapshots
+from signallab.store import latest_lexicon_day, latest_observations, load_topic_snapshots
 from signallab.topics import TOPICS
 
 app = FastAPI(title="SignalLab", version=PIPELINE_VERSION)
@@ -21,6 +21,8 @@ def get_topic(topic_id: str) -> dict:
     snapshots = load_topic_snapshots(topic_id)
     observations = [item for snapshot in snapshots for item in snapshot.observations]
     history_start = observations[0].observed_at if observations else None
+    lexicon = latest_lexicon_day()
+    topic_lexicon = lexicon.topics.get(topic_id) if lexicon else None
     return {
         "topic": {
             "id": topic_id,
@@ -28,6 +30,9 @@ def get_topic(topic_id: str) -> dict:
             "history_start": history_start,
         },
         "observations": [item.model_dump() for item in observations],
+        "lexicon": topic_lexicon.model_dump() if topic_lexicon else None,
+        "lexicon_method": lexicon.method if lexicon else None,
+        "scores": None,
     }
 
 

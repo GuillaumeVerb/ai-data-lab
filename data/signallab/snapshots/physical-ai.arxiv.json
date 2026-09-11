@@ -55,7 +55,7 @@
     },
     {
       "topic_id": "physical-ai",
-      "observed_at": "2026-09-11T10:21:31.438310+00:00",
+      "observed_at": "2026-09-11T15:21:21.692772+00:00",
       "source_id": "arxiv",
       "pipeline_version": "signallab.arxiv.v1",
       "query": "all:\"physical AI\" OR all:\"physical intelligence\"",

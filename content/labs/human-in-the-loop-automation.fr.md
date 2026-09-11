@@ -3,14 +3,14 @@ content_id: human-in-the-loop-automation
 locale: fr
 type: lab
 title: Un agent d’automatisation sans action irréversible
-summary: "MVP public : triage, extraction, score d’automation, validation humaine. Tool use, pas un multi-agent."
+summary: "MVP public : triage, extraction, score d’automation, validation humaine. Tool use, un seul agent."
 format: lab
 question: Peut-on rendre un workflow IA utile sans lui laisser exécuter d’actions externes irréversibles ?
 hypothesis: Un mode suggestion / assisted, avec timeline et feedback, suffit pour un MVP crédible. L’autonomie totale n’est pas le premier livrable.
 translation_status: original
 published: true
 published_at: "2026-04-03"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - agents
   - tool-use
@@ -29,12 +29,12 @@ Modes d’autonomie documentés : `suggestion_only`, `assisted`, `low_risk_auto`
 
 ## Résultat
 
-Le système existe comme MVP local démontrable : UI cockpit (input, timeline, artefacts), persistance des runs et feedbacks, explainability panel. Ce n’est **pas** un serveur MCP, ni un multi-agent.
+MVP local démontrable : UI cockpit (input, timeline, artefacts), persistance des runs et feedbacks, explainability panel. Architecture : un agent, tool use, pas un serveur MCP.
 
 ## Échec / limite
 
-Pas de mesure publiée de tool-use correctness ni de taux de fausses autonomies. Le « automation score » est une heuristique interne, pas un benchmark Lab. Pas d’intégration Gmail/Slack réelle dans le README.
+Pas de mesure publiée de tool-use correctness ni de taux de fausses autonomies. L’automation score est une heuristique interne. Pas d’intégration Gmail/Slack réelle dans le README.
 
 ## Suite
 
-Traiter ce repo comme preuve de **tool use + human-in-the-loop**. MCP (connecteurs, serveurs) reste un nœud Learning « exploring », pas une compétence revendiquée.
+Mesurer tool-use correctness et le taux de fausses autonomies. MCP (connecteurs, serveurs) reste un nœud Learning « exploring ».

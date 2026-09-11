@@ -3,14 +3,14 @@ content_id: physical-ai-first-notes
 locale: en
 type: lab
 title: First Physical AI notes from a data seat
-summary: "Entry lab: map VLM / VLA / ROS2 / simulation with no robotics run. No expert title."
+summary: "Entry lab: map VLM / VLA / ROS2 / simulation, without a public robotics run."
 format: lab
-question: What should a data profile learn first for Physical AI without telling itself a story?
+question: What should a data profile learn first to approach Physical AI?
 hypothesis: Data questions (provenance, eval, cost, drift) transfer. Vocabulary (VLM, VLA, world models) comes before ROS2.
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - physical-ai
   - vlm
@@ -20,7 +20,7 @@ scaffold: false
 
 ## Setup
 
-No robot, no published sim. Reading plus a mental map, and a still-**private** multimodal personal project (PhotoMind: library, clustering, search). Until it is public, it is not Lab evidence.
+No robot, no published sim. Reading plus a mental map. PhotoMind (library, clustering, search) stays a **private** personal project.
 
 ## Result
 
@@ -34,8 +34,8 @@ The same questions as on a CSV apply: where the signal comes from, how error is 
 
 ## Failure / limit
 
-No perception-action run. No ROS2. PhotoMind does not count as public evidence. This is an honest entry lab, not a flagship.
+No public perception-action run. ROS2, simulation and world models are not started here.
 
 ## Next
 
-A tiny measurable vision lab (public dataset, metric, baseline) before any expertise claim. Tie to the explainer *Physical AI from a data perspective*.
+A tiny measurable vision lab (public dataset, metric, baseline), tied to the explainer *Physical AI from a data perspective*.

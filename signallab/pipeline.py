@@ -26,9 +26,11 @@ from signallab.metrics import (
     compute_repo_metrics,
     compute_story_metrics,
 )
+from signallab.embed import build_lexicon_day
 from signallab.normalize import normalize_model, normalize_paper, normalize_repo, normalize_story
-from signallab.schema import Observation
-from signallab.store import append_observation, save_document
+from signallab.schema import CollectedDocument, Observation
+from signallab.store import append_lexicon_day, append_observation, save_document
+from signallab.texts import texts_from_docs
 from signallab.topics import TOPICS, topic_ids
 
 GITHUB_ASSUMPTIONS = (
@@ -54,20 +56,20 @@ HF_ASSUMPTIONS = (
 )
 
 
-def collect_github_topic(topic_id: str, *, token: str | None = None, persist_raw: bool = True) -> Observation:
+def collect_github_topic(
+    topic_id: str,
+    *,
+    token: str | None = None,
+    persist_raw: bool = True,
+    bag: dict[str, list[str]] | None = None,
+) -> Observation:
     query = TOPICS[topic_id][GITHUB_SOURCE_ID]
     payload = search_repositories(query, token=token)
     items = [item for item in payload.get("items", []) if isinstance(item, dict)]
     collected_at = datetime.now(timezone.utc).isoformat()
-    seen: set[str] = set()
-
-    if persist_raw:
-        for item in items:
-            doc = normalize_repo(item, collected_at, topic_id, query)
-            if doc.external_id in seen:
-                continue
-            seen.add(doc.external_id)
-            save_document(doc)
+    docs = [normalize_repo(item, collected_at, topic_id, query) for item in items]
+    _persist_docs(docs, persist_raw)
+    _extend_bag(bag, topic_id, docs)
 
     observation = Observation(
         topic_id=topic_id,
@@ -82,20 +84,19 @@ def collect_github_topic(topic_id: str, *, token: str | None = None, persist_raw
     return append_observation(observation).observations[-1]
 
 
-def collect_arxiv_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
+def collect_arxiv_topic(
+    topic_id: str,
+    *,
+    persist_raw: bool = True,
+    bag: dict[str, list[str]] | None = None,
+) -> Observation:
     query = TOPICS[topic_id][ARXIV_SOURCE_ID]
     payload = search_papers(query)
     items = [item for item in payload.get("items", []) if isinstance(item, dict)]
     collected_at = datetime.now(timezone.utc).isoformat()
-    seen: set[str] = set()
-
-    if persist_raw:
-        for item in items:
-            doc = normalize_paper(item, collected_at, topic_id, query)
-            if doc.external_id in seen:
-                continue
-            seen.add(doc.external_id)
-            save_document(doc)
+    docs = [normalize_paper(item, collected_at, topic_id, query) for item in items]
+    _persist_docs(docs, persist_raw)
+    _extend_bag(bag, topic_id, docs)
 
     observation = Observation(
         topic_id=topic_id,
@@ -110,20 +111,19 @@ def collect_arxiv_topic(topic_id: str, *, persist_raw: bool = True) -> Observati
     return append_observation(observation).observations[-1]
 
 
-def collect_hn_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
+def collect_hn_topic(
+    topic_id: str,
+    *,
+    persist_raw: bool = True,
+    bag: dict[str, list[str]] | None = None,
+) -> Observation:
     query = TOPICS[topic_id][HN_SOURCE_ID]
     payload = search_stories(query)
     items = [item for item in payload.get("items", []) if isinstance(item, dict)]
     collected_at = datetime.now(timezone.utc).isoformat()
-    seen: set[str] = set()
-
-    if persist_raw:
-        for item in items:
-            doc = normalize_story(item, collected_at, topic_id, query)
-            if doc.external_id in seen:
-                continue
-            seen.add(doc.external_id)
-            save_document(doc)
+    docs = [normalize_story(item, collected_at, topic_id, query) for item in items]
+    _persist_docs(docs, persist_raw)
+    _extend_bag(bag, topic_id, docs)
 
     observation = Observation(
         topic_id=topic_id,
@@ -142,20 +142,19 @@ def collect_hn_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
     return append_observation(observation).observations[-1]
 
 
-def collect_hf_topic(topic_id: str, *, persist_raw: bool = True) -> Observation:
+def collect_hf_topic(
+    topic_id: str,
+    *,
+    persist_raw: bool = True,
+    bag: dict[str, list[str]] | None = None,
+) -> Observation:
     query = TOPICS[topic_id][HF_SOURCE_ID]
     payload = search_models(query)
     items = [item for item in payload.get("items", []) if isinstance(item, dict)]
     collected_at = datetime.now(timezone.utc).isoformat()
-    seen: set[str] = set()
-
-    if persist_raw:
-        for item in items:
-            doc = normalize_model(item, collected_at, topic_id, query)
-            if doc.external_id in seen:
-                continue
-            seen.add(doc.external_id)
-            save_document(doc)
+    docs = [normalize_model(item, collected_at, topic_id, query) for item in items]
+    _persist_docs(docs, persist_raw)
+    _extend_bag(bag, topic_id, docs)
 
     observation = Observation(
         topic_id=topic_id,
@@ -195,24 +194,60 @@ def collect_all(
         raise ValueError(f"Unknown source(s): {', '.join(bad_sources)}")
 
     raw = persist_raw_enabled()
+    bag: dict[str, list[str]] = {}
     observations: list[Observation] = []
     if GITHUB_SOURCE_ID in chosen:
         observations.extend(
-            _collect_each(selected, lambda topic_id: collect_github_topic(topic_id, persist_raw=raw), pause_s=1.2)
+            _collect_each(
+                selected,
+                lambda topic_id: collect_github_topic(topic_id, persist_raw=raw, bag=bag),
+                pause_s=1.2,
+            )
         )
     if ARXIV_SOURCE_ID in chosen:
         observations.extend(
-            _collect_each(selected, lambda topic_id: collect_arxiv_topic(topic_id, persist_raw=raw), pause_s=3.2)
+            _collect_each(
+                selected,
+                lambda topic_id: collect_arxiv_topic(topic_id, persist_raw=raw, bag=bag),
+                pause_s=3.2,
+            )
         )
     if HN_SOURCE_ID in chosen:
         observations.extend(
-            _collect_each(selected, lambda topic_id: collect_hn_topic(topic_id, persist_raw=raw), pause_s=0.8)
+            _collect_each(
+                selected,
+                lambda topic_id: collect_hn_topic(topic_id, persist_raw=raw, bag=bag),
+                pause_s=0.8,
+            )
         )
     if HF_SOURCE_ID in chosen:
         observations.extend(
-            _collect_each(selected, lambda topic_id: collect_hf_topic(topic_id, persist_raw=raw), pause_s=0.8)
+            _collect_each(
+                selected,
+                lambda topic_id: collect_hf_topic(topic_id, persist_raw=raw, bag=bag),
+                pause_s=0.8,
+            )
         )
+    if any(bag.values()):
+        append_lexicon_day(build_lexicon_day(bag))
     return observations
+
+
+def _persist_docs(docs: list[CollectedDocument], persist_raw: bool) -> None:
+    if not persist_raw:
+        return
+    seen: set[str] = set()
+    for doc in docs:
+        if doc.external_id in seen:
+            continue
+        seen.add(doc.external_id)
+        save_document(doc)
+
+
+def _extend_bag(bag: dict[str, list[str]] | None, topic_id: str, docs: list[CollectedDocument]) -> None:
+    if bag is None:
+        return
+    bag.setdefault(topic_id, []).extend(texts_from_docs(docs))
 
 
 def _collect_each(selected: list[str], fn, *, pause_s: float) -> list[Observation]:

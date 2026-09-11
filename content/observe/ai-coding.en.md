@@ -3,13 +3,13 @@ content_id: ai-coding
 locale: en
 type: observe
 title: AI Coding
-summary: "Manual signal: coding assistants are now a daily tool. This is not a Lab product."
+summary: "Coding assistants are a daily tool. The Lab uses them; it has not published one."
 status: adopted
 manual: true
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - ai-coding
 related_lab_ids: []
@@ -23,7 +23,7 @@ scaffold: false
 
 ## Why this is here
 
-Coding agents (in-editor assistants, review, scaffolding) are the most **adopted** use case right now. The Lab uses them. It has not published one.
+Coding agents (in-editor assistants, review, scaffolding) are the most **adopted** use case right now. The Lab uses them to ship evaluable systems.
 
 ## What I am watching
 
@@ -31,8 +31,4 @@ Where the tool speeds up an evaluable system, versus where it produces plausible
 
 ## Current read
 
-Adopted in the craft (mainstream tools, daily use). No Lab “coding agent” repo. No invented diff-acceptance metric.
-
-## What this is not
-
-Not a claimed “AI coding engineer” skill. Not a client. Just a field signal: assisted code is already here; evaluation of assisted code is less so.
+Adopted in the craft (mainstream tools, daily use). No Lab “coding agent” repo. No diff-acceptance metric. Evaluation of assisted code is still rarer than the usage.

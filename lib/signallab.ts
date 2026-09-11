@@ -188,3 +188,74 @@ export function topicBoard(topicIds: string[]): SignalLabTopicBoard | null {
     })),
   };
 }
+
+const lexiconPath = path.join(process.cwd(), "data", "signallab", "lexicon.json");
+
+const termWeightSchema = z.object({
+  term: z.string(),
+  weight: z.number(),
+});
+
+const topicNeighborSchema = z.object({
+  topic_id: z.string(),
+  cosine: z.number(),
+});
+
+const lexiconClusterSchema = z.object({
+  label: z.string(),
+  size: z.number(),
+});
+
+const topicLexiconSchema = z.object({
+  topic_id: z.string(),
+  document_count: z.number(),
+  terms: z.array(termWeightSchema).default([]),
+  shared: z.array(z.string()).default([]),
+  nearest: z.array(topicNeighborSchema).default([]),
+  clusters: z.array(lexiconClusterSchema).default([]),
+});
+
+const lexiconDaySchema = z.object({
+  computed_at: z.string(),
+  day: z.string(),
+  pipeline_version: z.string(),
+  method: z.string(),
+  topics: z.record(z.string(), topicLexiconSchema),
+});
+
+const lexiconStoreSchema = z.object({
+  pipeline_version: z.string(),
+  method: z.string(),
+  days: z.array(lexiconDaySchema).default([]),
+});
+
+export type SignalLabTopicLexicon = z.infer<typeof topicLexiconSchema>;
+
+export type SignalLabLexicon = {
+  day: string;
+  computedAt: string;
+  method: string;
+  pipelineVersion: string;
+  topic: SignalLabTopicLexicon;
+};
+
+export function getTopicLexicon(topicId: string): SignalLabLexicon | null {
+  if (!fs.existsSync(lexiconPath)) return null;
+  try {
+    const store = lexiconStoreSchema.parse(
+      JSON.parse(fs.readFileSync(lexiconPath, "utf8")),
+    );
+    const latest = store.days.at(-1);
+    const topic = latest?.topics[topicId];
+    if (!latest || !topic) return null;
+    return {
+      day: latest.day,
+      computedAt: latest.computed_at,
+      method: latest.method,
+      pipelineVersion: latest.pipeline_version,
+      topic,
+    };
+  } catch {
+    return null;
+  }
+}

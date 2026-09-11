@@ -13,6 +13,13 @@ ARXIV_PIPELINE = "signallab.arxiv.v1"
 HN_PIPELINE = "signallab.hn.v1"
 HF_PIPELINE = "signallab.huggingface.v1"
 PIPELINE_VERSION = "signallab.v2.0"
+EMBED_PIPELINE = "signallab.embed.v1"
+LEXICON_METHOD = (
+    "TF-IDF on titles and descriptions from the latest in-memory collect samples "
+    "(up to 30 documents per source). Cosine is lexical overlap between topic bags. "
+    "Clusters group sample documents that share terms. Not a neural embedding. "
+    "Not a trend score."
+)
 SOURCE_IDS = (GITHUB_SOURCE_ID, ARXIV_SOURCE_ID, HN_SOURCE_ID, HF_SOURCE_ID)
 
 # Back-compat aliases used by the first GitHub-only collector.

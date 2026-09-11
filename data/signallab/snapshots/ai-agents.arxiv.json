@@ -55,7 +55,7 @@
     },
     {
       "topic_id": "ai-agents",
-      "observed_at": "2026-09-11T10:21:24.212119+00:00",
+      "observed_at": "2026-09-11T15:21:15.088068+00:00",
       "source_id": "arxiv",
       "pipeline_version": "signallab.arxiv.v1",
       "query": "all:\"llm agent\" OR all:\"language agent\"",

@@ -5,6 +5,7 @@ import json
 import sys
 
 from signallab import SOURCE_IDS
+from signallab.embed import rebuild_lexicon_from_raw
 from signallab.pipeline import collect_all
 
 
@@ -21,6 +22,8 @@ def main(argv: list[str] | None = None) -> int:
         choices=list(SOURCE_IDS),
         help="Source id (repeatable). Default: all",
     )
+
+    sub.add_parser("embed", help="Rebuild TF-IDF lexicon from persisted raw documents")
 
     serve = sub.add_parser("serve", help="Expose stored snapshots on :8000")
     serve.add_argument("--port", type=int, default=8000)
@@ -46,6 +49,30 @@ def main(argv: list[str] | None = None) -> int:
         if not observations:
             print("No observations collected", file=sys.stderr)
             return 1
+        return 0
+
+    if args.command == "embed":
+        day = rebuild_lexicon_from_raw()
+        if day is None:
+            print("No raw documents to embed", file=sys.stderr)
+            return 1
+        print(
+            json.dumps(
+                {
+                    "day": day.day,
+                    "pipeline_version": day.pipeline_version,
+                    "topics": {
+                        topic_id: {
+                            "document_count": item.document_count,
+                            "terms": [term.term for term in item.terms[:8]],
+                            "nearest": [n.topic_id for n in item.nearest],
+                        }
+                        for topic_id, item in day.topics.items()
+                    },
+                },
+                indent=2,
+            )
+        )
         return 0
 
     if args.command == "serve":

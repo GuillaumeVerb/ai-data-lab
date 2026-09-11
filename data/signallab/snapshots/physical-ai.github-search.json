@@ -63,19 +63,19 @@
     },
     {
       "topic_id": "physical-ai",
-      "observed_at": "2026-09-11T10:21:19.685677+00:00",
+      "observed_at": "2026-09-11T15:21:10.582974+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
       "query": "topic:physical-ai",
       "metrics": {
         "sample_size": 30,
-        "total_count": 472,
-        "stars_sum": 23782,
-        "stars_max": 5298,
+        "total_count": 471,
+        "stars_sum": 23792,
+        "stars_max": 5299,
         "stars_median": 346.0,
-        "forks_sum": 3397,
-        "created_last_7d": 0,
-        "created_last_30d": 2,
+        "forks_sum": 3364,
+        "created_last_7d": 1,
+        "created_last_30d": 3,
         "pushed_last_7d": 23
       },
       "sample_urls": [

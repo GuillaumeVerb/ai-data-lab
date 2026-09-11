@@ -63,13 +63,13 @@
     },
     {
       "topic_id": "ai-coding",
-      "observed_at": "2026-09-11T10:21:58.482440+00:00",
+      "observed_at": "2026-09-11T15:21:33.550138+00:00",
       "source_id": "hacker-news",
       "pipeline_version": "signallab.hn.v1",
       "query": "coding assistants",
       "metrics": {
         "sample_size": 30,
-        "total_count": 997,
+        "total_count": 953,
         "points_sum": 2729,
         "points_max": 451,
         "points_median": 54.0,

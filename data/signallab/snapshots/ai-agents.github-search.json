@@ -63,17 +63,17 @@
     },
     {
       "topic_id": "ai-agents",
-      "observed_at": "2026-09-11T10:21:15.296690+00:00",
+      "observed_at": "2026-09-11T15:21:05.921463+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
       "query": "topic:llm-agents",
       "metrics": {
         "sample_size": 30,
-        "total_count": 5257,
-        "stars_sum": 241819,
-        "stars_max": 48015,
-        "stars_median": 3195.5,
-        "forks_sum": 28875,
+        "total_count": 5265,
+        "stars_sum": 241928,
+        "stars_max": 48021,
+        "stars_median": 3197.0,
+        "forks_sum": 28882,
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 13

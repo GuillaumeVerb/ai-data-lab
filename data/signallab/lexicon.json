@@ -1,0 +1,530 @@
+{
+  "pipeline_version": "signallab.embed.v1",
+  "method": "TF-IDF on titles and descriptions from the latest in-memory collect samples (up to 30 documents per source). Cosine is lexical overlap between topic bags. Clusters group sample documents that share terms. Not a neural embedding. Not a trend score.",
+  "days": [
+    {
+      "computed_at": "2026-09-11T15:21:38.476256+00:00",
+      "day": "2026-09-11",
+      "pipeline_version": "signallab.embed.v1",
+      "method": "TF-IDF on titles and descriptions from the latest in-memory collect samples (up to 30 documents per source). Cosine is lexical overlap between topic bags. Clusters group sample documents that share terms. Not a neural embedding. Not a trend score.",
+      "topics": {
+        "ai-agents": {
+          "topic_id": "ai-agents",
+          "document_count": 120,
+          "terms": [
+            {
+              "term": "multi-agent",
+              "weight": 0.0031
+            },
+            {
+              "term": "graph",
+              "weight": 0.0024
+            },
+            {
+              "term": "agents tool-use",
+              "weight": 0.0023
+            },
+            {
+              "term": "conversational",
+              "weight": 0.0023
+            },
+            {
+              "term": "tool-use",
+              "weight": 0.002
+            },
+            {
+              "term": "evidence",
+              "weight": 0.0019
+            },
+            {
+              "term": "procedural",
+              "weight": 0.0019
+            },
+            {
+              "term": "memory",
+              "weight": 0.0019
+            },
+            {
+              "term": "tools",
+              "weight": 0.0017
+            },
+            {
+              "term": "reasoning",
+              "weight": 0.0017
+            },
+            {
+              "term": "benchmark",
+              "weight": 0.0016
+            },
+            {
+              "term": "existing",
+              "weight": 0.0016
+            }
+          ],
+          "shared": [
+            "multi-agent",
+            "graph",
+            "conversational",
+            "tool-use",
+            "evidence",
+            "procedural",
+            "memory",
+            "tools"
+          ],
+          "nearest": [
+            {
+              "topic_id": "ai-coding",
+              "cosine": 0.3121
+            },
+            {
+              "topic_id": "ai-evaluation",
+              "cosine": 0.3077
+            },
+            {
+              "topic_id": "physical-ai",
+              "cosine": 0.1461
+            },
+            {
+              "topic_id": "vla",
+              "cosine": 0.127
+            }
+          ],
+          "clusters": [
+            {
+              "label": "ling-3 finance",
+              "size": 3
+            },
+            {
+              "label": "qwen3 llama",
+              "size": 2
+            },
+            {
+              "label": "agents tool-use",
+              "size": 10
+            },
+            {
+              "label": "agents terminal",
+              "size": 2
+            },
+            {
+              "label": "qwen2 safetensors",
+              "size": 5
+            }
+          ]
+        },
+        "ai-evaluation": {
+          "topic_id": "ai-evaluation",
+          "document_count": 120,
+          "terms": [
+            {
+              "term": "llms",
+              "weight": 0.0052
+            },
+            {
+              "term": "evaluating",
+              "weight": 0.0039
+            },
+            {
+              "term": "evaluating llms",
+              "weight": 0.0033
+            },
+            {
+              "term": "benchmark",
+              "weight": 0.0025
+            },
+            {
+              "term": "evaluate",
+              "weight": 0.0023
+            },
+            {
+              "term": "text-classification",
+              "weight": 0.0022
+            },
+            {
+              "term": "human",
+              "weight": 0.0021
+            },
+            {
+              "term": "agents",
+              "weight": 0.002
+            },
+            {
+              "term": "metrics",
+              "weight": 0.0018
+            },
+            {
+              "term": "systems",
+              "weight": 0.0018
+            },
+            {
+              "term": "evaluations",
+              "weight": 0.0017
+            },
+            {
+              "term": "conversational",
+              "weight": 0.0017
+            }
+          ],
+          "shared": [
+            "llms",
+            "evaluating",
+            "benchmark",
+            "evaluate",
+            "human",
+            "agents",
+            "metrics",
+            "systems"
+          ],
+          "nearest": [
+            {
+              "topic_id": "ai-agents",
+              "cosine": 0.3077
+            },
+            {
+              "topic_id": "ai-coding",
+              "cosine": 0.2002
+            },
+            {
+              "topic_id": "physical-ai",
+              "cosine": 0.1364
+            },
+            {
+              "topic_id": "vla",
+              "cosine": 0.1061
+            }
+          ],
+          "clusters": [
+            {
+              "label": "llm vulnerability",
+              "size": 2
+            },
+            {
+              "label": "narrator writing",
+              "size": 2
+            },
+            {
+              "label": "text-classification pytorch",
+              "size": 2
+            },
+            {
+              "label": "verification reward-model",
+              "size": 3
+            },
+            {
+              "label": "text-classification safetensors",
+              "size": 2
+            }
+          ]
+        },
+        "physical-ai": {
+          "topic_id": "physical-ai",
+          "document_count": 120,
+          "terms": [
+            {
+              "term": "robot",
+              "weight": 0.0056
+            },
+            {
+              "term": "robotics",
+              "weight": 0.0038
+            },
+            {
+              "term": "world",
+              "weight": 0.0031
+            },
+            {
+              "term": "reasoning",
+              "weight": 0.0026
+            },
+            {
+              "term": "embodied",
+              "weight": 0.0024
+            },
+            {
+              "term": "nvidia",
+              "weight": 0.0022
+            },
+            {
+              "term": "humanoid",
+              "weight": 0.0019
+            },
+            {
+              "term": "manipulation",
+              "weight": 0.0019
+            },
+            {
+              "term": "policy",
+              "weight": 0.0019
+            },
+            {
+              "term": "information",
+              "weight": 0.0018
+            },
+            {
+              "term": "generalist",
+              "weight": 0.0017
+            },
+            {
+              "term": "human",
+              "weight": 0.0017
+            }
+          ],
+          "shared": [
+            "robot",
+            "robotics",
+            "world",
+            "reasoning",
+            "embodied",
+            "nvidia",
+            "humanoid",
+            "manipulation"
+          ],
+          "nearest": [
+            {
+              "topic_id": "vla",
+              "cosine": 0.3059
+            },
+            {
+              "topic_id": "ai-agents",
+              "cosine": 0.1461
+            },
+            {
+              "topic_id": "ai-evaluation",
+              "cosine": 0.1364
+            },
+            {
+              "topic_id": "ai-coding",
+              "cosine": 0.1238
+            }
+          ],
+          "clusters": [
+            {
+              "label": "robotics petoicamp",
+              "size": 2
+            },
+            {
+              "label": "reasoning alpamayo",
+              "size": 2
+            },
+            {
+              "label": "first generalist",
+              "size": 3
+            },
+            {
+              "label": "physical intelligence",
+              "size": 2
+            },
+            {
+              "label": "physical intelligence",
+              "size": 2
+            }
+          ]
+        },
+        "vla": {
+          "topic_id": "vla",
+          "document_count": 118,
+          "terms": [
+            {
+              "term": "robotics",
+              "weight": 0.0076
+            },
+            {
+              "term": "manipulation",
+              "weight": 0.0066
+            },
+            {
+              "term": "robotic",
+              "weight": 0.0059
+            },
+            {
+              "term": "robot",
+              "weight": 0.0053
+            },
+            {
+              "term": "policies",
+              "weight": 0.0037
+            },
+            {
+              "term": "robotics vla",
+              "weight": 0.0028
+            },
+            {
+              "term": "task",
+              "weight": 0.0028
+            },
+            {
+              "term": "policy",
+              "weight": 0.0025
+            },
+            {
+              "term": "teleoperation",
+              "weight": 0.0025
+            },
+            {
+              "term": "tasks",
+              "weight": 0.0024
+            },
+            {
+              "term": "robots",
+              "weight": 0.0023
+            },
+            {
+              "term": "physical",
+              "weight": 0.0023
+            }
+          ],
+          "shared": [
+            "robotics",
+            "manipulation",
+            "robotic",
+            "robot",
+            "policies",
+            "task",
+            "policy",
+            "tasks"
+          ],
+          "nearest": [
+            {
+              "topic_id": "physical-ai",
+              "cosine": 0.3059
+            },
+            {
+              "topic_id": "ai-agents",
+              "cosine": 0.127
+            },
+            {
+              "topic_id": "ai-evaluation",
+              "cosine": 0.1061
+            },
+            {
+              "topic_id": "ai-coding",
+              "cosine": 0.1017
+            }
+          ],
+          "clusters": [
+            {
+              "label": "reasoning alpamayo",
+              "size": 2
+            },
+            {
+              "label": "rt-2 vision-language-action",
+              "size": 4
+            },
+            {
+              "label": "showui vision-language-action",
+              "size": 2
+            },
+            {
+              "label": "image-text-to-text robotics",
+              "size": 5
+            },
+            {
+              "label": "robotics safetensors",
+              "size": 5
+            }
+          ]
+        },
+        "ai-coding": {
+          "topic_id": "ai-coding",
+          "document_count": 120,
+          "terms": [
+            {
+              "term": "coding assistant",
+              "weight": 0.0061
+            },
+            {
+              "term": "agents",
+              "weight": 0.0057
+            },
+            {
+              "term": "assistant",
+              "weight": 0.0052
+            },
+            {
+              "term": "coding agents",
+              "weight": 0.0037
+            },
+            {
+              "term": "qwen2",
+              "weight": 0.0028
+            },
+            {
+              "term": "deploy",
+              "weight": 0.0025
+            },
+            {
+              "term": "files",
+              "weight": 0.0024
+            },
+            {
+              "term": "tasks",
+              "weight": 0.0023
+            },
+            {
+              "term": "conversational",
+              "weight": 0.0023
+            },
+            {
+              "term": "codeqwen",
+              "weight": 0.0021
+            },
+            {
+              "term": "qwen-coder",
+              "weight": 0.0021
+            },
+            {
+              "term": "qwen qwen-coder",
+              "weight": 0.0021
+            }
+          ],
+          "shared": [
+            "agents",
+            "assistant",
+            "coding agents",
+            "qwen2",
+            "deploy",
+            "files",
+            "tasks",
+            "conversational"
+          ],
+          "nearest": [
+            {
+              "topic_id": "ai-agents",
+              "cosine": 0.3121
+            },
+            {
+              "topic_id": "ai-evaluation",
+              "cosine": 0.2002
+            },
+            {
+              "topic_id": "physical-ai",
+              "cosine": 0.1238
+            },
+            {
+              "topic_id": "vla",
+              "cosine": 0.1017
+            }
+          ],
+          "clusters": [
+            {
+              "label": "qwen2 deploy",
+              "size": 13
+            },
+            {
+              "label": "apex moe",
+              "size": 2
+            },
+            {
+              "label": "pytorch safetensors",
+              "size": 2
+            },
+            {
+              "label": "safetensors phi3",
+              "size": 5
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

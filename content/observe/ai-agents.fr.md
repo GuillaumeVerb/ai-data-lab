@@ -3,13 +3,13 @@ content_id: ai-agents
 locale: fr
 type: observe
 title: AI Agents
-summary: "Signal manuel : l’activité builders et recherche accélère plus vite que les preuves d’évaluation."
+summary: "L’activité builders et recherche accélère plus vite que les preuves d’évaluation."
 status: rising
 manual: true
 translation_status: original
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - agents
 related_lab_ids:
@@ -26,18 +26,12 @@ scaffold: false
 
 ## Pourquoi c’est là
 
-Les agents sont le pont Data → systèmes du Lab. Ce n’est **pas** un score SignalLab : une watchlist humaine, datée, sans volume inventé.
+Les agents sont le pont Data → systèmes du Lab. SignalLab donne les volumes par source et le vocabulaire du collect. Le statut (Rising) reste une lecture humaine, datée.
 
 ## Ce que je surveille
 
-- Boucles évaluables (outil → observation → échec visible) versus chatbots relabelés.
-- Protocoles d’outils (MCP) **sans** les confondre avec un workflow FastAPI maison.
-- Suites d’eval (completion, tool-use, coût, hallucinations). L’attention sans eval = hype.
+Boucles évaluables (outil → observation → échec visible) versus chatbots relabelés. Protocoles d’outils (MCP) à côté d’un workflow FastAPI maison. Suites d’eval : completion, tool-use, coût, hallucinations.
 
 ## Lecture actuelle
 
-Rising côté discours et repos publics. Les preuves du Lab restent Decision Copilot, Automation Agent (HITL, pas multi-agent) et le protocole de profilage — pas une eval suite publiée.
-
-## Ce que ce n’est pas
-
-Pas de ranking de frameworks. Pas de claim « je construis des agents en production pour des clients ».
+Rising côté discours et repos publics. Les preuves du Lab restent Decision Copilot, Automation Agent (HITL, un seul agent) et le protocole de profilage — pas une eval suite publiée, pas de ranking de frameworks.

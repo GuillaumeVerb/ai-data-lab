@@ -63,20 +63,20 @@
     },
     {
       "topic_id": "ai-coding",
-      "observed_at": "2026-09-11T10:21:23.877112+00:00",
+      "observed_at": "2026-09-11T15:21:14.978448+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
       "query": "topic:coding-agent",
       "metrics": {
         "sample_size": 30,
-        "total_count": 5235,
-        "stars_sum": 423314,
+        "total_count": 5245,
+        "stars_sum": 423521,
         "stars_max": 68295,
-        "stars_median": 5580.5,
-        "forks_sum": 48773,
+        "stars_median": 5581.5,
+        "forks_sum": 48825,
         "created_last_7d": 0,
         "created_last_30d": 1,
-        "pushed_last_7d": 22
+        "pushed_last_7d": 23
       },
       "sample_urls": [
         "https://github.com/openinterpreter/openinterpreter",

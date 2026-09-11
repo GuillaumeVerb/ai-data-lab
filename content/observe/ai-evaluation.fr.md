@@ -3,13 +3,13 @@ content_id: ai-evaluation
 locale: fr
 type: observe
 title: AI Evaluation
-summary: "Signal manuel : sans métrique d’échec, un système IA n’est qu’un récit. Le sujet monte, les suites publiques restent rares."
+summary: "Sans métrique d’échec, un système IA n’est qu’un récit. Le sujet monte, les suites publiques restent rares."
 status: rising
 manual: true
 translation_status: original
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - evaluation
 related_lab_ids:
@@ -33,8 +33,8 @@ Task completion, exactitude, tool-use, coût, latence, hallucinations. Versionin
 
 ## Lecture actuelle
 
-Rising : plus de discours « evals matter ». Ici, le livrable public est un **protocole** de profilage (texte vs outil), pas un tableau A/B chiffré. Je n’invente pas de %.
+Rising : plus de discours « evals matter ». Ici, le livrable public est un **protocole** de profilage (texte vs outil), pas un tableau A/B chiffré.
 
-## SignalLab plus tard
+## SignalLab
 
-Early-signal precision, pas un vibe check. Tant que la collecte n’existe pas, cette page reste manuelle.
+Volumes quotidiens sur quatre sources, plus le vocabulaire TF-IDF du collect. Les scores interprétables restent V2.5. Le statut éditorial de cette page reste manuel.

@@ -3,13 +3,13 @@ content_id: ai-agents
 locale: en
 type: observe
 title: AI Agents
-summary: "Manual signal: builder and research activity is accelerating faster than evaluation evidence."
+summary: "Builder and research activity is accelerating faster than evaluation evidence."
 status: rising
 manual: true
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-11"
 tags:
   - agents
 related_lab_ids:
@@ -26,18 +26,12 @@ scaffold: false
 
 ## Why this is here
 
-Agents are the Lab’s Data → systems bridge. This is **not** a SignalLab score: a dated human watchlist, no invented volume.
+Agents are the Lab’s Data → systems bridge. SignalLab gives per-source volumes and the collect vocabulary. Status (Rising) stays a dated human read.
 
 ## What I am watching
 
-- Evaluable loops (tool → observation → visible failure) versus relabelled chatbots.
-- Tool protocols (MCP) **without** confusing them with a homegrown FastAPI workflow.
-- Eval suites (completion, tool-use, cost, hallucinations). Attention without eval is hype.
+Evaluable loops (tool → observation → visible failure) versus relabelled chatbots. Tool protocols (MCP) beside a homegrown FastAPI workflow. Eval suites: completion, tool-use, cost, hallucinations.
 
 ## Current read
 
-Rising in discourse and public repos. Lab evidence remains Decision Copilot, Automation Agent (HITL, not multi-agent) and the profiling protocol — not a published eval suite.
-
-## What this is not
-
-No framework ranking. No claim of shipping production agents for clients.
+Rising in discourse and public repos. Lab evidence remains Decision Copilot, Automation Agent (HITL, a single agent) and the profiling protocol — no published eval suite, no framework ranking.

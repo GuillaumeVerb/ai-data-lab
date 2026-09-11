@@ -39,3 +39,41 @@ class TopicSnapshot(BaseModel):
     source_id: str
     pipeline_version: str = PIPELINE_VERSION
     observations: list[Observation] = Field(default_factory=list)
+
+
+class TermWeight(BaseModel):
+    term: str
+    weight: float
+
+
+class TopicNeighbor(BaseModel):
+    topic_id: str
+    cosine: float
+
+
+class LexiconCluster(BaseModel):
+    label: str
+    size: int
+
+
+class TopicLexicon(BaseModel):
+    topic_id: str
+    document_count: int
+    terms: list[TermWeight] = Field(default_factory=list)
+    shared: list[str] = Field(default_factory=list)
+    nearest: list[TopicNeighbor] = Field(default_factory=list)
+    clusters: list[LexiconCluster] = Field(default_factory=list)
+
+
+class LexiconDay(BaseModel):
+    computed_at: str
+    day: str
+    pipeline_version: str
+    method: str
+    topics: dict[str, TopicLexicon] = Field(default_factory=dict)
+
+
+class LexiconStore(BaseModel):
+    pipeline_version: str
+    method: str
+    days: list[LexiconDay] = Field(default_factory=list)

@@ -63,17 +63,17 @@
     },
     {
       "topic_id": "ai-evaluation",
-      "observed_at": "2026-09-11T10:21:17.442663+00:00",
+      "observed_at": "2026-09-11T15:21:08.271927+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
       "query": "topic:llm-evaluation",
       "metrics": {
         "sample_size": 30,
-        "total_count": 5120,
-        "stars_sum": 234177,
-        "stars_max": 34469,
+        "total_count": 5130,
+        "stars_sum": 234330,
+        "stars_max": 34476,
         "stars_median": 4733.0,
-        "forks_sum": 28589,
+        "forks_sum": 28596,
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 23

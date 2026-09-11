@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MarkdownBody, ScaffoldNote } from "@/components/MarkdownBody";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { SignalLabLexicon } from "@/components/SignalLabLexicon";
 import { SignalLabSnapshot } from "@/components/SignalLabSnapshot";
 import { Container } from "@/components/ui";
 import {
@@ -14,7 +15,7 @@ import {
 import { getDictionary } from "@/lib/dictionary";
 import { locales } from "@/lib/i18n";
 import { parseLocale } from "@/lib/params";
-import { getTopicSeries } from "@/lib/signallab";
+import { getTopicLexicon, getTopicSeries } from "@/lib/signallab";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -56,6 +57,10 @@ export default async function ObserveDetailPage({ params }: Props) {
     item.related_learning_ids.includes(node.content_id),
   );
   const series = getTopicSeries(item.content_id);
+  const lexicon = getTopicLexicon(item.content_id);
+  const titles = Object.fromEntries(
+    listObserve(locale).map((entry) => [entry.content_id, entry.title]),
+  );
 
   return (
     <Container className="py-14 sm:py-20">
@@ -70,6 +75,9 @@ export default async function ObserveDetailPage({ params }: Props) {
       {item.scaffold ? <ScaffoldNote text={dict.common.scaffold} /> : null}
       {series.length ? (
         <SignalLabSnapshot locale={locale} series={series} />
+      ) : null}
+      {lexicon ? (
+        <SignalLabLexicon locale={locale} lexicon={lexicon} titles={titles} />
       ) : null}
       <MarkdownBody content={item.body} />
       <RelatedLinks

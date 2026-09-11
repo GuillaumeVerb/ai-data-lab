@@ -72,7 +72,7 @@
   },
   "observe": {
     "title": "Observe",
-    "lead": "Manual signals in V1. Four sources, same UTC day: raw volumes, not a score.",
+    "lead": "Four sources, same UTC day: raw volumes and collect vocabulary. Editorial status stays manual.",
     "manual": "Manual",
     "status": {
       "watching": "Watching",
@@ -126,7 +126,15 @@
     "samples": "Collect sample",
     "samplesNote": "Documents from the latest collect, not a ranking.",
     "method": "Method",
-    "collected": "Collected"
+    "collected": "Collected",
+    "lexicon": "Vocabulary",
+    "lexiconNote": "TF-IDF on titles and descriptions from the latest sample. Lexical overlap between topics, not a trend score.",
+    "lexiconTerms": "Distinctive terms",
+    "lexiconShared": "Shared terms",
+    "lexiconNearest": "Lexically close",
+    "lexiconDocs": "{n} documents",
+    "lexiconClusters": "Lexical groups",
+    "lexiconClustersNote": "Sample documents that share terms. Not a ranking."
   },
   "experience": {
     "title": "Experience",
