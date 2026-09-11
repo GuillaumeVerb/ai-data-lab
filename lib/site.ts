@@ -4,6 +4,7 @@ export const site = {
   github: "https://github.com/GuillaumeVerb/ai-data-lab",
   githubProfile: "https://github.com/GuillaumeVerb",
   linkedin: "https://www.linkedin.com/in/guillaume-v-4832401b4",
+  malt: "https://www.malt.fr/profile/guillaumeverbiguie",
   author: "Guillaume Verbiguié",
   location: "Paris",
 } as const;

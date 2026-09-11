@@ -85,6 +85,7 @@ export const experienceSchema = baseSchema.extend({
   evidence_type: z.enum(["PROFESSIONAL", "PERSONAL_PROJECT", "TRAINING", "LAB"]),
   org: z.string().optional(),
   context: z.string().optional(),
+  period: z.string().optional(),
   tools: z.array(z.string()).default([]),
   order: z.number().int(),
 });

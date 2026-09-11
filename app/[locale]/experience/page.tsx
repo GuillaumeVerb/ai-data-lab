@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { Container, PageIntro } from "@/components/ui";
+import { Container } from "@/components/ui";
 import { listExperience, type ExperienceEntry } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionary";
 import { evidenceLabel } from "@/lib/labels";
@@ -33,8 +33,16 @@ export default async function ExperiencePage({
 
   return (
     <Container className="py-14 sm:py-20">
-      <PageIntro title={dict.experience.title} lead={dict.experience.lead} />
-      <p className="mb-12 max-w-2xl text-sm leading-6 text-mute">{dict.experience.note}</p>
+      <header className="mb-12 max-w-2xl border-b border-line pb-12">
+        <p className="font-mono text-xs tracking-[0.2em] text-signal uppercase">
+          {dict.nav.experience}
+        </p>
+        <h1 className="mt-4 font-display text-4xl leading-[1.1] text-ink sm:text-5xl">
+          {dict.experience.title}
+        </h1>
+        <p className="mt-4 text-base leading-7 text-mute">{dict.experience.lead}</p>
+        <p className="mt-3 text-sm leading-6 text-mute">{dict.experience.note}</p>
+      </header>
       <div className="max-w-2xl space-y-10">
         {items.map((item) => (
           <ExperienceBlock key={item.content_id} item={item} label={evidenceLabel(item, dict)} />
@@ -57,6 +65,9 @@ function ExperienceBlock({
       <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-signal">{label}</p>
       <h2 className="mt-2 font-display text-2xl text-ink">{item.title}</h2>
       {meta ? <p className="mt-1 font-mono text-[11px] text-mute">{meta}</p> : null}
+      {item.period ? (
+        <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-mute">{item.period}</p>
+      ) : null}
       <p className="mt-3 text-base leading-7 text-mute">{item.summary}</p>
       {item.tools.length ? (
         <p className="mt-3 font-mono text-[11px] uppercase tracking-wider text-mute">

@@ -32,7 +32,7 @@
     "signalsMore": "Per-source detail on Observe",
     "writing": "Writing",
     "background": "Trajectory",
-    "backgroundBody": "Guillaume Verbiguié, Paris. Roughly ten years of Data practice (analyst / scientist / senior analyst: public sector, banking, retail) as the foundation. Public labs and projects show what comes next: agents, RAG, Physical AI as a direction — not a robotics job title.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. Data practice since 2014 (analyst / scientist / senior analyst: public sector, banking, retail, research) as the foundation. Public labs and projects show what comes next: agents, RAG, Physical AI as a direction.",
     "empty": "No published content in this locale yet."
   },
   "exploring": [
@@ -130,8 +130,8 @@
   },
   "experience": {
     "title": "Experience",
-    "lead": "A Data professional foundation, then public evidence. Role dates that are not in the record are not invented.",
-    "note": "PROFESSIONAL is not TRAINING. Alyra is not blockchain employment. No skill bars.",
+    "lead": "Dated roles since 2014 — banking, retail, research, public sector. OpenClassrooms mentoring in parallel. Alyra in 2022.",
+    "note": "Mentoring and training stay visible beside the jobs.",
     "types": {
       "PROFESSIONAL": "Professional",
       "PERSONAL_PROJECT": "Personal project",
@@ -141,32 +141,48 @@
   },
   "about": {
     "title": "About",
-    "lead": "Data → agents → physical AI, documented in public. The résumé is a component, not the centre. Foundation: roughly ten years in Data.",
-    "intro": "Guillaume Verbiguié is building this Lab from Paris. The professional foundation below comes from a controlled experience record. Labs and projects are evidenced by public GitHub repositories. Nothing is invented: if it is not here, it is not a claimed experience.",
-    "professionalTitle": "Professional foundation",
-    "professional": [
-      "Roughly ten years as Data Analyst / Data Scientist / Senior Data Analyst — public sector, banking and retail.",
+    "eyebrow": "Paris · Senior Data Analyst",
+    "name": "Guillaume Verbiguié",
+    "lead": "I am building a public lab for intelligent systems — from data to agents, toward physical AI.",
+    "intro": [
+      "Since 2014 I have worked as a Data Analyst, Data Scientist and then Senior Data Analyst: banking, retail, research, public sector. The chain is always the same — understand the need, prepare the data, analyse, deliver — with machine learning when there is a case.",
+      "I am currently Senior Data Analyst at AdvanThink, on data projects for public organisations including the Ministries of the Interior and Labor. Before that, four and a half years at Ipsos, where I coordinated 2–3 people (juniors / apprentices). Since 2021 I have been mentoring data students at OpenClassrooms, in parallel with employment.",
+      "This Lab is where the next chapter is public: copilots, RAG, measurable watch, and Physical AI as a direction seen from data."
+    ],
+    "foundationTitle": "Foundation",
+    "foundation": [
+      "Since 2014: Data Analyst / Data Scientist / Senior Data Analyst — public sector, banking, retail, research.",
       "End to end: requirements, ETL / preparation, analysis, machine learning where relevant, dashboards and restitution.",
-      "Data Strategy, Data Management, Data Governance, Data Culture — visible, not a logo cloud.",
-      "Managed 2–3 people at Ipsos (juniors / apprentices): real coordination.",
-      "Tools listed only when actually used (Python, SQL, Power BI, BI/data)."
+      "Data Strategy, Data Management, Data Governance, Data Culture.",
+      "Ipsos: coordination of 2–3 people (juniors / apprentices).",
+      "Tools actually used: Python, SQL, Power BI — the rest is on each role."
     ],
-    "trajectoryTitle": "Public evidence (Lab / projects / training)",
+    "nowTitle": "What I am building",
+    "now": "A bilingual system to observe, learn, experiment and build. SignalLab already feeds Observe with raw metrics. Decision Copilot and Knowledge Copilot are the first public agentic systems. The rest is being written here.",
+    "professionalTitle": "Recent roles",
+    "professionalCta": "Full timeline",
+    "trajectoryTitle": "Trajectory",
     "trajectory": [
-      "TRAINING — Alyra: Ethereum, Solidity, smart contracts. Coursework, not blockchain employment.",
-      "2021 — public data-engineering training projects (Spark/S3 data lake, Redshift warehouse).",
-      "2025 — on-chain analytics as a data terrain (CSV dashboard, anomaly detection + MLflow).",
-      "2026 — agentic copilots and grounded RAG (Decision Copilot, Knowledge Copilot, automation agent).",
-      "Now — this Lab: bilingual, measurable, Physical AI as a direction without pretending to be a robotics engineer."
+      {
+        "when": "2021",
+        "text": "Public data-engineering projects — Spark/S3 data lake, Redshift warehouse. Start of OpenClassrooms mentoring."
+      },
+      {
+        "when": "2022",
+        "label": "Training",
+        "text": "Alyra — Ethereum and Solidity."
+      },
+      {
+        "when": "2025",
+        "text": "On-chain analytics: CSV dashboard, anomaly detection, MLflow."
+      },
+      {
+        "when": "2026",
+        "text": "Agentic copilots, grounded RAG, and this Lab."
+      }
     ],
-    "nowTitle": "What I am building here",
-    "now": "A public system to observe, learn, experiment and measure intelligent systems. SignalLab already collects raw metrics on Observe; scores and Ask My Lab come later.",
-    "notTitle": "What this page does not claim",
-    "not": "No robotics-engineer role, no invented agent clients, no skill bars. Alyra is not professional blockchain employment. Private repos (e.g. PhotoMind) exist but are not public evidence until they are opened or described with the same rigor.",
-    "evidenceTitle": "Evidence on this site",
-    "links": "Links",
-    "scope": "Focus rule",
-    "scopeBody": "Does this help understand, build, evaluate or apply intelligent systems? If not, it stays out of the Lab."
+    "workTitle": "On this site",
+    "links": "Find me"
   },
   "notFound": {
     "title": "Page not found",

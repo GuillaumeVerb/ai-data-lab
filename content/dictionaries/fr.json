@@ -32,7 +32,7 @@
     "signalsMore": "Détail par source sur Observe",
     "writing": "Writing",
     "background": "Trajectoire",
-    "backgroundBody": "Guillaume Verbiguié, Paris. Environ dix ans de pratique Data (analyste / scientist / senior analyst : secteur public, banque, retail) comme socle. Les Labs et projets publics montrent la suite : agents, RAG, direction Physical AI — pas un titre de roboticien.",
+    "backgroundBody": "Guillaume Verbiguié, Paris. Pratique Data depuis 2014 (analyste / scientist / senior analyst : secteur public, banque, retail, études) comme socle. Les Labs et projets publics montrent la suite : agents, RAG, direction Physical AI.",
     "empty": "Pas encore de contenu publié dans cette locale."
   },
   "exploring": [
@@ -130,8 +130,8 @@
   },
   "experience": {
     "title": "Parcours",
-    "lead": "Socle professionnel Data, puis preuves publiques. Les dates de poste absentes de la fiche ne sont pas inventées.",
-    "note": "PROFESSIONAL n’est pas TRAINING. Alyra n’est pas un emploi blockchain. Pas de jauge de compétence.",
+    "lead": "Postes datés depuis 2014 — banque, retail, études, secteur public. Mentorat OpenClassrooms en parallèle. Alyra en 2022.",
+    "note": "Le mentorat et la formation restent visibles à côté des postes.",
     "types": {
       "PROFESSIONAL": "Professional",
       "PERSONAL_PROJECT": "Personal project",
@@ -141,32 +141,48 @@
   },
   "about": {
     "title": "About",
-    "lead": "Data → agents → physical AI, documenté en public. Le CV est un composant, pas le centre. Socle : environ dix ans de Data.",
-    "intro": "Guillaume Verbiguié construit ce Lab depuis Paris. Le socle professionnel ci-dessous vient d’une fiche d’expérience contrôlée. Les preuves de Labs et de projets viennent de dépôts GitHub publics. Rien n’est inventé : si ce n’est pas ici, ce n’est pas une expérience revendiquée.",
-    "professionalTitle": "Socle professionnel",
-    "professional": [
-      "Environ dix ans en Data Analyst / Data Scientist / Senior Data Analyst — secteur public, banque et retail.",
+    "eyebrow": "Paris · Senior Data Analyst",
+    "name": "Guillaume Verbiguié",
+    "lead": "Je construis un laboratoire public pour les systèmes intelligents — de la data aux agents, vers le physical AI.",
+    "intro": [
+      "Depuis 2014, je travaille comme Data Analyst, Data Scientist puis Senior Data Analyst : banque, retail, études, secteur public. La chaîne est toujours la même — comprendre le besoin, préparer les données, analyser, restituer — avec du machine learning quand il y a un cas.",
+      "Aujourd’hui je suis Senior Data Analyst chez AdvanThink, sur des projets pour des organisations publiques, dont les ministères de l’Intérieur et du Travail. Avant cela, quatre ans et demi chez Ipsos, où j’ai encadré 2–3 personnes (juniors / alternants). Depuis 2021, j’accompagne des étudiants sur des parcours data chez OpenClassrooms, en parallèle des postes.",
+      "Ce Lab est l’endroit où la suite devient publique : copilotes, RAG, veille mesurable, et une direction Physical AI vue depuis la data."
+    ],
+    "foundationTitle": "Socle",
+    "foundation": [
+      "Depuis 2014 : Data Analyst / Data Scientist / Senior Data Analyst — secteur public, banque, retail, études.",
       "Bout en bout : besoin, préparation / ETL, analyse, machine learning selon les cas, restitution et dashboards.",
-      "Data Strategy, Data Management, Data Governance, Data Culture — visibles, pas un nuage de logos.",
-      "Management de 2–3 personnes chez Ipsos (juniors / alternants) : coordination réelle.",
-      "Outils montrés seulement s’ils ont été pratiqués (Python, SQL, Power BI, BI/data)."
+      "Data Strategy, Data Management, Data Governance, Data Culture.",
+      "Ipsos : encadrement de 2–3 personnes (juniors / alternants).",
+      "Outils pratiqués : Python, SQL, Power BI — le détail est sur chaque poste."
     ],
-    "trajectoryTitle": "Preuves publiques (Lab / projets / formation)",
+    "nowTitle": "Ce que je construis",
+    "now": "Un système bilingue pour observer, apprendre, expérimenter et construire. SignalLab alimente déjà Observe avec des métriques brutes. Decision Copilot et Knowledge Copilot sont les premiers systèmes agentiques publics. La suite s’écrit ici.",
+    "professionalTitle": "Postes récents",
+    "professionalCta": "Parcours complet",
+    "trajectoryTitle": "Trajectoire",
     "trajectory": [
-      "TRAINING — Alyra : Ethereum, Solidity, smart contracts. Formation, pas un emploi blockchain.",
-      "2021 — projets de formation data engineering publics (data lake Spark/S3, warehouse Redshift).",
-      "2025 — analytics on-chain comme terrain de data (dashboard CSV, anomaly detection + MLflow).",
-      "2026 — copilotes agentiques et RAG grounded (Decision Copilot, Knowledge Copilot, automation agent).",
-      "Maintenant — ce Lab : bilingue, mesurable, direction Physical AI sans se prétendre roboticien."
+      {
+        "when": "2021",
+        "text": "Projets publics de data engineering — data lake Spark/S3, warehouse Redshift. Début du mentorat OpenClassrooms."
+      },
+      {
+        "when": "2022",
+        "label": "Formation",
+        "text": "Alyra — Ethereum et Solidity."
+      },
+      {
+        "when": "2025",
+        "text": "Analytics on-chain : dashboard CSV, détection d’anomalies, MLflow."
+      },
+      {
+        "when": "2026",
+        "text": "Copilotes agentiques, RAG grounded, et ce Lab."
+      }
     ],
-    "nowTitle": "Ce que je construis ici",
-    "now": "Un système public pour observer, apprendre, expérimenter et mesurer les systèmes intelligents. SignalLab collecte déjà des métriques brutes sur Observe ; les scores et Ask My Lab viendront plus tard.",
-    "notTitle": "Ce que cette page ne revendique pas",
-    "not": "Pas de poste de robotics engineer, pas de clients agents inventés, pas de jauge de compétence. Alyra n’est pas une expérience professionnelle blockchain. Les repos privés (ex. PhotoMind) existent mais ne sont pas des preuves publiques tant qu’ils ne sont pas ouverts ou décrits avec la même rigueur.",
-    "evidenceTitle": "Preuves sur ce site",
-    "links": "Liens",
-    "scope": "Règle de focus",
-    "scopeBody": "Est-ce que ça aide à comprendre, construire, évaluer ou appliquer des systèmes intelligents ? Sinon, ça reste hors du Lab."
+    "workTitle": "Sur ce site",
+    "links": "Me trouver"
   },
   "notFound": {
     "title": "Page introuvable",
