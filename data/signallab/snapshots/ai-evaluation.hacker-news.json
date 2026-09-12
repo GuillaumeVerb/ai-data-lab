@@ -89,6 +89,35 @@
         "https://entropicthoughts.com/evaluating-llms-playing-text-adventures"
       ],
       "assumptions": "Sample = up to 30 Hacker News stories from Algolia (single phrase; quoted OR is not supported). points_max vs points_median shows a viral thread. Not a trend score."
+    },
+    {
+      "topic_id": "ai-evaluation",
+      "observed_at": "2026-09-12T09:52:58.654360+00:00",
+      "source_id": "hacker-news",
+      "pipeline_version": "signallab.hn.v1",
+      "query": "LLM eval",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 1434,
+        "points_sum": 2341,
+        "points_max": 534,
+        "points_median": 30.0,
+        "comments_sum": 640,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "unique_authors": 28
+      },
+      "sample_urls": [
+        "https://accounting.penrose.com/",
+        "https://github.com/lm-sys/RouteLLM",
+        "https://github.com/hegelai/prompttools",
+        "https://eugeneyan.com/writing/evals/",
+        "https://chainforge.ai/docs/",
+        "https://github.com/rentruewang/bocoel",
+        "https://darkcoding.net/software/personal-ai-evals-aug-2025/",
+        "https://entropicthoughts.com/evaluating-llms-playing-text-adventures"
+      ],
+      "assumptions": "Sample = up to 30 Hacker News stories from Algolia (single phrase; quoted OR is not supported). points_max vs points_median shows a viral thread. Not a trend score."
     }
   ]
 }
