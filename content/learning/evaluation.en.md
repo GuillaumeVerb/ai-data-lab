@@ -7,8 +7,8 @@ summary: Metrics first, interpretation second. No arbitrary LLM scores.
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-11"
+updated_at: "2026-09-15"
+last_reviewed_at: "2026-09-15"
 stage: evidence
 tags:
   - evaluation
@@ -31,4 +31,4 @@ Task completion, accuracy, cost, latency, hallucinations, tool-use. Keep version
 
 ## Evidence
 
-Profiling A/B **numbered** (sample vs tool, `profile-ab.v1`) plus HITL automation. No published agent eval suite.
+Profiling A/B/C (`profile-llm.v1`) and numbered HITL automation (`hitl-agent.v1`: classification 85%, false autonomy 60%). Versioned gold, not a framework ranking.

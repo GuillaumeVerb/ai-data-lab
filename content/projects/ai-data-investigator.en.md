@@ -9,7 +9,7 @@ why_it_matters: This is the Lab’s Data → Agents bridge. The repo README posi
 translation_status: adapted
 published: true
 published_at: "2026-03-30"
-updated_at: "2026-09-08"
+updated_at: "2026-09-15"
 tags:
   - agents
   - data
@@ -48,16 +48,16 @@ Uploaded CSV or the sample set. Derived features in the profiler. No client-data
 
 ## Results
 
-No public agent-quality metrics are published here. The evidence is the workflow and the code. Agent scores will be versioned in the Lab, not invented after the fact.
+The profiling lab publishes an A/B/C run (`profile-llm.v1`): sample vs tool vs extracted claims. Agent scores outside that protocol stay off this page.
 
 ## Limitations
 
-The README is explicit: portfolio / short demo / business storytelling. Not a client deployment. No formal eval (task completion, hallucinations, cost) on this page.
+The README is explicit: portfolio / short demo / business storytelling. Not a client deployment. No full-workflow task-completion score.
 
 ## Learnings
 
-A credible analyst agent needs tools and artifacts (profile, scenarios, report) before prose. Next Lab step: an eval protocol on a reproducible tabular task suite.
+A credible analyst agent needs tools and artifacts (profile, scenarios, report) before prose. The sample-vs-tool gap is now numbered in the Lab.
 
 ## Next
 
-Connect this project to the lab “can an LLM profile a dataset without inventing stats?”.
+Overwrite trace C with a live call (`python -m labeval --run profile-llm --live`) once a key is available.

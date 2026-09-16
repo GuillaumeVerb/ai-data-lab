@@ -1,0 +1,287 @@
+{
+  "source_repo": "https://github.com/GuillaumeVerb/ai-automation-agent",
+  "source_commit": "e920cf9ce15706cd6f9a59cddae53d962a190f9e",
+  "notes": "Gold labels are human. The pipeline is the public agent's heuristic path (LLM off), after whitespace collapse. Not Gmail. Not MCP.",
+  "cases": [
+    {
+      "id": "s01-urgent-ticket",
+      "text": "URGENT: critical bug, the export plante and it is bloquant. Please open a helpdesk ticket.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "support",
+        "priority": "high",
+        "action_requested": "triage_issue",
+        "tone": "urgent",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "s02-incident-erreur",
+      "text": "Incident production: erreur 500 on checkout. The issue started this morning.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "support",
+        "priority": "high",
+        "action_requested": "triage_issue",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "suggestion_only"
+      }
+    },
+    {
+      "id": "r01-weekly-kpi",
+      "text": "Peux-tu preparer le reporting mensuel des KPI dashboard pour la revue weekly ?",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "reporting",
+        "priority": "low",
+        "action_requested": "prepare_report",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "low_risk_auto"
+      }
+    },
+    {
+      "id": "r02-deadline-report",
+      "text": "Merci de produire un rapport court des KPI logistiques avec deadline 2026-03-21.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "reporting",
+        "priority": "low",
+        "action_requested": "prepare_report",
+        "tone": "polite",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "low_risk_auto"
+      }
+    },
+    {
+      "id": "c01-devis",
+      "text": "Le client demande un devis complementaire et une proposition commerciale avant le renewal.",
+      "requested_mode": "suggestion_only",
+      "gold": {
+        "category": "commercial",
+        "priority": "low",
+        "action_requested": "assess_request",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "c02-pricing-demo",
+      "text": "We need a concise answer to a prospect asking for a demo and pricing details.",
+      "requested_mode": "suggestion_only",
+      "gold": {
+        "category": "commercial",
+        "priority": "low",
+        "action_requested": "assess_request",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "a01-facture",
+      "text": "La facture 2026-0319 semble incorrecte, merci de verifier le montant et la marche a suivre.",
+      "requested_mode": "suggestion_only",
+      "gold": {
+        "category": "administratif",
+        "priority": "low",
+        "action_requested": "assess_request",
+        "tone": "polite",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "suggestion_only"
+      }
+    },
+    {
+      "id": "a02-rh-conge",
+      "text": "Bonjour, un collaborateur demande une attestation RH et souhaite connaitre le delai de traitement d'un conge.",
+      "requested_mode": "suggestion_only",
+      "gold": {
+        "category": "administratif",
+        "priority": "low",
+        "action_requested": "assess_request",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "x01-no-signal",
+      "text": "Hello, can we talk next week about the weather and the office plants?",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "autre",
+        "priority": "low",
+        "action_requested": "assess_request",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "suggestion_only"
+      }
+    },
+    {
+      "id": "t01-kpi-plante",
+      "text": "Bonjour, notre export KPI plante depuis hier et le reporting hebdomadaire est bloque. Merci de nous aider rapidement.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "support",
+        "priority": "high",
+        "action_requested": "triage_issue",
+        "tone": "polite",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "t02-dashboard-access",
+      "text": "Can you summarize this customer note and draft a professional reply? They cannot access the dashboard after the latest release.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "support",
+        "priority": "low",
+        "action_requested": "prepare_reply",
+        "tone": "polite",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "t03-invoice-kpi-report",
+      "text": "Please send the invoice recap as a dashboard KPI report for finance.",
+      "requested_mode": "low_risk_auto",
+      "gold": {
+        "category": "administratif",
+        "priority": "low",
+        "action_requested": "prepare_report",
+        "tone": "polite",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "suggestion_only"
+      }
+    },
+    {
+      "id": "e01-email-bug",
+      "text": "From: Alice Martin <alice@example.com>\nSubject: Production bug on export\n\nThe pipeline plante, this is bloquant. Please reply to the customer.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "support",
+        "priority": "high",
+        "action_requested": "prepare_reply",
+        "tone": "polite",
+        "channel": "email",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "e02-email-report",
+      "text": "From: Ops Lead <ops@example.com>\nSubject: Q2 KPI review for finance\n\nPlease prepare a report before 2026-04-04.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "reporting",
+        "priority": "low",
+        "action_requested": "prepare_report",
+        "tone": "polite",
+        "channel": "email",
+        "output_type": "report",
+        "max_autonomy": "low_risk_auto"
+      }
+    },
+    {
+      "id": "j01-json-report",
+      "text": "{\"type\":\"report_request\",\"priority\":\"medium\",\"kpi\":\"weekly dashboard\"}",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "reporting",
+        "priority": "medium",
+        "action_requested": "prepare_report",
+        "tone": "neutral",
+        "channel": "json",
+        "output_type": "report",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "s03-ticket-reply",
+      "text": "Please reply to the customer, confirm receipt of their ticket, and explain the next support steps.",
+      "requested_mode": "suggestion_only",
+      "gold": {
+        "category": "support",
+        "priority": "low",
+        "action_requested": "prepare_reply",
+        "tone": "polite",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "c03-quote-tomorrow",
+      "text": "Subject: Renewal proposal\nClient asks for updated pricing and a concise response before tomorrow.",
+      "requested_mode": "suggestion_only",
+      "gold": {
+        "category": "commercial",
+        "priority": "medium",
+        "action_requested": "prepare_reply",
+        "tone": "neutral",
+        "channel": "email",
+        "output_type": "email_reply",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "a03-contrat",
+      "text": "Nous avons un besoin administratif: mise a jour de contrat et recap des prochaines etapes.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "administratif",
+        "priority": "low",
+        "action_requested": "assess_request",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "assisted"
+      }
+    },
+    {
+      "id": "s04-billing-api",
+      "text": "Critical incident: our billing API returns errors on every invoice creation since this morning. This is bloquant.",
+      "requested_mode": "low_risk_auto",
+      "gold": {
+        "category": "support",
+        "priority": "high",
+        "action_requested": "triage_issue",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "email_reply",
+        "max_autonomy": "suggestion_only"
+      }
+    },
+    {
+      "id": "r03-exec-report",
+      "text": "Prepare a short executive report about weekly support volume, top blockers, and next actions. Include KPI metrics.",
+      "requested_mode": "assisted",
+      "gold": {
+        "category": "reporting",
+        "priority": "low",
+        "action_requested": "prepare_report",
+        "tone": "neutral",
+        "channel": "text",
+        "output_type": "report",
+        "max_autonomy": "low_risk_auto"
+      }
+    }
+  ]
+}

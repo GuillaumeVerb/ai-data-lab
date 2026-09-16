@@ -93,12 +93,15 @@ python -m signallab serve                   # GET http://127.0.0.1:8000/v1/signa
 
 ### Labs mesurables (local)
 
-Runs versionnés dans `data/labeval/` : tableau A/B profilage CSV (`profile-ab.v1`) et baseline vision UCI digits (`vision-digits.v1`). Stdlib only — pas de sklearn en CI.
+Runs versionnés dans `data/labeval/` : profilage CSV A/B/C (`profile-llm.v1`), baseline vision UCI digits (`vision-digits.v1`), HITL Automation Agent (`hitl-agent.v1`). Stdlib only — pas de sklearn en CI. L’appel OpenAI (`--live`) est optionnel et n’est pas requis pour les tests.
 
 ```bash
-python -m labeval                 # rebuild les deux snapshots
+python -m labeval                 # rebuild les snapshots (sans appel provider)
 python -m labeval --run profile-ab
+python -m labeval --run profile-llm
+python -m labeval --run profile-llm --live  # si OPENAI_API_KEY
 python -m labeval --run vision-digits
+python -m labeval --run hitl-agent
 ```
 
 Une Action GitHub (`SignalLab collect`) relance les 4 sources tous les jours à 06:00 UTC et commit `data/signallab/snapshots/` plus `data/signallab/lexicon.json`. Lancement manuel : onglet Actions → SignalLab collect → Run workflow. Le dépôt doit autoriser `contents: write` (Settings → Actions → Workflow permissions). `SIGNALLAB_PERSIST_RAW=0` évite d’écrire les payloads bruts sur le runner.

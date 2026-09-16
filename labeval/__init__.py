@@ -1,4 +1,4 @@
-"""Versioned Lab evals: metrics first, no LLM scores."""
+"""Versioned Lab evals: metrics first, frozen traces, no invented scores."""
 
 from pathlib import Path
 

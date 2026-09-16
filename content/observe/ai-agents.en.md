@@ -9,7 +9,7 @@ manual: true
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-11"
+updated_at: "2026-09-15"
 tags:
   - agents
 related_lab_ids:
@@ -34,4 +34,4 @@ Evaluable loops (tool → observation → visible failure) versus relabelled cha
 
 ## Current read
 
-Rising in discourse and public repos. Lab evidence remains Decision Copilot, Automation Agent (HITL, a single agent) and the profiling A/B table — no agent eval suite, no framework ranking.
+Rising in discourse and public repos. Lab evidence: Decision Copilot, Automation Agent (`hitl-agent.v1`, a single agent) and the profiling A/B/C table.

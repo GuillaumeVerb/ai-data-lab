@@ -7,8 +7,8 @@ summary: L’outil s’exécute, le modèle lit le résultat. Pas d’invention 
 translation_status: original
 published: true
 published_at: "2026-04-03"
-updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-08"
+updated_at: "2026-09-15"
+last_reviewed_at: "2026-09-15"
 stage: evidence
 tags:
   - tool-use
@@ -30,4 +30,4 @@ Appels déterministes (profilage, classification fermée, extraction schéma). R
 
 ## Preuves
 
-Automation Agent + profiling dans Decision Copilot. **Pas** un serveur MCP public.
+Automation Agent mesuré (`hitl-agent.v1`) + profiling Decision Copilot (`profile-llm.v1`). **Pas** un serveur MCP public.

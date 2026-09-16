@@ -7,8 +7,8 @@ summary: An evaluable action loop, not a chatbot with plugins.
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-08"
+updated_at: "2026-09-15"
+last_reviewed_at: "2026-09-15"
 stage: evidence
 tags:
   - agents
@@ -30,4 +30,4 @@ state → policy → tool/environment → observation. Metrics: completion, tool
 
 ## Evidence
 
-Decision Copilot (investigation loop) and Automation Agent (HITL, not multi-agent). No “Agents 80%” bar.
+Decision Copilot (investigation loop) and Automation Agent (HITL, `hitl-agent.v1`). No “Agents 80%” bar.

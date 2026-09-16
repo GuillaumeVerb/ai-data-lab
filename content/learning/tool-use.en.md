@@ -7,8 +7,8 @@ summary: The tool runs, the model reads the result. No silent field invention.
 translation_status: adapted
 published: true
 published_at: "2026-04-03"
-updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-08"
+updated_at: "2026-09-15"
+last_reviewed_at: "2026-09-15"
 stage: evidence
 tags:
   - tool-use
@@ -30,4 +30,4 @@ Deterministic calls (profiling, closed-set classification, schema extraction). R
 
 ## Evidence
 
-Automation Agent plus profiling in Decision Copilot. **Not** a public MCP server.
+Automation Agent measured (`hitl-agent.v1`) plus profiling in Decision Copilot (`profile-llm.v1`). **Not** a public MCP server.

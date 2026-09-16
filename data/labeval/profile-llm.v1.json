@@ -1,0 +1,117 @@
+{
+  "id": "profile-llm.v1",
+  "kind": "profile-llm",
+  "computed_at": "2026-09-15T15:36:47.756099+00:00",
+  "pipeline_version": "labeval.profile.v2",
+  "method": "Same CSV and fields as profile-ab.v1. A = 8-row descriptives. B = full-file tool. C = claims parsed from a frozen JSON completion on the 8-row paste. CI does not call a provider. --live overwrites the trace when OPENAI_API_KEY is set. Missing claims score as error 1.",
+  "n": 240,
+  "sample_size": 8,
+  "seed": 20260911,
+  "csv": "data/labeval/transactions.v1.csv",
+  "llm": {
+    "provider": "none",
+    "model": "restated-sample",
+    "live": false,
+    "prompt_version": "profile-llm.prompt.v1"
+  },
+  "rows": [
+    {
+      "stat": "n",
+      "truth": 240,
+      "a": 8,
+      "a_error": 0.9667,
+      "b": 240,
+      "b_error": 0.0,
+      "c": 8,
+      "c_error": 0.9667
+    },
+    {
+      "stat": "amount_mean",
+      "truth": 22.432,
+      "a": 98.1988,
+      "a_error": 3.3776,
+      "b": 22.432,
+      "b_error": 0.0,
+      "c": 98.1988,
+      "c_error": 3.3776
+    },
+    {
+      "stat": "amount_min",
+      "truth": 3.0,
+      "a": 80.61,
+      "a_error": 25.87,
+      "b": 3.0,
+      "b_error": 0.0,
+      "c": 80.61,
+      "c_error": 25.87
+    },
+    {
+      "stat": "amount_max",
+      "truth": 149.66,
+      "a": 112.36,
+      "a_error": 0.2492,
+      "b": 149.66,
+      "b_error": 0.0,
+      "c": 112.36,
+      "c_error": 0.2492
+    },
+    {
+      "stat": "age_mean",
+      "truth": 44.8708,
+      "a": 31.0,
+      "a_error": 0.3091,
+      "b": 44.8708,
+      "b_error": 0.0,
+      "c": 31.0,
+      "c_error": 0.3091
+    },
+    {
+      "stat": "rating_null_rate",
+      "truth": 0.1208,
+      "a": 0.0,
+      "a_error": 1.0,
+      "b": 0.1208,
+      "b_error": 0.0,
+      "c": 0.0,
+      "c_error": 1.0
+    },
+    {
+      "stat": "rating_mean",
+      "truth": 3.019,
+      "a": 5.0,
+      "a_error": 0.6562,
+      "b": 3.019,
+      "b_error": 0.0,
+      "c": 5.0,
+      "c_error": 0.6562
+    },
+    {
+      "stat": "city_nunique",
+      "truth": 4,
+      "a": 1,
+      "a_error": 0.75,
+      "b": 4,
+      "b_error": 0.0,
+      "c": 1,
+      "c_error": 0.75
+    },
+    {
+      "stat": "city_mode",
+      "truth": "Paris",
+      "a": "Paris",
+      "a_error": 0.0,
+      "b": "Paris",
+      "b_error": 0.0,
+      "c": "Paris",
+      "c_error": 0.0
+    }
+  ],
+  "summary": {
+    "a_mean_error": 3.6865,
+    "b_mean_error": 0.0,
+    "c_mean_error": 3.6865,
+    "a_mean_capped_error": 0.659,
+    "b_mean_capped_error": 0.0,
+    "c_mean_capped_error": 0.659
+  }
+}

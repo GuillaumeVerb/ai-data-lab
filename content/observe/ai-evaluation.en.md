@@ -9,7 +9,7 @@ manual: true
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-11"
+updated_at: "2026-09-15"
 tags:
   - evaluation
 related_lab_ids:
@@ -34,7 +34,7 @@ Task completion, accuracy, tool-use, cost, latency, hallucinations. Run versioni
 
 ## Current read
 
-Rising: more “evals matter” talk. The public deliverable here is a profiling **A/B table** (sample vs tool), not an agent eval suite.
+Rising: more “evals matter” talk. The public deliverables here are a profiling **A/B/C table** and HITL gold (`hitl-agent.v1`).
 
 ## SignalLab
 

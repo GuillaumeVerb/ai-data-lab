@@ -1,0 +1,8 @@
+{
+  "provider": "none",
+  "model": "restated-sample",
+  "live": false,
+  "prompt_version": "profile-llm.prompt.v1",
+  "prompt": "You profile a CSV from the pasted rows only. Do not invent a larger file.\n\nReturn JSON only, no markdown, with exactly these keys:\nn (integer, row count of what you saw),\namount_mean, amount_min, amount_max, age_mean, rating_null_rate, rating_mean (numbers),\ncity_nunique (integer),\ncity_mode (string).\n\nCSV:\norder_id,amount,age,rating,city\n1,112.36,33,5,Paris\n2,80.61,29,5,Paris\n3,106.50,30,5,Paris\n4,100.19,34,5,Paris\n5,92.91,32,5,Paris\n6,85.44,32,5,Paris\n7,110.09,29,5,Paris\n8,97.49,29,5,Paris\n",
+  "raw": "{\"n\": 8, \"amount_mean\": 98.1988, \"amount_min\": 80.61, \"amount_max\": 112.36, \"age_mean\": 31.0, \"rating_null_rate\": 0.0, \"rating_mean\": 5.0, \"city_nunique\": 1, \"city_mode\": \"Paris\"}"
+}

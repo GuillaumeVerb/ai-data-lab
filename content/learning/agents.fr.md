@@ -7,8 +7,8 @@ summary: Une boucle d’action évaluable, pas un chatbot avec des plugins.
 translation_status: original
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-08"
+updated_at: "2026-09-15"
+last_reviewed_at: "2026-09-15"
 stage: evidence
 tags:
   - agents
@@ -30,4 +30,4 @@ state → policy → tool/environment → observation. Métriques : completion, 
 
 ## Preuves
 
-Decision Copilot (boucle d’investigation) et Automation Agent (HITL, pas multi-agent). Pas de jauge « Agents 80% ».
+Decision Copilot (boucle d’investigation) et Automation Agent (HITL, `hitl-agent.v1`). Pas de jauge « Agents 80% ».

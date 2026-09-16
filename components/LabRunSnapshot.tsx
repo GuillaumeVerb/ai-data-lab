@@ -15,10 +15,12 @@ export function LabRunSnapshot({
       <p className="font-mono text-[11px] tracking-[0.16em] text-signal uppercase">
         {dict.lab.run} · {run.id}
       </p>
-      {run.kind === "profile-ab" ? (
-        <ProfileAb locale={locale} run={run} />
-      ) : (
+      {run.kind === "profile-ab" || run.kind === "profile-llm" ? (
+        <ProfileTable locale={locale} run={run} />
+      ) : run.kind === "vision-digits" ? (
         <VisionDigits locale={locale} run={run} />
+      ) : (
+        <HitlAgent locale={locale} run={run} />
       )}
       <p className="mt-5 font-mono text-[11px] text-mute">
         {dict.lab.collected} {formatDate(run.computed_at, locale)} ·{" "}
@@ -34,23 +36,38 @@ export function LabRunSnapshot({
   );
 }
 
-function ProfileAb({
+function ProfileTable({
   locale,
   run,
 }: {
   locale: Locale;
-  run: Extract<LabRun, { kind: "profile-ab" }>;
+  run: Extract<LabRun, { kind: "profile-ab" | "profile-llm" }>;
 }) {
   const dict = getDictionary(locale);
   const labels = dict.lab.stats;
+  const hasC = run.kind === "profile-llm";
+  const capped =
+    hasC
+      ? dict.lab.cappedErrorLlm
+          .replace("{a}", formatNumber(run.summary.a_mean_capped_error))
+          .replace("{b}", formatNumber(run.summary.b_mean_capped_error))
+          .replace("{c}", formatNumber(run.summary.c_mean_capped_error))
+      : dict.lab.cappedError
+          .replace("{a}", formatNumber(run.summary.a_mean_capped_error))
+          .replace("{b}", formatNumber(run.summary.b_mean_capped_error));
   return (
     <>
-      <p className="mt-2 text-sm leading-6 text-mute">{dict.lab.profileNote}</p>
-      <p className="mt-3 font-mono text-[11px] text-mute">
-        {dict.lab.cappedError
-          .replace("{a}", formatNumber(run.summary.a_mean_capped_error))
-          .replace("{b}", formatNumber(run.summary.b_mean_capped_error))}
+      <p className="mt-2 text-sm leading-6 text-mute">
+        {hasC ? dict.lab.profileLlmNote : dict.lab.profileNote}
       </p>
+      {hasC ? (
+        <p className="mt-2 font-mono text-[11px] text-mute">
+          {dict.lab.llmTrace
+            .replace("{provider}", run.llm.provider)
+            .replace("{model}", run.llm.model)}
+        </p>
+      ) : null}
+      <p className="mt-3 font-mono text-[11px] text-mute">{capped}</p>
       <div className="mt-4 overflow-x-auto">
         <table className="w-full min-w-[28rem] border-t border-line font-mono text-[11px] text-ink">
           <thead>
@@ -70,9 +87,21 @@ function ProfileAb({
               <th className="py-2 pr-3 font-normal uppercase tracking-wider">
                 {dict.lab.conditionB}
               </th>
-              <th className="py-2 font-normal uppercase tracking-wider">
+              <th
+                className={`py-2 font-normal uppercase tracking-wider${hasC ? " pr-3" : ""}`}
+              >
                 {dict.lab.errorB}
               </th>
+              {hasC ? (
+                <>
+                  <th className="py-2 pr-3 font-normal uppercase tracking-wider">
+                    {dict.lab.conditionC}
+                  </th>
+                  <th className="py-2 font-normal uppercase tracking-wider">
+                    {dict.lab.errorC}
+                  </th>
+                </>
+              ) : null}
             </tr>
           </thead>
           <tbody>
@@ -85,7 +114,15 @@ function ProfileAb({
                 <td className="py-2 pr-3">{formatCell(row.a)}</td>
                 <td className="py-2 pr-3">{formatNumber(row.a_error)}</td>
                 <td className="py-2 pr-3">{formatCell(row.b)}</td>
-                <td className="py-2">{formatNumber(row.b_error)}</td>
+                <td className={hasC ? "py-2 pr-3" : "py-2"}>
+                  {formatNumber(row.b_error)}
+                </td>
+                {hasC && "c" in row ? (
+                  <>
+                    <td className="py-2 pr-3">{formatCell(row.c)}</td>
+                    <td className="py-2">{formatNumber(row.c_error)}</td>
+                  </>
+                ) : null}
               </tr>
             ))}
           </tbody>
@@ -143,6 +180,92 @@ function VisionDigits({
   );
 }
 
+function HitlAgent({
+  locale,
+  run,
+}: {
+  locale: Locale;
+  run: Extract<LabRun, { kind: "hitl-agent" }>;
+}) {
+  const dict = getDictionary(locale);
+  const misses = run.rows.filter(
+    (row) => !row.category_ok || row.false_autonomy || !row.tool_choice_ok,
+  );
+  return (
+    <>
+      <p className="mt-2 text-sm leading-6 text-mute">{dict.lab.hitlNote}</p>
+      <p className="mt-2 font-mono text-[11px] text-mute">
+        <a
+          href={run.source_repo}
+          className="text-lab hover:text-ink"
+          rel="noreferrer"
+          target="_blank"
+        >
+          {dict.lab.sourceCommit} {run.source_commit.slice(0, 7)}
+        </a>
+      </p>
+      <dl className="mt-4 grid grid-cols-2 gap-3 font-mono text-[11px] sm:grid-cols-3">
+        <Metric
+          label={dict.lab.nCases}
+          value={String(run.summary.n)}
+        />
+        <Metric
+          label={dict.lab.classification}
+          value={formatPercent(run.summary.classification_accuracy)}
+        />
+        <Metric
+          label={dict.lab.extraction}
+          value={formatPercent(run.summary.extraction_accuracy)}
+        />
+        <Metric
+          label={dict.lab.toolChoice}
+          value={formatPercent(run.summary.tool_choice_accuracy)}
+        />
+        <Metric
+          label={dict.lab.schemaValid}
+          value={formatPercent(run.summary.schema_validity)}
+        />
+        <Metric
+          label={dict.lab.falseAutonomy}
+          value={formatPercent(run.summary.false_autonomy_rate)}
+        />
+      </dl>
+      {misses.length ? (
+        <div className="mt-4 overflow-x-auto">
+          <table className="w-full min-w-[28rem] border-t border-line font-mono text-[11px] text-ink">
+            <thead>
+              <tr className="text-left text-mute">
+                <th className="py-2 pr-3 font-normal uppercase tracking-wider">
+                  {dict.lab.caseId}
+                </th>
+                <th className="py-2 pr-3 font-normal uppercase tracking-wider">
+                  {dict.lab.goldPred}
+                </th>
+                <th className="py-2 font-normal uppercase tracking-wider">
+                  {dict.lab.autonomy}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {misses.map((row) => (
+                <tr key={row.id} className="border-t border-line/70">
+                  <td className="py-2 pr-3">{row.id}</td>
+                  <td className="py-2 pr-3">
+                    {row.gold_category} → {row.pred_category}
+                  </td>
+                  <td className="py-2">
+                    {row.gold_max_autonomy} / {row.pred_autonomy}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : null}
+    </>
+  );
+}
+
 function Metric({ label, value }: { label: string; value: string }) {
   return (
     <div>
@@ -152,7 +275,8 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
-function formatCell(value: string | number) {
+function formatCell(value: string | number | null) {
+  if (value === null) return "—";
   return typeof value === "number" ? formatNumber(value) : value;
 }
 

@@ -9,7 +9,7 @@ manual: true
 translation_status: original
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-11"
+updated_at: "2026-09-15"
 tags:
   - agents
 related_lab_ids:
@@ -34,4 +34,4 @@ Boucles évaluables (outil → observation → échec visible) versus chatbots r
 
 ## Lecture actuelle
 
-Rising côté discours et repos publics. Les preuves du Lab restent Decision Copilot, Automation Agent (HITL, un seul agent) et le tableau A/B de profilage — pas une eval suite agents, pas de ranking de frameworks.
+Rising côté discours et repos publics. Les preuves du Lab : Decision Copilot, Automation Agent (`hitl-agent.v1`, un seul agent) et le tableau A/B/C de profilage.

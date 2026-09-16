@@ -8,7 +8,7 @@ kind: explainer
 translation_status: original
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-15"
 tags:
   - agents
   - evaluation
@@ -29,7 +29,7 @@ scaffold: false
 
 1. **Knowledge Copilot** — retrieval puis génération. C’est un workflow grounded, pas une boucle d’actions dans le monde.
 2. **Automation Agent** — classification, extraction, score, humain dans la boucle. Semi-déterministe. Le README le dit : ce n’est pas un multi-agent.
-3. **Decision Copilot** — profilage → investigation → scénarios. Plus « agentique ». Le lab de profilage a maintenant un tableau A/B versionné (échantillon vs outil).
+3. **Decision Copilot** — profilage → investigation → scénarios. Plus « agentique ». Le lab de profilage a un tableau A/B/C versionné (échantillon vs outil vs claims).
 
 ## Règle
 
@@ -37,4 +37,4 @@ Si l’échec n’est pas observable (pas d’outil, pas de métrique, pas de re
 
 ## Ce que je n’en conclus pas
 
-Pas de ranking « le meilleur framework ». Pas de claim MCP. Le tableau A/B de profilage tabulaire est publié ; une eval suite agents ne l’est pas.
+Pas de ranking « le meilleur framework ». Pas de claim MCP. Le tableau A/B/C de profilage et le gold HITL (`hitl-agent.v1`) sont publiés.

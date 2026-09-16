@@ -7,8 +7,8 @@ summary: Métriques d’abord, interprétation ensuite. Pas de score LLM arbitra
 translation_status: original
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
-last_reviewed_at: "2026-09-11"
+updated_at: "2026-09-15"
+last_reviewed_at: "2026-09-15"
 stage: evidence
 tags:
   - evaluation
@@ -31,4 +31,4 @@ Task completion, exactitude, coût, latence, hallucinations, tool-use. Conserver
 
 ## Preuves
 
-Protocole A/B profilage **chiffré** (échantillon vs outil, `profile-ab.v1`) + HITL automation. Pas de suite d’eval agents publiée.
+Profilage A/B/C (`profile-llm.v1`) et HITL automation chiffré (`hitl-agent.v1` : classification 85 %, fausse autonomie 60 %). Gold versionné, pas un ranking de frameworks.

@@ -9,7 +9,7 @@ why_it_matters: C’est le pont Data → Agents du Lab. Le README du repo le pos
 translation_status: original
 published: true
 published_at: "2026-03-30"
-updated_at: "2026-09-08"
+updated_at: "2026-09-15"
 tags:
   - agents
   - data
@@ -48,16 +48,16 @@ CSV uploadé ou jeu d’exemple. Features dérivées côté profiling. Pas de cl
 
 ## Résultats
 
-Aucune métrique publique de qualité d’agent n’est publiée ici. Le livrable visible est le workflow et le code. Les scores d’agents seront versionnés dans le Lab, pas inventés après coup.
+Le lab de profilage publie un run A/B/C (`profile-llm.v1`) : échantillon vs outil vs claims extraits. Les scores d’agents hors ce protocole restent absents de cette page.
 
 ## Limites
 
-Le README le dit : positionnement portfolio / démo courte / storytelling business. Ce n’est pas un déploiement client. Pas d’évaluation formelle (task completion, hallucinations, coût) dans cette page.
+Le README le dit : positionnement portfolio / démo courte / storytelling business. Pas un déploiement client. Pas de task-completion globale sur le workflow entier.
 
 ## Learnings
 
-Un analyste agentique crédible impose des outils et des artefacts (profil, scénarios, rapport) avant la prose. La prochaine étape du Lab : un protocole d’eval sur un jeu de tâches tabulaires reproductibles.
+Un analyste agentique crédible impose des outils et des artefacts (profil, scénarios, rapport) avant la prose. Le gap échantillon vs outil est maintenant chiffré dans le Lab.
 
 ## Suite
 
-Relier ce projet au lab « un LLM peut-il profiler un dataset sans halluciner les stats ? ».
+Écraser la trace C avec un appel live (`python -m labeval --run profile-llm --live`) dès qu’une clé est disponible.

@@ -3,7 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from labeval.hitl_agent import build_snapshot as build_hitl
+from labeval.hitl_agent import extract_fields
 from labeval.profile_ab import SAMPLE_SIZE, build_rows, build_snapshot, csv_text, relative_error
+from labeval.profile_llm import build_snapshot as build_llm
+from labeval.profile_llm import claim_error, parse_claims
 from labeval.vision_digits import build_snapshot as build_vision
 
 
@@ -48,3 +52,45 @@ def test_vision_centroid_beats_majority_and_matches_snapshot() -> None:
     assert metrics["majority_accuracy"] == 0.1003
     assert metrics["centroid_accuracy"] == 0.9248
     assert metrics["centroid_accuracy"] > metrics["majority_accuracy"]
+
+
+def test_hitl_agent_matches_committed_snapshot() -> None:
+    committed = json.loads((DATA / "hitl-agent.v1.json").read_text(encoding="utf8"))
+    fresh = build_hitl(computed_at=committed["computed_at"])
+    assert fresh == committed
+    summary = fresh["summary"]
+    assert summary["n"] == 20
+    assert summary["schema_validity"] == 1.0
+    assert summary["classification_accuracy"] == 0.85
+    assert summary["extraction_accuracy"] == 0.9
+    assert summary["tool_choice_accuracy"] == 0.95
+    assert summary["false_autonomy_rate"] == 0.6
+
+
+def test_hitl_traps_and_merci_substring() -> None:
+    fields = extract_fields("proposition commerciale")
+    assert fields.tone == "polite"
+    rows = {row["id"]: row for row in build_hitl()["rows"]}
+    assert rows["t01-kpi-plante"]["pred_category"] == "reporting"
+    assert rows["t01-kpi-plante"]["gold_category"] == "support"
+    assert rows["t03-invoice-kpi-report"]["false_autonomy"] is True
+
+
+def test_profile_llm_restated_sample_matches_a_and_snapshot() -> None:
+    committed = json.loads((DATA / "profile-llm.v1.json").read_text(encoding="utf8"))
+    fresh = build_llm(computed_at=committed["computed_at"])
+    assert fresh == committed
+    assert fresh["llm"]["model"] == "restated-sample"
+    assert fresh["summary"]["c_mean_capped_error"] == fresh["summary"]["a_mean_capped_error"]
+    assert fresh["summary"]["b_mean_capped_error"] == 0
+    for row in fresh["rows"]:
+        assert row["c"] == row["a"]
+        assert row["c_error"] == row["a_error"]
+
+
+def test_parse_claims_missing_and_fenced() -> None:
+    assert parse_claims("not json")["n"] is None
+    assert parse_claims('```json\n{"n": 8, "city_mode": "Paris"}\n```')["n"] == 8
+    assert claim_error(None, 240) == 1.0
+    assert claim_error("Lyon", "Paris") == 1.0
+    assert claim_error("Paris", "Paris") == 0.0

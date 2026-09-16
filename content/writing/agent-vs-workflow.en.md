@@ -8,7 +8,7 @@ kind: explainer
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-08"
+updated_at: "2026-09-15"
 tags:
   - agents
   - evaluation
@@ -29,7 +29,7 @@ scaffold: false
 
 1. **Knowledge Copilot** — retrieval then generation. A grounded workflow, not an action loop in the world.
 2. **Automation Agent** — classification, extraction, score, human in the loop. Semi-deterministic. The README is explicit: not a multi-agent system.
-3. **Decision Copilot** — profiling → investigation → scenarios. More agentic. The profiling lab now has a versioned A/B table (sample vs tool).
+3. **Decision Copilot** — profiling → investigation → scenarios. More agentic. The profiling lab has a versioned A/B/C table (sample vs tool vs claims).
 
 ## Rule
 
@@ -37,4 +37,4 @@ If failure is invisible (no tool, no metric, no review), it is copy, not a syste
 
 ## What I am not concluding
 
-No “best framework” ranking. No MCP claim. The tabular profiling A/B table is published; an agent eval suite is not.
+No “best framework” ranking. No MCP claim. The tabular profiling A/B/C table and the HITL gold (`hitl-agent.v1`) are published.
