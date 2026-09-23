@@ -8,7 +8,7 @@ kind: explainer
 translation_status: original
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-15"
+updated_at: "2026-09-23"
 tags:
   - agents
   - evaluation
@@ -18,6 +18,7 @@ related_lab_ids:
 related_project_ids:
   - ai-data-investigator
   - ai-knowledge-copilot
+  - ai-automation-agent
 scaffold: false
 ---
 
@@ -37,4 +38,4 @@ Si l’échec n’est pas observable (pas d’outil, pas de métrique, pas de re
 
 ## Ce que je n’en conclus pas
 
-Pas de ranking « le meilleur framework ». Pas de claim MCP. Le tableau A/B/C de profilage et le gold HITL (`hitl-agent.v1`) sont publiés.
+Pas de ranking « le meilleur framework ». Pas de claim MCP. Le tableau A/B/C de profilage et le gold HITL (`hitl-agent.v2`) sont publiés.

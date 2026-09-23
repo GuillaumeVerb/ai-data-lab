@@ -7,8 +7,8 @@ summary: Metrics first, interpretation second. No arbitrary LLM scores.
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-15"
-last_reviewed_at: "2026-09-15"
+updated_at: "2026-09-23"
+last_reviewed_at: "2026-09-23"
 stage: evidence
 tags:
   - evaluation
@@ -18,6 +18,7 @@ related_lab_ids:
   - vision-digits-baseline
 related_project_ids:
   - ai-data-investigator
+  - ai-automation-agent
 scaffold: false
 ---
 
@@ -31,4 +32,4 @@ Task completion, accuracy, cost, latency, hallucinations, tool-use. Keep version
 
 ## Evidence
 
-Profiling A/B/C (`profile-llm.v1`) and numbered HITL automation (`hitl-agent.v1`: classification 85%, false autonomy 60%). Versioned gold, not a framework ranking.
+Profiling A/B/C (`profile-llm.v1`) and numbered HITL automation (`hitl-agent.v2`: classification 100%, false autonomy 15%, down from 60% in v1). Versioned gold, not a framework ranking.

@@ -93,7 +93,7 @@ python -m signallab serve                   # GET http://127.0.0.1:8000/v1/signa
 
 ### Labs mesurables (local)
 
-Runs versionnés dans `data/labeval/` : profilage CSV A/B/C (`profile-llm.v1`), baseline vision UCI digits (`vision-digits.v1`), HITL Automation Agent (`hitl-agent.v1`). Stdlib only — pas de sklearn en CI. L’appel OpenAI (`--live`) est optionnel et n’est pas requis pour les tests.
+Runs versionnés dans `data/labeval/` : profilage CSV A/B/C (`profile-llm.v1`), baseline vision UCI digits (`vision-digits.v1`), HITL Automation Agent (`hitl-agent.v2`). Stdlib only — pas de sklearn en CI. L’appel OpenAI (`--live`) est optionnel et n’est pas requis pour les tests.
 
 ```bash
 python -m labeval                 # rebuild les snapshots (sans appel provider)

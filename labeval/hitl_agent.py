@@ -17,11 +17,11 @@ from typing import Any, Optional
 
 from labeval import DATA
 
-RUN_ID = "hitl-agent.v1"
-SNAPSHOT_NAME = "hitl-agent.v1.json"
+RUN_ID = "hitl-agent.v2"
+SNAPSHOT_NAME = "hitl-agent.v2.json"
 CASES_NAME = "hitl-agent.v1.cases.json"
 SOURCE_REPO = "https://github.com/GuillaumeVerb/ai-automation-agent"
-SOURCE_COMMIT = "e920cf9ce15706cd6f9a59cddae53d962a190f9e"
+SOURCE_COMMIT = "19343e51bdd9a2bdf37512cb79a7118ba4a32140"
 PINNED_TODAY = date(2026, 9, 15)
 CATEGORIES = ("support", "reporting", "commercial", "administratif", "autre")
 ACTIONS = ("prepare_reply", "prepare_report", "triage_issue", "assess_request")
@@ -33,22 +33,34 @@ MODE_RANK = {"suggestion_only": 0, "assisted": 1, "low_risk_auto": 2}
 EXTRACTION_FIELDS = ("priority", "action_requested", "tone", "channel")
 METHOD = (
     "Public AI Automation Agent heuristic path (APP_LLM_ENABLED=false), commit "
-    "e920cf9. 20 gold emails/texts. Classification = closed-set category. "
-    "Extraction = priority/action/tone/channel. Tool choice = email_reply vs report. "
+    "19343e5. Word-boundary keywords, mixed-intent gates (support > admin > "
+    "commercial > reporting), low_risk_auto only for reporting. Same 20 gold cases. "
     "False autonomy = recommended mode > gold.max_autonomy. Deadline clock pinned "
     "to 2026-09-15. Not a live Gmail/Slack run."
 )
 
 CATEGORY_RULES: dict[str, list[str]] = {
-    "support": ["bug", "incident", "erreur", "plante", "probleme", "issue", "helpdesk", "ticket"],
+    "support": [
+        "bug",
+        "incident",
+        "erreur",
+        "plante",
+        "probleme",
+        "issue",
+        "helpdesk",
+        "ticket",
+        "cannot access",
+        "n'arrive",
+    ],
     "reporting": ["report", "kpi", "dashboard", "reporting", "metrics", "weekly", "mensuel", "rapport"],
     "commercial": ["pricing", "quote", "proposal", "vente", "devis", "renewal", "client", "demo"],
     "administratif": ["invoice", "facture", "contrat", "rh", "conge", "admin", "compliance"],
 }
+CATEGORY_PRIORITY = ("support", "administratif", "commercial", "reporting")
 
 PRIORITY_KEYWORDS = {
-    "high": ["urgent", "asap", "critique", "bloquant", "today", "aujourd"],
-    "medium": ["soon", "demain", "cette semaine", "important"],
+    "high": ["urgent", "asap", "critique", "bloquant", "critical", "rapidement", "quickly", "today", "aujourd"],
+    "medium": ["soon", "demain", "cette semaine", "important", "medium"],
 }
 
 
@@ -74,27 +86,37 @@ def preprocess_text(raw_text: str) -> str:
     return re.sub(r"\s+", " ", raw_text.strip())
 
 
+def _has_term(text: str, term: str) -> bool:
+    pattern = r"(?<!\w)" + re.escape(term.lower()) + r"(?!\w)"
+    return re.search(pattern, text.lower()) is not None
+
+
 def classify_request(text: str) -> tuple[str, float, list[str]]:
-    lowered = text.lower()
     scores: dict[str, int] = {category: 0 for category in CATEGORY_RULES}
     matched: dict[str, list[str]] = {category: [] for category in CATEGORY_RULES}
     for category, keywords in CATEGORY_RULES.items():
         for keyword in keywords:
-            if keyword in lowered:
+            if _has_term(text, keyword):
                 scores[category] += 1
                 matched[category].append(keyword)
-    best_category = max(scores, key=scores.get)
-    best_score = scores[best_category]
-    if best_score == 0:
+    if all(score == 0 for score in scores.values()):
         return "autre", 0.4, ["general_request"]
+    best_category = "autre"
+    for category in CATEGORY_PRIORITY:
+        if scores[category] > 0:
+            best_category = category
+            break
+    best_score = scores[best_category]
     confidence = min(0.55 + best_score * 0.12, 0.97)
     return best_category, round(confidence, 2), matched[best_category]
 
 
 def _detect_priority(text: str) -> str:
-    lowered = text.lower()
+    json_priority = re.search(r'"priority"\s*:\s*"(low|medium|high)"', text, flags=re.IGNORECASE)
+    if json_priority:
+        return json_priority.group(1).lower()
     for priority, keywords in PRIORITY_KEYWORDS.items():
-        if any(keyword in lowered for keyword in keywords):
+        if any(_has_term(text, keyword) for keyword in keywords):
             return priority
     return "low"
 
@@ -152,21 +174,19 @@ def _extract_subject(text: str) -> str:
 
 
 def _extract_action(text: str) -> str:
-    lowered = text.lower()
-    if any(word in lowered for word in ["reply", "reponse", "respond", "email"]):
+    if any(_has_term(text, word) for word in ["reply", "reponse", "respond", "response"]):
         return "prepare_reply"
-    if any(word in lowered for word in ["report", "rapport", "dashboard", "kpi"]):
-        return "prepare_report"
-    if any(word in lowered for word in ["bug", "issue", "incident", "ticket"]):
+    if any(_has_term(text, word) for word in ["bug", "issue", "incident", "ticket", "plante", "erreur"]):
         return "triage_issue"
+    if any(_has_term(text, word) for word in ["report", "rapport", "dashboard", "kpi"]):
+        return "prepare_report"
     return "assess_request"
 
 
 def _extract_tone(text: str) -> str:
-    lowered = text.lower()
-    if any(word in lowered for word in ["urgent", "asap", "immediately", "critique"]):
+    if any(_has_term(text, word) for word in ["urgent", "asap", "immediately", "critique", "critical"]):
         return "urgent"
-    if any(word in lowered for word in ["thanks", "merci", "please", "svp"]):
+    if any(_has_term(text, word) for word in ["thanks", "merci", "please", "svp"]):
         return "polite"
     return "neutral"
 
@@ -235,7 +255,11 @@ def compute_automation_score(
 
     global_score = int(round(confidence_score * 0.45 + risk_score * 0.35 + completeness * 0.20))
     global_score = max(0, min(global_score, 100))
-    if global_score >= 80 and risk_level == "low":
+    if category == "autre":
+        autonomy_mode = "suggestion_only"
+    elif category in {"support", "administratif"} and extracted_fields.priority == "high":
+        autonomy_mode = "suggestion_only"
+    elif global_score >= 80 and risk_level == "low" and category == "reporting":
         autonomy_mode = "low_risk_auto"
     elif global_score >= 55:
         autonomy_mode = "assisted"
@@ -358,7 +382,7 @@ def build_snapshot(
         "id": RUN_ID,
         "kind": "hitl-agent",
         "computed_at": computed_at or datetime.now(timezone.utc).isoformat(),
-        "pipeline_version": "labeval.hitl.v1",
+        "pipeline_version": "labeval.hitl.v2",
         "method": METHOD,
         "source_repo": SOURCE_REPO,
         "source_commit": SOURCE_COMMIT,

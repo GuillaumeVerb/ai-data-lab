@@ -34,7 +34,7 @@ Task completion, accuracy, tool-use, cost, latency, hallucinations. Run versioni
 
 ## Current read
 
-Rising: more “evals matter” talk. The public deliverables here are a profiling **A/B/C table** and HITL gold (`hitl-agent.v1`).
+Rising: more “evals matter” talk. The public deliverables here are a profiling **A/B/C table** and HITL gold (`hitl-agent.v2`).
 
 ## SignalLab
 

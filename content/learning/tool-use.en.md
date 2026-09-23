@@ -17,6 +17,7 @@ related_lab_ids:
   - llm-dataset-exploration
 related_project_ids:
   - ai-data-investigator
+  - ai-automation-agent
 scaffold: false
 ---
 
@@ -30,4 +31,4 @@ Deterministic calls (profiling, closed-set classification, schema extraction). R
 
 ## Evidence
 
-Automation Agent measured (`hitl-agent.v1`) plus profiling in Decision Copilot (`profile-llm.v1`). **Not** a public MCP server.
+Automation Agent measured (`hitl-agent.v2`) plus profiling in Decision Copilot (`profile-llm.v1`). **Not** a public MCP server.

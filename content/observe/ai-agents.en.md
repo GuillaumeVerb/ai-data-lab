@@ -34,4 +34,4 @@ Evaluable loops (tool → observation → visible failure) versus relabelled cha
 
 ## Current read
 
-Rising in discourse and public repos. Lab evidence: Decision Copilot, Automation Agent (`hitl-agent.v1`, a single agent) and the profiling A/B/C table.
+Rising in discourse and public repos. Lab evidence: Decision Copilot, Automation Agent (`hitl-agent.v2`, a single agent) and the profiling A/B/C table.

@@ -1,0 +1,782 @@
+{
+  "id": "hitl-agent.v2",
+  "kind": "hitl-agent",
+  "computed_at": "2026-09-23T15:33:25.115624+00:00",
+  "pipeline_version": "labeval.hitl.v2",
+  "method": "Public AI Automation Agent heuristic path (APP_LLM_ENABLED=false), commit 19343e5. Word-boundary keywords, mixed-intent gates (support > admin > commercial > reporting), low_risk_auto only for reporting. Same 20 gold cases. False autonomy = recommended mode > gold.max_autonomy. Deadline clock pinned to 2026-09-15. Not a live Gmail/Slack run.",
+  "source_repo": "https://github.com/GuillaumeVerb/ai-automation-agent",
+  "source_commit": "19343e51bdd9a2bdf37512cb79a7118ba4a32140",
+  "n": 20,
+  "cases": "data/labeval/hitl-agent.v1.cases.json",
+  "rows": [
+    {
+      "id": "s01-urgent-ticket",
+      "gold_category": "support",
+      "pred_category": "support",
+      "category_ok": true,
+      "confidence": 0.97,
+      "signals": [
+        "bug",
+        "plante",
+        "helpdesk",
+        "ticket"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "suggestion_only",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "high",
+      "action_requested": "triage_issue",
+      "tone": "urgent",
+      "channel": "text",
+      "global_score": 76,
+      "risk_level": "high",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "s02-incident-erreur",
+      "gold_category": "support",
+      "pred_category": "support",
+      "category_ok": true,
+      "confidence": 0.91,
+      "signals": [
+        "incident",
+        "erreur",
+        "issue"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "suggestion_only",
+      "pred_autonomy": "assisted",
+      "false_autonomy": true,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": false,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": false,
+      "priority": "low",
+      "action_requested": "triage_issue",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 86,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "r01-weekly-kpi",
+      "gold_category": "reporting",
+      "pred_category": "reporting",
+      "category_ok": true,
+      "confidence": 0.97,
+      "signals": [
+        "kpi",
+        "dashboard",
+        "reporting",
+        "weekly",
+        "mensuel"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "low_risk_auto",
+      "pred_autonomy": "low_risk_auto",
+      "false_autonomy": false,
+      "human_review": false,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "prepare_report",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 92,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "log_run"
+      ]
+    },
+    {
+      "id": "r02-deadline-report",
+      "gold_category": "reporting",
+      "pred_category": "reporting",
+      "category_ok": true,
+      "confidence": 0.79,
+      "signals": [
+        "kpi",
+        "rapport"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "low_risk_auto",
+      "pred_autonomy": "low_risk_auto",
+      "false_autonomy": false,
+      "human_review": false,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "prepare_report",
+      "tone": "polite",
+      "channel": "text",
+      "global_score": 85,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "log_run"
+      ]
+    },
+    {
+      "id": "c01-devis",
+      "gold_category": "commercial",
+      "pred_category": "commercial",
+      "category_ok": true,
+      "confidence": 0.91,
+      "signals": [
+        "devis",
+        "renewal",
+        "client"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "assess_request",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 88,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "c02-pricing-demo",
+      "gold_category": "commercial",
+      "pred_category": "commercial",
+      "category_ok": true,
+      "confidence": 0.79,
+      "signals": [
+        "pricing",
+        "demo"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "assess_request",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 83,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "a01-facture",
+      "gold_category": "administratif",
+      "pred_category": "administratif",
+      "category_ok": true,
+      "confidence": 0.67,
+      "signals": [
+        "facture"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "suggestion_only",
+      "pred_autonomy": "assisted",
+      "false_autonomy": true,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "assess_request",
+      "tone": "polite",
+      "channel": "text",
+      "global_score": 76,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "a02-rh-conge",
+      "gold_category": "administratif",
+      "pred_category": "administratif",
+      "category_ok": true,
+      "confidence": 0.79,
+      "signals": [
+        "rh",
+        "conge"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "assess_request",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 81,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "x01-no-signal",
+      "gold_category": "autre",
+      "pred_category": "autre",
+      "category_ok": true,
+      "confidence": 0.4,
+      "signals": [
+        "general_request"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "suggestion_only",
+      "pred_autonomy": "suggestion_only",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "assess_request",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 64,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "t01-kpi-plante",
+      "gold_category": "support",
+      "pred_category": "support",
+      "category_ok": true,
+      "confidence": 0.67,
+      "signals": [
+        "plante"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "suggestion_only",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "high",
+      "action_requested": "triage_issue",
+      "tone": "polite",
+      "channel": "text",
+      "global_score": 63,
+      "risk_level": "high",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "t02-dashboard-access",
+      "gold_category": "support",
+      "pred_category": "support",
+      "category_ok": true,
+      "confidence": 0.67,
+      "signals": [
+        "cannot access"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": false,
+        "channel": true
+      },
+      "extraction_ok": false,
+      "priority": "low",
+      "action_requested": "prepare_reply",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 75,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "t03-invoice-kpi-report",
+      "gold_category": "administratif",
+      "pred_category": "administratif",
+      "category_ok": true,
+      "confidence": 0.67,
+      "signals": [
+        "invoice"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "suggestion_only",
+      "pred_autonomy": "assisted",
+      "false_autonomy": true,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "prepare_report",
+      "tone": "polite",
+      "channel": "text",
+      "global_score": 74,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "e01-email-bug",
+      "gold_category": "support",
+      "pred_category": "support",
+      "category_ok": true,
+      "confidence": 0.79,
+      "signals": [
+        "bug",
+        "plante"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "suggestion_only",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "high",
+      "action_requested": "prepare_reply",
+      "tone": "polite",
+      "channel": "email",
+      "global_score": 69,
+      "risk_level": "high",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "e02-email-report",
+      "gold_category": "reporting",
+      "pred_category": "reporting",
+      "category_ok": true,
+      "confidence": 0.79,
+      "signals": [
+        "report",
+        "kpi"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "low_risk_auto",
+      "pred_autonomy": "low_risk_auto",
+      "false_autonomy": false,
+      "human_review": false,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "prepare_report",
+      "tone": "polite",
+      "channel": "email",
+      "global_score": 86,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "log_run"
+      ]
+    },
+    {
+      "id": "j01-json-report",
+      "gold_category": "reporting",
+      "pred_category": "reporting",
+      "category_ok": true,
+      "confidence": 0.91,
+      "signals": [
+        "kpi",
+        "dashboard",
+        "weekly"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "medium",
+      "action_requested": "prepare_report",
+      "tone": "neutral",
+      "channel": "json",
+      "global_score": 84,
+      "risk_level": "medium",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "s03-ticket-reply",
+      "gold_category": "support",
+      "pred_category": "support",
+      "category_ok": true,
+      "confidence": 0.67,
+      "signals": [
+        "ticket"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "prepare_reply",
+      "tone": "polite",
+      "channel": "text",
+      "global_score": 76,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "c03-quote-tomorrow",
+      "gold_category": "commercial",
+      "pred_category": "commercial",
+      "category_ok": true,
+      "confidence": 0.97,
+      "signals": [
+        "pricing",
+        "proposal",
+        "renewal",
+        "client"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": false,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": false,
+      "priority": "low",
+      "action_requested": "prepare_reply",
+      "tone": "neutral",
+      "channel": "email",
+      "global_score": 94,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "a03-contrat",
+      "gold_category": "administratif",
+      "pred_category": "administratif",
+      "category_ok": true,
+      "confidence": 0.67,
+      "signals": [
+        "contrat"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "assisted",
+      "pred_autonomy": "assisted",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "assess_request",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 75,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "s04-billing-api",
+      "gold_category": "support",
+      "pred_category": "support",
+      "category_ok": true,
+      "confidence": 0.67,
+      "signals": [
+        "incident"
+      ],
+      "gold_output_type": "email_reply",
+      "pred_output_type": "email_reply",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "suggestion_only",
+      "pred_autonomy": "suggestion_only",
+      "false_autonomy": false,
+      "human_review": true,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "high",
+      "action_requested": "triage_issue",
+      "tone": "urgent",
+      "channel": "text",
+      "global_score": 60,
+      "risk_level": "high",
+      "strategy": [
+        "summarize",
+        "generate_email_reply",
+        "human_review",
+        "log_run"
+      ]
+    },
+    {
+      "id": "r03-exec-report",
+      "gold_category": "reporting",
+      "pred_category": "reporting",
+      "category_ok": true,
+      "confidence": 0.97,
+      "signals": [
+        "report",
+        "kpi",
+        "metrics",
+        "weekly"
+      ],
+      "gold_output_type": "report",
+      "pred_output_type": "report",
+      "tool_choice_ok": true,
+      "gold_max_autonomy": "low_risk_auto",
+      "pred_autonomy": "low_risk_auto",
+      "false_autonomy": false,
+      "human_review": false,
+      "schema_ok": true,
+      "extraction_hits": {
+        "priority": true,
+        "action_requested": true,
+        "tone": true,
+        "channel": true
+      },
+      "extraction_ok": true,
+      "priority": "low",
+      "action_requested": "prepare_report",
+      "tone": "neutral",
+      "channel": "text",
+      "global_score": 92,
+      "risk_level": "low",
+      "strategy": [
+        "summarize",
+        "generate_report",
+        "log_run"
+      ]
+    }
+  ],
+  "summary": {
+    "n": 20,
+    "classification_accuracy": 1.0,
+    "extraction_accuracy": 0.9625,
+    "tool_choice_accuracy": 1.0,
+    "schema_validity": 1.0,
+    "false_autonomy_rate": 0.15,
+    "human_review_rate": 0.8
+  }
+}

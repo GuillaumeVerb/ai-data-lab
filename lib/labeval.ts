@@ -158,6 +158,7 @@ const runFiles: Record<string, string> = {
   "profile-llm.v1": "profile-llm.v1.json",
   "vision-digits.v1": "vision-digits.v1.json",
   "hitl-agent.v1": "hitl-agent.v1.json",
+  "hitl-agent.v2": "hitl-agent.v2.json",
 };
 
 export function getLabRun(runId: string | undefined): LabRun | null {

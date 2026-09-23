@@ -17,6 +17,7 @@ related_lab_ids:
   - human-in-the-loop-automation
 related_project_ids:
   - ai-data-investigator
+  - ai-automation-agent
 scaffold: false
 ---
 
@@ -30,4 +31,4 @@ state → policy → tool/environment → observation. Métriques : completion, 
 
 ## Preuves
 
-Decision Copilot (boucle d’investigation) et Automation Agent (HITL, `hitl-agent.v1`). Pas de jauge « Agents 80% ».
+Decision Copilot (boucle d’investigation) et Automation Agent (HITL, `hitl-agent.v2`). Pas de jauge « Agents 80% ».

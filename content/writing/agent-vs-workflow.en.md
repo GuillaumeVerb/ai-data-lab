@@ -8,7 +8,7 @@ kind: explainer
 translation_status: adapted
 published: true
 published_at: "2026-09-08"
-updated_at: "2026-09-15"
+updated_at: "2026-09-23"
 tags:
   - agents
   - evaluation
@@ -18,6 +18,7 @@ related_lab_ids:
 related_project_ids:
   - ai-data-investigator
   - ai-knowledge-copilot
+  - ai-automation-agent
 scaffold: false
 ---
 
@@ -37,4 +38,4 @@ If failure is invisible (no tool, no metric, no review), it is copy, not a syste
 
 ## What I am not concluding
 
-No “best framework” ranking. No MCP claim. The tabular profiling A/B/C table and the HITL gold (`hitl-agent.v1`) are published.
+No “best framework” ranking. No MCP claim. The tabular profiling A/B/C table and the HITL gold (`hitl-agent.v2`) are published.

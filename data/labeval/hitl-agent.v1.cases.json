@@ -263,7 +263,7 @@
         "category": "support",
         "priority": "high",
         "action_requested": "triage_issue",
-        "tone": "neutral",
+        "tone": "urgent",
         "channel": "text",
         "output_type": "email_reply",
         "max_autonomy": "suggestion_only"

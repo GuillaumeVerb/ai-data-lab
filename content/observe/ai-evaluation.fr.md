@@ -34,7 +34,7 @@ Task completion, exactitude, tool-use, coût, latence, hallucinations. Versionin
 
 ## Lecture actuelle
 
-Rising : plus de discours « evals matter ». Ici, les livrables publics sont un **tableau A/B/C** de profilage et un gold HITL (`hitl-agent.v1`).
+Rising : plus de discours « evals matter ». Ici, les livrables publics sont un **tableau A/B/C** de profilage et un gold HITL (`hitl-agent.v2`).
 
 ## SignalLab
 

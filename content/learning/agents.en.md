@@ -17,6 +17,7 @@ related_lab_ids:
   - human-in-the-loop-automation
 related_project_ids:
   - ai-data-investigator
+  - ai-automation-agent
 scaffold: false
 ---
 
@@ -30,4 +31,4 @@ state → policy → tool/environment → observation. Metrics: completion, tool
 
 ## Evidence
 
-Decision Copilot (investigation loop) and Automation Agent (HITL, `hitl-agent.v1`). No “Agents 80%” bar.
+Decision Copilot (investigation loop) and Automation Agent (HITL, `hitl-agent.v2`). No “Agents 80%” bar.

@@ -54,26 +54,31 @@ def test_vision_centroid_beats_majority_and_matches_snapshot() -> None:
     assert metrics["centroid_accuracy"] > metrics["majority_accuracy"]
 
 
-def test_hitl_agent_matches_committed_snapshot() -> None:
+def test_hitl_agent_v1_snapshot_stays_frozen() -> None:
     committed = json.loads((DATA / "hitl-agent.v1.json").read_text(encoding="utf8"))
+    assert committed["id"] == "hitl-agent.v1"
+    assert committed["summary"]["false_autonomy_rate"] == 0.6
+
+
+def test_hitl_agent_matches_committed_snapshot() -> None:
+    committed = json.loads((DATA / "hitl-agent.v2.json").read_text(encoding="utf8"))
     fresh = build_hitl(computed_at=committed["computed_at"])
     assert fresh == committed
     summary = fresh["summary"]
     assert summary["n"] == 20
     assert summary["schema_validity"] == 1.0
-    assert summary["classification_accuracy"] == 0.85
-    assert summary["extraction_accuracy"] == 0.9
-    assert summary["tool_choice_accuracy"] == 0.95
-    assert summary["false_autonomy_rate"] == 0.6
+    assert summary["classification_accuracy"] == 1.0
+    assert summary["extraction_accuracy"] == 0.9625
+    assert summary["tool_choice_accuracy"] == 1.0
+    assert summary["false_autonomy_rate"] == 0.15
 
 
 def test_hitl_traps_and_merci_substring() -> None:
-    fields = extract_fields("proposition commerciale")
-    assert fields.tone == "polite"
+    assert extract_fields("proposition commerciale").tone == "neutral"
+    assert extract_fields("Merci de preparer le reporting.").tone == "polite"
     rows = {row["id"]: row for row in build_hitl()["rows"]}
-    assert rows["t01-kpi-plante"]["pred_category"] == "reporting"
-    assert rows["t01-kpi-plante"]["gold_category"] == "support"
-    assert rows["t03-invoice-kpi-report"]["false_autonomy"] is True
+    assert rows["t01-kpi-plante"]["pred_category"] == "support"
+    assert rows["t03-invoice-kpi-report"]["pred_category"] == "administratif"
 
 
 def test_profile_llm_restated_sample_matches_a_and_snapshot() -> None:

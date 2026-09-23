@@ -3,41 +3,50 @@ content_id: human-in-the-loop-automation
 locale: fr
 type: lab
 title: Un agent d’automatisation sans action irréversible
-summary: "20 cas gold, commit e920cf9. Classification 85 %. Fausse autonomie 60 %. Tool use, un seul agent."
+summary: "v2, mêmes 20 cas : classification 100 %, fausse autonomie 15 % (contre 60 % en v1)."
 format: lab
 question: Peut-on rendre un workflow IA utile sans lui laisser exécuter d’actions externes irréversibles ?
 hypothesis: Un mode suggestion / assisted, avec timeline et feedback, suffit pour un MVP crédible. L’autonomie totale n’est pas le premier livrable.
 translation_status: original
 published: true
 published_at: "2026-04-03"
-updated_at: "2026-09-15"
-run_id: hitl-agent.v1
+updated_at: "2026-09-23"
+run_id: hitl-agent.v2
 tags:
   - agents
   - tool-use
   - evaluation
-related_project_ids: []
+related_project_ids:
+  - ai-automation-agent
 scaffold: false
 ---
 
 ## Setup
 
-Repo public [AI Automation Agent](https://github.com/GuillaumeVerb/ai-automation-agent), commit [`e920cf9`](https://github.com/GuillaumeVerb/ai-automation-agent/commit/e920cf9ce15706cd6f9a59cddae53d962a190f9e). Chemin heuristique (`APP_LLM_ENABLED=false`) : preprocess → classify → extract → score → choix d’outil (email vs rapport) → gate `human_review`.
+Repo public [AI Automation Agent](https://github.com/GuillaumeVerb/ai-automation-agent), commit [`19343e5`](https://github.com/GuillaumeVerb/ai-automation-agent/commit/19343e51bdd9a2bdf37512cb79a7118ba4a32140). Même gold set que `hitl-agent.v1` : [`data/labeval/hitl-agent.v1.cases.json`](https://github.com/GuillaumeVerb/ai-data-lab/blob/main/data/labeval/hitl-agent.v1.cases.json).
 
-20 textes gold dans [`data/labeval/hitl-agent.v1.cases.json`](https://github.com/GuillaumeVerb/ai-data-lab/blob/main/data/labeval/hitl-agent.v1.cases.json). Les labels sont humains, pas copiés sur le classifieur. Fausse autonomie = le mode recommandé dépasse `max_autonomy`. Horloge des deadlines relatives figée au 2026-09-15.
+Correctifs mesurés : frontières de mot (`merci` ≠ `commerciale`), priorité mixed-intent (support > admin > commercial > reporting), `low_risk_auto` réservé au reporting.
 
 Reproduire : `python -m labeval --run hitl-agent`.
 
 ## Résultat
 
-Run `hitl-agent.v1` ci-dessus. Classification **85 %** (17/20). Extraction (priority / action / tone / channel) **90 %**. Choix d’outil **95 %**. Sorties dans le vocabulaire fermé **100 %**. Fausse autonomie **60 %** (12/20). Revue humaine déclenchée sur **35 %** des cas.
+Run `hitl-agent.v2` ci-dessus, comparé à v1 sur les **mêmes 20 cas** :
 
-Les 3 erreurs de classe sont des pièges lexicaux : `KPI` + `plante` part en reporting, un dashboard inaccessible aussi, une facture déguisée en rapport KPI aussi. Le scorer pousse souvent `low_risk_auto` dès que le texte a l’air complet, y compris sur du commercial ou de l’administratif. L’extracteur marque `commerciale` comme ton poli : `merci` est une sous-chaîne.
+| | v1 (`e920cf9`) | v2 (`19343e5`) |
+| --- | --- | --- |
+| Classification | 85 % | **100 %** |
+| Extraction | 90 % | **96,25 %** |
+| Choix d’outil | 95 % | **100 %** |
+| Fausse autonomie | **60 %** | **15 %** |
+| Revue humaine | 35 % | **80 %** |
+
+Les 3 fausses autonomies restantes sont de l’administratif / incident encore en `assisted` alors que le gold demande `suggestion_only`.
 
 ## Échec / limite
 
-Mesure du chemin heuristique public, pas d’un LLM live, pas de Gmail/Slack. L’automation score reste une formule interne ; ici on la confronte à un plafond d’autonomie humain. MCP n’est pas dans ce run.
+Chemin heuristique, pas un LLM live, pas Gmail/Slack. Le snapshot v1 reste publié : c’est le avant. MCP hors de ce run.
 
 ## Suite
 
-Relancer le même gold set avec `provider_live` quand une clé est disponible. Le nœud Learning MCP reste « exploring ».
+Le même gold avec `provider_live` quand une clé est disponible.
