@@ -785,6 +785,35 @@
         "https://github.com/NVIDIA/garak"
       ],
       "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-evaluation",
+      "observed_at": "2026-10-06T12:31:53.891566+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:llm-evaluation",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 6748,
+        "stars_sum": 251519,
+        "stars_max": 35430,
+        "stars_median": 4904.5,
+        "forks_sum": 30043,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 24
+      },
+      "sample_urls": [
+        "https://github.com/langfuse/langfuse",
+        "https://github.com/mlflow/mlflow",
+        "https://github.com/promptfoo/promptfoo",
+        "https://github.com/comet-ml/opik",
+        "https://github.com/ifixai-ai/iFixAi",
+        "https://github.com/confident-ai/deepeval",
+        "https://github.com/Arize-ai/phoenix",
+        "https://github.com/NVIDIA/garak"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
     }
   ]
 }
