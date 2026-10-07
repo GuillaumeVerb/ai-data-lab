@@ -302,6 +302,31 @@
         "https://arxiv.org/abs/2610.00682v1"
       ],
       "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
+    },
+    {
+      "topic_id": "ai-evaluation",
+      "observed_at": "2026-10-07T12:25:10.015662+00:00",
+      "source_id": "arxiv",
+      "pipeline_version": "signallab.arxiv.v1",
+      "query": "all:\"llm evaluation\" OR all:\"language model evaluation\"",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 1159,
+        "published_last_7d": 12,
+        "published_last_30d": 30,
+        "unique_authors": 193
+      },
+      "sample_urls": [
+        "https://arxiv.org/abs/2610.07847v1",
+        "https://arxiv.org/abs/2610.07755v1",
+        "https://arxiv.org/abs/2610.07403v1",
+        "https://arxiv.org/abs/2610.07362v1",
+        "https://arxiv.org/abs/2610.06170v1",
+        "https://arxiv.org/abs/2610.05613v1",
+        "https://arxiv.org/abs/2610.05387v1",
+        "https://arxiv.org/abs/2610.04430v1"
+      ],
+      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
     }
   ]
 }
