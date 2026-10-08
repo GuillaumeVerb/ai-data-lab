@@ -327,6 +327,31 @@
         "https://arxiv.org/abs/2610.08215v1"
       ],
       "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
+    },
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-10-08T12:34:41.138740+00:00",
+      "source_id": "arxiv",
+      "pipeline_version": "signallab.arxiv.v1",
+      "query": "all:\"llm agent\" OR all:\"language agent\"",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 5538,
+        "published_last_7d": 30,
+        "published_last_30d": 30,
+        "unique_authors": 154
+      },
+      "sample_urls": [
+        "https://arxiv.org/abs/2610.10487v1",
+        "https://arxiv.org/abs/2610.10444v1",
+        "https://arxiv.org/abs/2610.10265v1",
+        "https://arxiv.org/abs/2610.10120v1",
+        "https://arxiv.org/abs/2610.10042v1",
+        "https://arxiv.org/abs/2610.09973v1",
+        "https://arxiv.org/abs/2610.09935v1",
+        "https://arxiv.org/abs/2610.09872v1"
+      ],
+      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
     }
   ]
 }
