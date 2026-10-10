@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-coding",
-      "observed_at": "2026-09-10T10:21:05.857462+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:coding-agent",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 5190,
-        "stars_sum": 422670,
-        "stars_max": 68285,
-        "stars_median": 5578.5,
-        "forks_sum": 48694,
-        "created_last_7d": 0,
-        "created_last_30d": 1,
-        "pushed_last_7d": 22
-      },
-      "sample_urls": [
-        "https://github.com/openinterpreter/openinterpreter",
-        "https://github.com/hesreallyhim/awesome-claude-code",
-        "https://github.com/bojieli/ai-agent-book",
-        "https://github.com/Hmbown/Codewhale",
-        "https://github.com/esengine/DeepSeek-Reasonix",
-        "https://github.com/QwenLM/qwen-code",
-        "https://github.com/OthmanAdi/planning-with-files",
-        "https://github.com/1jehuang/jcode"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "ai-coding",
       "observed_at": "2026-09-11T15:21:14.978448+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -857,6 +828,35 @@
         "stars_max": 68534,
         "stars_median": 6130.0,
         "forks_sum": 50776,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 22
+      },
+      "sample_urls": [
+        "https://github.com/openinterpreter/openinterpreter",
+        "https://github.com/hesreallyhim/awesome-claude-code",
+        "https://github.com/bojieli/ai-agent-book",
+        "https://github.com/codewhale-hq/Codewhale",
+        "https://github.com/esengine/DeepSeek-Reasonix",
+        "https://github.com/QwenLM/qwen-code",
+        "https://github.com/OthmanAdi/planning-with-files",
+        "https://github.com/1jehuang/jcode"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-coding",
+      "observed_at": "2026-10-10T11:41:11.913854+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:coding-agent",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 6590,
+        "stars_sum": 447461,
+        "stars_max": 68537,
+        "stars_median": 6130.5,
+        "forks_sum": 50823,
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 22
