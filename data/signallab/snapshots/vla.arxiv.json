@@ -427,6 +427,31 @@
         "https://arxiv.org/abs/2610.12007v1"
       ],
       "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
+    },
+    {
+      "topic_id": "vla",
+      "observed_at": "2026-10-12T14:03:38.879960+00:00",
+      "source_id": "arxiv",
+      "pipeline_version": "signallab.arxiv.v1",
+      "query": "all:\"vision-language-action\" OR all:\"vision language action\"",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 2258,
+        "published_last_7d": 30,
+        "published_last_30d": 30,
+        "unique_authors": 223
+      },
+      "sample_urls": [
+        "https://arxiv.org/abs/2610.13945v1",
+        "https://arxiv.org/abs/2610.13943v1",
+        "https://arxiv.org/abs/2610.13628v1",
+        "https://arxiv.org/abs/2610.13578v1",
+        "https://arxiv.org/abs/2610.13453v1",
+        "https://arxiv.org/abs/2610.13262v1",
+        "https://arxiv.org/abs/2610.13212v1",
+        "https://arxiv.org/abs/2610.13117v1"
+      ],
+      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
     }
   ]
 }
