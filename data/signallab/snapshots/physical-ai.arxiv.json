@@ -652,6 +652,31 @@
         "https://arxiv.org/abs/2610.18867v2"
       ],
       "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
+    },
+    {
+      "topic_id": "physical-ai",
+      "observed_at": "2026-10-21T10:56:53.714008+00:00",
+      "source_id": "arxiv",
+      "pipeline_version": "signallab.arxiv.v1",
+      "query": "all:\"physical AI\" OR all:\"physical intelligence\"",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 292,
+        "published_last_7d": 10,
+        "published_last_30d": 30,
+        "unique_authors": 324
+      },
+      "sample_urls": [
+        "https://arxiv.org/abs/2610.28519v1",
+        "https://arxiv.org/abs/2610.28432v1",
+        "https://arxiv.org/abs/2610.27350v1",
+        "https://arxiv.org/abs/2610.27045v1",
+        "https://arxiv.org/abs/2610.25893v1",
+        "https://arxiv.org/abs/2610.24349v1",
+        "https://arxiv.org/abs/2610.24267v1",
+        "https://arxiv.org/abs/2610.23334v1"
+      ],
+      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
     }
   ]
 }
