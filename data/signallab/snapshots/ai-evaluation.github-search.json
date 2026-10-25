@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-evaluation",
-      "observed_at": "2026-09-25T10:54:42.831817+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:llm-evaluation",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 5945,
-        "stars_sum": 235051,
-        "stars_max": 35033,
-        "stars_median": 4056.0,
-        "forks_sum": 28788,
-        "created_last_7d": 0,
-        "created_last_30d": 0,
-        "pushed_last_7d": 23
-      },
-      "sample_urls": [
-        "https://github.com/langfuse/langfuse",
-        "https://github.com/mlflow/mlflow",
-        "https://github.com/promptfoo/promptfoo",
-        "https://github.com/comet-ml/opik",
-        "https://github.com/confident-ai/deepeval",
-        "https://github.com/ifixai-ai/iFixAi",
-        "https://github.com/Arize-ai/phoenix",
-        "https://github.com/NVIDIA/garak"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "ai-evaluation",
       "observed_at": "2026-09-26T10:35:29.571238+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -857,6 +828,35 @@
         "stars_max": 36287,
         "stars_median": 4929.0,
         "forks_sum": 31147,
+        "created_last_7d": 0,
+        "created_last_30d": 1,
+        "pushed_last_7d": 24
+      },
+      "sample_urls": [
+        "https://github.com/langfuse/langfuse",
+        "https://github.com/ifixai-ai/iFixAi",
+        "https://github.com/mlflow/mlflow",
+        "https://github.com/promptfoo/promptfoo",
+        "https://github.com/comet-ml/opik",
+        "https://github.com/confident-ai/deepeval",
+        "https://github.com/Arize-ai/phoenix",
+        "https://github.com/NVIDIA/garak"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-evaluation",
+      "observed_at": "2026-10-25T10:29:07.608405+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:llm-evaluation",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 8369,
+        "stars_sum": 268260,
+        "stars_max": 36425,
+        "stars_median": 4930.5,
+        "forks_sum": 31201,
         "created_last_7d": 0,
         "created_last_30d": 1,
         "pushed_last_7d": 24

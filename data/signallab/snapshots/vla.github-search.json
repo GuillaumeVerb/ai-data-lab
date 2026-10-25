@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "vla",
-      "observed_at": "2026-09-25T10:54:47.508780+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:vla",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 468,
-        "stars_sum": 28176,
-        "stars_max": 3207,
-        "stars_median": 603.0,
-        "forks_sum": 4749,
-        "created_last_7d": 0,
-        "created_last_30d": 0,
-        "pushed_last_7d": 10
-      },
-      "sample_urls": [
-        "https://github.com/dexmal/dexbotic",
-        "https://github.com/ace-trump-tech/MindPaw",
-        "https://github.com/dexmal/opendm",
-        "https://github.com/NVlabs/alpamayo",
-        "https://github.com/PRIME-RL/SimpleVLA-RL",
-        "https://github.com/Robbyant/lingbot-vla",
-        "https://github.com/OpenDriveLab/UniVLA",
-        "https://github.com/InternRobotics/InternNav"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "vla",
       "observed_at": "2026-09-26T10:35:34.039599+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -857,6 +828,35 @@
         "stars_max": 3230,
         "stars_median": 708.0,
         "forks_sum": 4742,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 12
+      },
+      "sample_urls": [
+        "https://github.com/dexmal/dexbotic",
+        "https://github.com/ace-trump-tech/MindPaw",
+        "https://github.com/dexmal/opendm",
+        "https://github.com/NVlabs/alpamayo",
+        "https://github.com/PRIME-RL/SimpleVLA-RL",
+        "https://github.com/Robbyant/lingbot-vla",
+        "https://github.com/InternRobotics/InternNav",
+        "https://github.com/OpenDriveLab/UniVLA"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "vla",
+      "observed_at": "2026-10-25T10:29:12.181965+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:vla",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 571,
+        "stars_sum": 29279,
+        "stars_max": 3230,
+        "stars_median": 711.5,
+        "forks_sum": 4746,
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 12
