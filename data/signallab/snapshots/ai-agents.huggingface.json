@@ -5,38 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-agents",
-      "observed_at": "2026-09-29T11:54:46.771882+00:00",
-      "source_id": "huggingface",
-      "pipeline_version": "signallab.huggingface.v1",
-      "query": "tag:agents",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 1350,
-        "downloads_sum": 72415,
-        "downloads_max": 13001,
-        "downloads_median": 1835.5,
-        "likes_sum": 759,
-        "likes_max": 504,
-        "likes_median": 1.0,
-        "created_last_7d": 1,
-        "created_last_30d": 19,
-        "updated_last_7d": 5,
-        "unique_authors": 10
-      },
-      "sample_urls": [
-        "https://huggingface.co/bartowski/Ling-3.0-flash-Fin-GGUF",
-        "https://huggingface.co/openjev/openjev",
-        "https://huggingface.co/m15dg/local-ai-toolkit",
-        "https://huggingface.co/mradermacher/B0-27B-i1-GGUF",
-        "https://huggingface.co/openjev/openjev-GGUF",
-        "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
-        "https://huggingface.co/erukude/multiagent-orchestrator",
-        "https://huggingface.co/mradermacher/MiniCPM5-2B-Claude-Fable5-heretic-i1-GGUF"
-      ],
-      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
-    },
-    {
-      "topic_id": "ai-agents",
       "observed_at": "2026-09-30T11:42:05.903012+00:00",
       "source_id": "huggingface",
       "pipeline_version": "signallab.huggingface.v1",
@@ -960,6 +928,38 @@
         "https://huggingface.co/CaryPalmer/Ternary-Bonsai-2-27B-262k-GGUF",
         "https://huggingface.co/openjev/openjev-FP8",
         "https://huggingface.co/openjev/openjev-GGUF"
+      ],
+      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
+    },
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-10-29T12:03:39.287332+00:00",
+      "source_id": "huggingface",
+      "pipeline_version": "signallab.huggingface.v1",
+      "query": "tag:agents",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 1416,
+        "downloads_sum": 1320269,
+        "downloads_max": 629102,
+        "downloads_median": 3288.5,
+        "likes_sum": 2020,
+        "likes_max": 790,
+        "likes_median": 3.0,
+        "created_last_7d": 2,
+        "created_last_30d": 12,
+        "updated_last_7d": 6,
+        "unique_authors": 22
+      },
+      "sample_urls": [
+        "https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0",
+        "https://huggingface.co/mradermacher/B1-9B-GGUF",
+        "https://huggingface.co/Kujira/Underdog-Saluki-27B-1.0-MTP-Abliterated-GGUF",
+        "https://huggingface.co/Kujira/Underdog-Saluki-27B-1.0-MTP-GGUF",
+        "https://huggingface.co/m15dg/local-ai-toolkit",
+        "https://huggingface.co/CaryPalmer/Ternary-Bonsai-2-27B-262k-GGUF",
+        "https://huggingface.co/openjev/openjev-FP8",
+        "https://huggingface.co/openjev/openjev"
       ],
       "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
     }

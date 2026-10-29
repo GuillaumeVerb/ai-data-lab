@@ -5,31 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-coding",
-      "observed_at": "2026-09-29T11:54:41.518449+00:00",
-      "source_id": "arxiv",
-      "pipeline_version": "signallab.arxiv.v1",
-      "query": "all:\"coding agent\" OR all:\"code agent\"",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 1252,
-        "published_last_7d": 30,
-        "published_last_30d": 30,
-        "unique_authors": 183
-      },
-      "sample_urls": [
-        "https://arxiv.org/abs/2609.35719v1",
-        "https://arxiv.org/abs/2609.35659v1",
-        "https://arxiv.org/abs/2609.35639v1",
-        "https://arxiv.org/abs/2609.35568v1",
-        "https://arxiv.org/abs/2609.35557v1",
-        "https://arxiv.org/abs/2609.35530v1",
-        "https://arxiv.org/abs/2609.35432v1",
-        "https://arxiv.org/abs/2609.35367v1"
-      ],
-      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
-    },
-    {
-      "topic_id": "ai-coding",
       "observed_at": "2026-09-30T11:42:01.132091+00:00",
       "source_id": "arxiv",
       "pipeline_version": "signallab.arxiv.v1",
@@ -731,6 +706,31 @@
     {
       "topic_id": "ai-coding",
       "observed_at": "2026-10-28T11:55:36.219061+00:00",
+      "source_id": "arxiv",
+      "pipeline_version": "signallab.arxiv.v1",
+      "query": "all:\"coding agent\" OR all:\"code agent\"",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 1628,
+        "published_last_7d": 30,
+        "published_last_30d": 30,
+        "unique_authors": 181
+      },
+      "sample_urls": [
+        "https://arxiv.org/abs/2610.37459v1",
+        "https://arxiv.org/abs/2610.37434v1",
+        "https://arxiv.org/abs/2610.37332v1",
+        "https://arxiv.org/abs/2610.37283v1",
+        "https://arxiv.org/abs/2610.37255v1",
+        "https://arxiv.org/abs/2610.37224v1",
+        "https://arxiv.org/abs/2610.36848v1",
+        "https://arxiv.org/abs/2610.36589v1"
+      ],
+      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
+    },
+    {
+      "topic_id": "ai-coding",
+      "observed_at": "2026-10-29T12:03:33.862265+00:00",
       "source_id": "arxiv",
       "pipeline_version": "signallab.arxiv.v1",
       "query": "all:\"coding agent\" OR all:\"code agent\"",
