@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-agents",
-      "observed_at": "2026-10-09T12:22:19.056921+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:llm-agents",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 6756,
-        "stars_sum": 286888,
-        "stars_max": 48896,
-        "stars_median": 3561.5,
-        "forks_sum": 34851,
-        "created_last_7d": 0,
-        "created_last_30d": 0,
-        "pushed_last_7d": 17
-      },
-      "sample_urls": [
-        "https://github.com/HKUDS/nanobot",
-        "https://github.com/chatanywhere/GPT_API_free",
-        "https://github.com/feder-cr/invisible_dots",
-        "https://github.com/Fosowl/agenticSeek",
-        "https://github.com/OthmanAdi/planning-with-files",
-        "https://github.com/aiming-lab/AutoResearchClaw",
-        "https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
-        "https://github.com/tigerless-labs/autoharness"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "ai-agents",
       "observed_at": "2026-10-10T11:41:02.787729+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -857,6 +828,35 @@
         "stars_max": 49899,
         "stars_median": 3811.5,
         "forks_sum": 32104,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 14
+      },
+      "sample_urls": [
+        "https://github.com/HKUDS/nanobot",
+        "https://github.com/chatanywhere/GPT_API_free",
+        "https://github.com/OthmanAdi/planning-with-files",
+        "https://github.com/Fosowl/agenticSeek",
+        "https://github.com/aiming-lab/AutoResearchClaw",
+        "https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+        "https://github.com/tigerless-labs/autoharness",
+        "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-11-08T12:32:43.304801+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:llm-agents",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 8797,
+        "stars_sum": 273941,
+        "stars_max": 49921,
+        "stars_median": 3814.0,
+        "forks_sum": 32128,
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 14
