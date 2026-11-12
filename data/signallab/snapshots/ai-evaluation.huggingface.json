@@ -5,38 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-evaluation",
-      "observed_at": "2026-10-13T13:17:26.331024+00:00",
-      "source_id": "huggingface",
-      "pipeline_version": "signallab.huggingface.v1",
-      "query": "tag:reward-model",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 30,
-        "downloads_sum": 61065,
-        "downloads_max": 11487,
-        "downloads_median": 840.5,
-        "likes_sum": 604,
-        "likes_max": 247,
-        "likes_median": 1.0,
-        "created_last_7d": 0,
-        "created_last_30d": 5,
-        "updated_last_7d": 3,
-        "unique_authors": 13
-      },
-      "sample_urls": [
-        "https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2",
-        "https://huggingface.co/launch/ThinkPRM-1.5B",
-        "https://huggingface.co/mradermacher/WaifuGemma4-26b-a4b-v1-i1-GGUF",
-        "https://huggingface.co/yavuz-ai/qwen2.5-1.5b-rm-ultrafeedback",
-        "https://huggingface.co/hiwaifu-research/WaifuGemma4-26b-a4b-v1",
-        "https://huggingface.co/mradermacher/WaifuGemma4-26b-a4b-v1-GGUF",
-        "https://huggingface.co/bartowski/OS-Copilot_OS-Shepherd-9B-GGUF",
-        "https://huggingface.co/OpenAssistant/reward-model-deberta-v3-base"
-      ],
-      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
-    },
-    {
-      "topic_id": "ai-evaluation",
       "observed_at": "2026-10-14T10:58:00.504074+00:00",
       "source_id": "huggingface",
       "pipeline_version": "signallab.huggingface.v1",
@@ -960,6 +928,38 @@
         "https://huggingface.co/OpenAssistant/reward-model-deberta-v3-base",
         "https://huggingface.co/anicka/karma-electric-llama31-8b",
         "https://huggingface.co/bartowski/OS-Copilot_OS-Shepherd-9B-GGUF"
+      ],
+      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
+    },
+    {
+      "topic_id": "ai-evaluation",
+      "observed_at": "2026-11-12T14:24:44.673068+00:00",
+      "source_id": "huggingface",
+      "pipeline_version": "signallab.huggingface.v1",
+      "query": "tag:reward-model",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 1591,
+        "downloads_sum": 54324,
+        "downloads_max": 11579,
+        "downloads_median": 1043.5,
+        "likes_sum": 602,
+        "likes_max": 247,
+        "likes_median": 1.0,
+        "created_last_7d": 0,
+        "created_last_30d": 1,
+        "updated_last_7d": 1,
+        "unique_authors": 11
+      },
+      "sample_urls": [
+        "https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2",
+        "https://huggingface.co/nvidia/Flora-Rewarder",
+        "https://huggingface.co/mradermacher/WaifuGemma4-26b-a4b-v1-GGUF",
+        "https://huggingface.co/mradermacher/WaifuGemma4-26b-a4b-v1-i1-GGUF",
+        "https://huggingface.co/Skywork/Skywork-Reward-V2-Qwen3-8B",
+        "https://huggingface.co/OpenAssistant/reward-model-deberta-v3-base",
+        "https://huggingface.co/anicka/karma-electric-llama31-8b",
+        "https://huggingface.co/llm-blender/PairRM-hf"
       ],
       "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
     }

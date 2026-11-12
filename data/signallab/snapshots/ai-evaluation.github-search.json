@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-evaluation",
-      "observed_at": "2026-10-13T13:16:57.610192+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:llm-evaluation",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 7300,
-        "stars_sum": 256316,
-        "stars_max": 35759,
-        "stars_median": 4912.0,
-        "forks_sum": 30311,
-        "created_last_7d": 0,
-        "created_last_30d": 0,
-        "pushed_last_7d": 24
-      },
-      "sample_urls": [
-        "https://github.com/langfuse/langfuse",
-        "https://github.com/mlflow/mlflow",
-        "https://github.com/promptfoo/promptfoo",
-        "https://github.com/ifixai-ai/iFixAi",
-        "https://github.com/comet-ml/opik",
-        "https://github.com/confident-ai/deepeval",
-        "https://github.com/Arize-ai/phoenix",
-        "https://github.com/NVIDIA/garak"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "ai-evaluation",
       "observed_at": "2026-10-14T10:57:16.211940+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -870,6 +841,35 @@
         "https://github.com/confident-ai/deepeval",
         "https://github.com/Arize-ai/phoenix",
         "https://github.com/NVIDIA/garak"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-evaluation",
+      "observed_at": "2026-11-12T14:24:15.785821+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:llm-evaluation",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 10099,
+        "stars_sum": 246064,
+        "stars_max": 37354,
+        "stars_median": 4961.0,
+        "forks_sum": 30791,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 24
+      },
+      "sample_urls": [
+        "https://github.com/langfuse/langfuse",
+        "https://github.com/mlflow/mlflow",
+        "https://github.com/promptfoo/promptfoo",
+        "https://github.com/comet-ml/opik",
+        "https://github.com/confident-ai/deepeval",
+        "https://github.com/Arize-ai/phoenix",
+        "https://github.com/NVIDIA/garak",
+        "https://github.com/oumi-ai/oumi"
       ],
       "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
     }
