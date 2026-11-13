@@ -5,31 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-agents",
-      "observed_at": "2026-10-13T13:17:04.821465+00:00",
-      "source_id": "arxiv",
-      "pipeline_version": "signallab.arxiv.v1",
-      "query": "all:\"llm agent\" OR all:\"language agent\"",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 5590,
-        "published_last_7d": 30,
-        "published_last_30d": 30,
-        "unique_authors": 175
-      },
-      "sample_urls": [
-        "https://arxiv.org/abs/2610.13755v1",
-        "https://arxiv.org/abs/2610.13632v1",
-        "https://arxiv.org/abs/2610.13438v1",
-        "https://arxiv.org/abs/2610.13416v1",
-        "https://arxiv.org/abs/2610.13335v1",
-        "https://arxiv.org/abs/2610.13330v1",
-        "https://arxiv.org/abs/2610.13296v1",
-        "https://arxiv.org/abs/2610.13267v1"
-      ],
-      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
-    },
-    {
-      "topic_id": "ai-agents",
       "observed_at": "2026-10-14T10:57:24.021291+00:00",
       "source_id": "arxiv",
       "pipeline_version": "signallab.arxiv.v1",
@@ -750,6 +725,31 @@
         "https://arxiv.org/abs/2611.14210v1",
         "https://arxiv.org/abs/2611.14019v1",
         "https://arxiv.org/abs/2611.13966v1"
+      ],
+      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
+    },
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-11-13T13:43:34.224569+00:00",
+      "source_id": "arxiv",
+      "pipeline_version": "signallab.arxiv.v1",
+      "query": "all:\"llm agent\" OR all:\"language agent\"",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 6382,
+        "published_last_7d": 30,
+        "published_last_30d": 30,
+        "unique_authors": 175
+      },
+      "sample_urls": [
+        "https://arxiv.org/abs/2611.17304v1",
+        "https://arxiv.org/abs/2611.17267v1",
+        "https://arxiv.org/abs/2611.17007v1",
+        "https://arxiv.org/abs/2611.16937v1",
+        "https://arxiv.org/abs/2611.16867v1",
+        "https://arxiv.org/abs/2611.16861v1",
+        "https://arxiv.org/abs/2611.16816v1",
+        "https://arxiv.org/abs/2611.16661v1"
       ],
       "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
     }
