@@ -5,38 +5,6 @@
   "observations": [
     {
       "topic_id": "vla",
-      "observed_at": "2026-10-15T10:39:06.990782+00:00",
-      "source_id": "huggingface",
-      "pipeline_version": "signallab.huggingface.v1",
-      "query": "tag:vla",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 3382,
-        "downloads_sum": 197306,
-        "downloads_max": 153972,
-        "downloads_median": 629.0,
-        "likes_sum": 585,
-        "likes_max": 262,
-        "likes_median": 4.0,
-        "created_last_7d": 0,
-        "created_last_30d": 5,
-        "updated_last_7d": 3,
-        "unique_authors": 17
-      },
-      "sample_urls": [
-        "https://huggingface.co/openvla/openvla-7b",
-        "https://huggingface.co/openvla/openvla-7b-finetuned-libero-spatial",
-        "https://huggingface.co/2toINF/X-VLA-Pt",
-        "https://huggingface.co/openvla/openvla-7b-finetuned-libero-10",
-        "https://huggingface.co/2toINF/X-VLA-Libero",
-        "https://huggingface.co/openvla/openvla-7b-finetuned-libero-object",
-        "https://huggingface.co/openvla/openvla-7b-finetuned-libero-goal",
-        "https://huggingface.co/GEAR-Dreams/DreamZero-DROID"
-      ],
-      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
-    },
-    {
-      "topic_id": "vla",
       "observed_at": "2026-10-16T10:26:10.591390+00:00",
       "source_id": "huggingface",
       "pipeline_version": "signallab.huggingface.v1",
@@ -950,6 +918,38 @@
         "created_last_30d": 0,
         "updated_last_7d": 0,
         "unique_authors": 17
+      },
+      "sample_urls": [
+        "https://huggingface.co/openvla/openvla-7b",
+        "https://huggingface.co/2toINF/X-VLA-Pt",
+        "https://huggingface.co/openvla/openvla-7b-finetuned-libero-spatial",
+        "https://huggingface.co/openvla/openvla-7b-finetuned-libero-goal",
+        "https://huggingface.co/open-gigaai/GigaBrain-0.7-3.5B-Base",
+        "https://huggingface.co/vrfai/openvla-oft-libero-gguf",
+        "https://huggingface.co/CogACT/CogACT-Base",
+        "https://huggingface.co/openvla/openvla-7b-finetuned-libero-object"
+      ],
+      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
+    },
+    {
+      "topic_id": "vla",
+      "observed_at": "2026-11-14T12:48:15.333327+00:00",
+      "source_id": "huggingface",
+      "pipeline_version": "signallab.huggingface.v1",
+      "query": "tag:vla",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 3554,
+        "downloads_sum": 113387,
+        "downloads_max": 54958,
+        "downloads_median": 1283.0,
+        "likes_sum": 488,
+        "likes_max": 266,
+        "likes_median": 3.5,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "updated_last_7d": 0,
+        "unique_authors": 16
       },
       "sample_urls": [
         "https://huggingface.co/openvla/openvla-7b",
