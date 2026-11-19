@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-evaluation",
-      "observed_at": "2026-10-20T10:44:53.335346+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:llm-evaluation",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 8025,
-        "stars_sum": 263030,
-        "stars_max": 36075,
-        "stars_median": 4924.5,
-        "forks_sum": 31006,
-        "created_last_7d": 0,
-        "created_last_30d": 1,
-        "pushed_last_7d": 26
-      },
-      "sample_urls": [
-        "https://github.com/langfuse/langfuse",
-        "https://github.com/ifixai-ai/iFixAi",
-        "https://github.com/mlflow/mlflow",
-        "https://github.com/promptfoo/promptfoo",
-        "https://github.com/comet-ml/opik",
-        "https://github.com/confident-ai/deepeval",
-        "https://github.com/Arize-ai/phoenix",
-        "https://github.com/NVIDIA/garak"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "ai-evaluation",
       "observed_at": "2026-10-21T10:56:38.500124+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -860,6 +831,35 @@
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 19
+      },
+      "sample_urls": [
+        "https://github.com/ifixai-ai/iFixAi",
+        "https://github.com/langfuse/langfuse",
+        "https://github.com/mlflow/mlflow",
+        "https://github.com/promptfoo/promptfoo",
+        "https://github.com/comet-ml/opik",
+        "https://github.com/confident-ai/deepeval",
+        "https://github.com/Arize-ai/phoenix",
+        "https://github.com/NVIDIA/garak"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-evaluation",
+      "observed_at": "2026-11-19T14:59:30.478035+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:llm-evaluation",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 10881,
+        "stars_sum": 292866,
+        "stars_max": 46478,
+        "stars_median": 5697.0,
+        "forks_sum": 32811,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 20
       },
       "sample_urls": [
         "https://github.com/ifixai-ai/iFixAi",
