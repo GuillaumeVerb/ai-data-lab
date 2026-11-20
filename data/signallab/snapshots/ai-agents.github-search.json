@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-agents",
-      "observed_at": "2026-10-21T10:56:36.171636+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:llm-agents",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 7513,
-        "stars_sum": 289688,
-        "stars_max": 49239,
-        "stars_median": 3584.0,
-        "forks_sum": 35217,
-        "created_last_7d": 0,
-        "created_last_30d": 0,
-        "pushed_last_7d": 16
-      },
-      "sample_urls": [
-        "https://github.com/HKUDS/nanobot",
-        "https://github.com/chatanywhere/GPT_API_free",
-        "https://github.com/feder-cr/invisible_dots",
-        "https://github.com/OthmanAdi/planning-with-files",
-        "https://github.com/Fosowl/agenticSeek",
-        "https://github.com/aiming-lab/AutoResearchClaw",
-        "https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
-        "https://github.com/tigerless-labs/autoharness"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "ai-agents",
       "observed_at": "2026-10-22T10:56:11.340043+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -860,6 +831,35 @@
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 12
+      },
+      "sample_urls": [
+        "https://github.com/HKUDS/nanobot",
+        "https://github.com/chatanywhere/GPT_API_free",
+        "https://github.com/OthmanAdi/planning-with-files",
+        "https://github.com/Fosowl/agenticSeek",
+        "https://github.com/aiming-lab/AutoResearchClaw",
+        "https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+        "https://github.com/tigerless-labs/autoharness",
+        "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "ai-agents",
+      "observed_at": "2026-11-20T14:42:00.102226+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:llm-agents",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 9618,
+        "stars_sum": 277366,
+        "stars_max": 50224,
+        "stars_median": 3830.0,
+        "forks_sum": 32559,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 14
       },
       "sample_urls": [
         "https://github.com/HKUDS/nanobot",
