@@ -5,35 +5,6 @@
   "observations": [
     {
       "topic_id": "physical-ai",
-      "observed_at": "2026-10-25T10:29:09.777691+00:00",
-      "source_id": "github-search",
-      "pipeline_version": "signallab.github.v1",
-      "query": "topic:physical-ai",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 655,
-        "stars_sum": 56387,
-        "stars_max": 29573,
-        "stars_median": 469.0,
-        "forks_sum": 7530,
-        "created_last_7d": 0,
-        "created_last_30d": 0,
-        "pushed_last_7d": 20
-      },
-      "sample_urls": [
-        "https://github.com/harvard-edge/cs249r_book",
-        "https://github.com/PetoiCamp/OpenCat-Quadruped-Robot",
-        "https://github.com/NVIDIA/skills",
-        "https://github.com/NVlabs/alpamayo",
-        "https://github.com/copper-project/copper-rs",
-        "https://github.com/Edgenesis/shifu",
-        "https://github.com/PetoiCamp/OpenCat-Old",
-        "https://github.com/NVlabs/alpasim"
-      ],
-      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
-    },
-    {
-      "topic_id": "physical-ai",
       "observed_at": "2026-10-26T12:00:16.046935+00:00",
       "source_id": "github-search",
       "pipeline_version": "signallab.github.v1",
@@ -857,6 +828,35 @@
         "stars_max": 30299,
         "stars_median": 528.0,
         "forks_sum": 8213,
+        "created_last_7d": 0,
+        "created_last_30d": 0,
+        "pushed_last_7d": 18
+      },
+      "sample_urls": [
+        "https://github.com/harvard-edge/cs249r_book",
+        "https://github.com/PetoiCamp/OpenCat-Quadruped-Robot",
+        "https://github.com/NVIDIA/skills",
+        "https://github.com/Source-Robotics/PAROL6-Desktop-robot-arm",
+        "https://github.com/NVlabs/alpamayo",
+        "https://github.com/copper-project/copper-rs",
+        "https://github.com/Edgenesis/shifu",
+        "https://github.com/PetoiCamp/OpenCat-Old"
+      ],
+      "assumptions": "Sample = up to 30 GitHub repos with this topic, sorted by stars. total_count is GitHub's estimate for that topic label, not a census. Not a trend score."
+    },
+    {
+      "topic_id": "physical-ai",
+      "observed_at": "2026-11-24T16:47:59.385176+00:00",
+      "source_id": "github-search",
+      "pipeline_version": "signallab.github.v1",
+      "query": "topic:physical-ai",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 842,
+        "stars_sum": 61335,
+        "stars_max": 30305,
+        "stars_median": 529.0,
+        "forks_sum": 8216,
         "created_last_7d": 0,
         "created_last_30d": 0,
         "pushed_last_7d": 18
