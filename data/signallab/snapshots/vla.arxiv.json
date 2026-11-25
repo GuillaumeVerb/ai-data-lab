@@ -5,31 +5,6 @@
   "observations": [
     {
       "topic_id": "vla",
-      "observed_at": "2026-10-25T10:29:26.146430+00:00",
-      "source_id": "arxiv",
-      "pipeline_version": "signallab.arxiv.v1",
-      "query": "all:\"vision-language-action\" OR all:\"vision language action\"",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 2404,
-        "published_last_7d": 30,
-        "published_last_30d": 30,
-        "unique_authors": 217
-      },
-      "sample_urls": [
-        "https://arxiv.org/abs/2610.31670v1",
-        "https://arxiv.org/abs/2610.31613v1",
-        "https://arxiv.org/abs/2610.31569v1",
-        "https://arxiv.org/abs/2610.31427v1",
-        "https://arxiv.org/abs/2610.31423v1",
-        "https://arxiv.org/abs/2610.31166v1",
-        "https://arxiv.org/abs/2610.30953v1",
-        "https://arxiv.org/abs/2610.30814v1"
-      ],
-      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
-    },
-    {
-      "topic_id": "vla",
       "observed_at": "2026-10-26T12:00:43.257988+00:00",
       "source_id": "arxiv",
       "pipeline_version": "signallab.arxiv.v1",
@@ -750,6 +725,31 @@
         "https://arxiv.org/abs/2611.30898v1",
         "https://arxiv.org/abs/2611.30637v1",
         "https://arxiv.org/abs/2611.30632v1"
+      ],
+      "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
+    },
+    {
+      "topic_id": "vla",
+      "observed_at": "2026-11-25T16:35:56.584980+00:00",
+      "source_id": "arxiv",
+      "pipeline_version": "signallab.arxiv.v1",
+      "query": "all:\"vision-language-action\" OR all:\"vision language action\"",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 2730,
+        "published_last_7d": 30,
+        "published_last_30d": 30,
+        "unique_authors": 192
+      },
+      "sample_urls": [
+        "https://arxiv.org/abs/2611.33137v1",
+        "https://arxiv.org/abs/2611.33010v1",
+        "https://arxiv.org/abs/2611.32858v1",
+        "https://arxiv.org/abs/2611.32705v1",
+        "https://arxiv.org/abs/2611.32665v1",
+        "https://arxiv.org/abs/2611.32654v1",
+        "https://arxiv.org/abs/2611.32639v1",
+        "https://arxiv.org/abs/2611.32564v1"
       ],
       "assumptions": "Sample = up to 30 most recently submitted arXiv hits for the query. published_last_7d saturates at 30. total_count is arXiv's match estimate. Not a trend score."
     }
