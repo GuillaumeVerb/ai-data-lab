@@ -5,38 +5,6 @@
   "observations": [
     {
       "topic_id": "ai-coding",
-      "observed_at": "2026-10-28T11:55:44.461036+00:00",
-      "source_id": "huggingface",
-      "pipeline_version": "signallab.huggingface.v1",
-      "query": "tag:code",
-      "metrics": {
-        "sample_size": 30,
-        "total_count": 41910,
-        "downloads_sum": 17771682,
-        "downloads_max": 1887019,
-        "downloads_median": 396219.0,
-        "likes_sum": 18567,
-        "likes_max": 3532,
-        "likes_median": 181.5,
-        "created_last_7d": 0,
-        "created_last_30d": 0,
-        "updated_last_7d": 0,
-        "unique_authors": 10
-      },
-      "sample_urls": [
-        "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct",
-        "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
-        "https://huggingface.co/mudler/Laguna-XS-2.1-APEX-GGUF",
-        "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
-        "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-AWQ",
-        "https://huggingface.co/bartowski/MiMo-V2.6-Distill-Qwen-9B-GGUF",
-        "https://huggingface.co/mudler/KAT-Coder-V2.5-Dev-APEX-GGUF",
-        "https://huggingface.co/bigscience/bloomz-560m"
-      ],
-      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
-    },
-    {
-      "topic_id": "ai-coding",
       "observed_at": "2026-10-29T12:03:42.920528+00:00",
       "source_id": "huggingface",
       "pipeline_version": "signallab.huggingface.v1",
@@ -960,6 +928,38 @@
         "https://huggingface.co/InternScience/Sage-A1.5-Q8_0-GGUF",
         "https://huggingface.co/InternScience/Sage-A1.5-Q4_K_M-GGUF",
         "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-AWQ"
+      ],
+      "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
+    },
+    {
+      "topic_id": "ai-coding",
+      "observed_at": "2026-11-27T15:55:48.156282+00:00",
+      "source_id": "huggingface",
+      "pipeline_version": "signallab.huggingface.v1",
+      "query": "tag:code",
+      "metrics": {
+        "sample_size": 30,
+        "total_count": 42935,
+        "downloads_sum": 15769268,
+        "downloads_max": 1669986,
+        "downloads_median": 395653.0,
+        "likes_sum": 18863,
+        "likes_max": 3541,
+        "likes_median": 214.0,
+        "created_last_7d": 0,
+        "created_last_30d": 1,
+        "updated_last_7d": 0,
+        "unique_authors": 11
+      },
+      "sample_urls": [
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct",
+        "https://huggingface.co/bartowski/MiMo-V2.6-Distill-Qwen-9B-GGUF",
+        "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+        "https://huggingface.co/bigscience/bloomz-560m",
+        "https://huggingface.co/InternScience/Sage-A1.5-Q8_0-GGUF",
+        "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-AWQ",
+        "https://huggingface.co/InternScience/Sage-A1.5-Q4_K_M-GGUF"
       ],
       "assumptions": "Sample = up to 30 Hugging Face models with this Hub tag, sorted by downloads. total_count is Hub's full-text estimate for the same string, not a tag census. downloads_max vs downloads_median shows a popular (often GGUF) re-upload. Not a trend score."
     }
